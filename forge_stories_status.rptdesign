@@ -1,0 +1,899 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.3.1.v201309091055 Build &lt;4.3.1.v20130917-1035></property>
+    <list-property name="userProperties">
+        <structure>
+            <property name="name">stories_status.stories.x</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+        <structure>
+            <property name="name">stories_status.stories.y</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+    </list-property>
+    <property name="stories_status.stories.x">135</property>
+    <property name="stories_status.stories.y">80</property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">odaDriverClass</property>
+            <property name="id">7</property>
+        </structure>
+        <structure>
+            <property name="name">odaURL</property>
+            <property name="id">7</property>
+        </structure>
+        <structure>
+            <property name="name">odaUser</property>
+            <property name="id">7</property>
+        </structure>
+        <structure>
+            <property name="name">odaAutoCommit</property>
+            <property name="id">7</property>
+        </structure>
+        <structure>
+            <property name="name">odaIsolationMode</property>
+            <property name="id">7</property>
+        </structure>
+        <structure>
+            <property name="name">odaPassword</property>
+            <property name="id">7</property>
+        </structure>
+        <structure>
+            <property name="name">odaJndiName</property>
+            <property name="id">7</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileName</property>
+            <property name="id">7</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileStorePath</property>
+            <property name="id">7</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="redmine" id="7">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://localhost:8888/redmine</property>
+            <property name="odaUser">redmine</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">TWdxZ3YxYTV4bTY3a19FZA==</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="stories" id="8">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">subject</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">subject</text-property>
+                    <text-property name="heading">subject</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">status</text-property>
+                    <text-property name="heading">status</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">name_3</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">version</text-property>
+                    <text-property name="heading">version</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">name_4</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">project</text-property>
+                    <text-property name="heading">project</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">subject</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">name_3</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">name_4</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">redmine</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">subject</property>
+                    <property name="nativeName">subject</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">name</property>
+                    <property name="nativeName">name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">name_3</property>
+                    <property name="nativeName">name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">name_4</property>
+                    <property name="nativeName">name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select
+issues.subject,
+issue_statuses.name as status,
+versions.name as version,
+projects.name as project
+from issues
+left join
+issue_statuses on issue_statuses.id = issues.status_id
+left join
+projects on projects.id = issues.project_id
+left join versions on versions.id = issues.fixed_version_id
+where (issues.tracker_id = 5 or issues.tracker_id = 8) and (issues.project_id <> 1 and issues.project_id <> 4 and issues.project_id <> 8)]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>subject</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>subject</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>subject</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <cubes>
+        <tabular-cube name="stories_status_per_sprint" id="9">
+            <property name="dimensions">
+                <tabular-dimension name="Group" id="136">
+                    <property name="defaultHierarchy">NewTabularHierarchy</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy" id="137">
+                            <property name="levels">
+                                <tabular-level name="project" id="138">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">name_4</property>
+                                </tabular-level>
+                                <tabular-level name="version" id="141">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">name_3</property>
+                                </tabular-level>
+                                <tabular-level name="status" id="232">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">name</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+            </property>
+            <property name="measureGroups">
+                <tabular-measure-group name="Summary Field" id="172">
+                    <property name="measures">
+                        <tabular-measure name="subject" id="173">
+                            <property name="function">count</property>
+                            <expression name="measureExpression" type="javascript">dataSetRow["subject"]</expression>
+                            <property name="dataType">integer</property>
+                        </tabular-measure>
+                    </property>
+                </tabular-measure-group>
+            </property>
+            <property name="dataSet">stories</property>
+        </tabular-cube>
+        <tabular-cube name="stories_status_per_project" id="331">
+            <property name="dimensions">
+                <tabular-dimension name="Group1" id="332">
+                    <property name="defaultHierarchy">NewTabularHierarchy1</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy1" id="333">
+                            <property name="levels">
+                                <tabular-level name="project" id="334">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">name_4</property>
+                                </tabular-level>
+                                <tabular-level name="status" id="336">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">name</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+            </property>
+            <property name="measureGroups">
+                <tabular-measure-group name="Summary Field1" id="337">
+                    <property name="measures">
+                        <tabular-measure name="subject1" id="338">
+                            <property name="function">count</property>
+                            <expression name="measureExpression" type="javascript">dataSetRow["subject"]</expression>
+                            <property name="dataType">integer</property>
+                        </tabular-measure>
+                    </property>
+                </tabular-measure-group>
+            </property>
+            <property name="dataSet">stories</property>
+        </tabular-cube>
+        <tabular-cube name="stories_status_per_program" id="357">
+            <property name="dimensions">
+                <tabular-dimension name="Group11" id="358">
+                    <property name="defaultHierarchy">NewTabularHierarchy11</property>
+                    <property name="hierarchies">
+                        <tabular-hierarchy name="NewTabularHierarchy11" id="359">
+                            <property name="levels">
+                                <tabular-level name="status" id="361">
+                                    <property name="dataType">string</property>
+                                    <property name="columnName">name</property>
+                                </tabular-level>
+                            </property>
+                        </tabular-hierarchy>
+                    </property>
+                </tabular-dimension>
+            </property>
+            <property name="measureGroups">
+                <tabular-measure-group name="Summary Field11" id="362">
+                    <property name="measures">
+                        <tabular-measure name="subject11" id="363">
+                            <property name="function">count</property>
+                            <expression name="measureExpression" type="javascript">dataSetRow["subject"]</expression>
+                            <property name="dataType">integer</property>
+                        </tabular-measure>
+                    </property>
+                </tabular-measure-group>
+            </property>
+            <property name="dataSet">stories</property>
+        </tabular-cube>
+    </cubes>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="Normal" id="329">
+            <property name="textAlign">left</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <text id="330">
+            <property name="backgroundColor">#C0C0C0</property>
+            <property name="contentType">html</property>
+            <text-property name="content"><![CDATA[<H1>FORGE program story status report</H1>
+<br>
+Copyright 2013 DIGILE Ltd
+<br>
+Pasi Kivikangas
+<br>
+<br>
+Created with Eclipse Report Designer
+<br>
+FORGE Redmine machine doesn't expose SSH port so you must have a tunnel up an running to the Redmine.
+<br>
+ssh -L 8888:localhost:3306 pkivikan@support.forgeservicelab.fi<br>
+<br>
+<br>
+Details are in <a href="https://support.forgeservicelab.fi/redmine/projects/forge">Redmine</a>
+<br>
+Note! FORGE is the container project.
+<br>]]></text-property>
+        </text>
+        <text id="379">
+            <property name="contentType">html</property>
+            <text-property name="content"><![CDATA[<br>
+<br>
+<H2>Stories' overall status</H2>
+
+]]></text-property>
+        </text>
+        <extended-item extensionName="Crosstab" extensionVersion="3.7.0" id="364">
+            <property name="cube">stories_status_per_program</property>
+            <property name="measures">
+                <extended-item extensionName="MeasureView" id="371">
+                    <property name="measure">subject11</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="372">
+                            <property name="aggregationOnRow">Group11/status</property>
+                            <property name="width">2.7916666666666665in</property>
+                            <property name="content">
+                                <data id="373">
+                                    <property name="marginLeft">10pt</property>
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">subject11_Group11/status</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="aggregations">
+                        <extended-item extensionName="AggregationCell" id="381">
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <property name="content">
+                                <data id="382">
+                                    <property name="backgroundColor">#C0C0C0</property>
+                                    <property name="marginLeft">10pt</property>
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">subject11</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="374">
+                            <property name="backgroundColor">#C0C0C0</property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="rows">
+                <extended-item extensionName="CrosstabView" id="366">
+                    <property name="grandTotal">
+                        <extended-item extensionName="CrosstabCell" id="380">
+                            <property name="content">
+                                <label id="383">
+                                    <property name="backgroundColor">#C0C0C0</property>
+                                    <text-property name="text">Grand Total</text-property>
+                                </label>
+                            </property>
+                            <property name="backgroundColor">#C0C0C0</property>
+                        </extended-item>
+                    </property>
+                    <property name="views">
+                        <extended-item extensionName="DimensionView" id="367">
+                            <property name="dimension">Group11</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View5" id="368">
+                                    <property name="level">Group11/status</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="369">
+                                            <property name="content">
+                                                <data name="status2" id="370">
+                                                    <property name="marginRight">10pt</property>
+                                                    <property name="textAlign">right</property>
+                                                    <property name="resultSetColumn">status</property>
+                                                </data>
+                                            </property>
+                                            <property name="width">5.15625in</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="grandTotalLocation">after</property>
+                </extended-item>
+            </property>
+            <property name="header">
+                <extended-item extensionName="CrosstabCell" id="365">
+                    <property name="content">
+                        <label id="376">
+                            <property name="marginRight">10pt</property>
+                            <property name="textAlign">right</property>
+                            <text-property name="text">status</text-property>
+                        </label>
+                    </property>
+                    <property name="backgroundColor">#C0C0C0</property>
+                </extended-item>
+            </property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">status</property>
+                    <expression name="expression">dimension["Group11"]["status"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">subject11_Group11/status</property>
+                    <expression name="expression">measure["subject11"]</expression>
+                    <property name="dataType">integer</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group11/status</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">subject11</property>
+                    <expression name="expression">measure["subject11"]</expression>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+            </list-property>
+        </extended-item>
+        <text id="377">
+            <property name="contentType">html</property>
+            <text-property name="content"><![CDATA[<br>
+<br>
+<H2>Stories' status per project</H2>
+
+
+]]></text-property>
+        </text>
+        <extended-item extensionName="Crosstab" extensionVersion="3.7.0" id="339">
+            <property name="cube">stories_status_per_project</property>
+            <property name="measures">
+                <extended-item extensionName="MeasureView" id="350">
+                    <property name="measure">subject1</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="351">
+                            <property name="aggregationOnRow">Group1/status</property>
+                            <property name="width">2.7604166666666665in</property>
+                            <property name="content">
+                                <data id="352">
+                                    <property name="marginLeft">10pt</property>
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">subject1_Group1/status</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="aggregations">
+                        <extended-item extensionName="AggregationCell" id="389">
+                            <property name="aggregationOnRow">Group1/project</property>
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <property name="content">
+                                <data id="390">
+                                    <property name="marginLeft">10pt</property>
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">subject1_Group1/project</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="AggregationCell" id="393">
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <property name="content">
+                                <data id="394">
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">subject1_1</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="353">
+                            <property name="backgroundColor">#C0C0C0</property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="rows">
+                <extended-item extensionName="CrosstabView" id="341">
+                    <property name="grandTotal">
+                        <extended-item extensionName="CrosstabCell" id="392">
+                            <property name="content">
+                                <label id="395">
+                                    <text-property name="text">Grand Total</text-property>
+                                </label>
+                            </property>
+                            <property name="backgroundColor">#C0C0C0</property>
+                        </extended-item>
+                    </property>
+                    <property name="views">
+                        <extended-item extensionName="DimensionView" id="342">
+                            <property name="dimension">Group1</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View3" id="343">
+                                    <property name="level">Group1/project</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="344">
+                                            <property name="content">
+                                                <data name="project1" id="345">
+                                                    <property name="resultSetColumn">project</property>
+                                                </data>
+                                            </property>
+                                            <property name="width">1.4895833333333333in</property>
+                                        </extended-item>
+                                    </property>
+                                    <property name="aggregationHeader">
+                                        <extended-item extensionName="CrosstabCell" id="388">
+                                            <property name="content">
+                                                <data name="project_TOTAL1" id="391">
+                                                    <property name="marginRight">10pt</property>
+                                                    <property name="resultSetColumn">project_TOTAL</property>
+                                                </data>
+                                            </property>
+                                            <property name="backgroundColor">#C0C0C0</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                                <extended-item extensionName="LevelView" name="NewLevel View4" id="346">
+                                    <property name="level">Group1/status</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="347">
+                                            <property name="content">
+                                                <data name="status1" id="349">
+                                                    <property name="marginRight">10pt</property>
+                                                    <property name="textAlign">right</property>
+                                                    <property name="resultSetColumn">status</property>
+                                                </data>
+                                            </property>
+                                            <property name="width">3.6979166666666665in</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="grandTotalLocation">after</property>
+                </extended-item>
+            </property>
+            <property name="header">
+                <extended-item extensionName="CrosstabCell" id="340">
+                    <property name="content">
+                        <label id="355">
+                            <text-property name="text">project</text-property>
+                        </label>
+                    </property>
+                    <property name="backgroundColor">#C0C0C0</property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="348">
+                    <property name="content">
+                        <label id="356">
+                            <property name="marginRight">10pt</property>
+                            <property name="textAlign">right</property>
+                            <text-property name="text">status</text-property>
+                        </label>
+                    </property>
+                    <property name="backgroundColor">#C0C0C0</property>
+                </extended-item>
+            </property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">project</property>
+                    <expression name="expression">dimension["Group1"]["project"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">status</property>
+                    <expression name="expression">dimension["Group1"]["status"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">subject1_Group1/status</property>
+                    <expression name="expression">measure["subject1"]</expression>
+                    <property name="dataType">integer</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group1/status</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">subject1</property>
+                    <expression name="expression">measure["subject1"]</expression>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">subject1_Group1/project</property>
+                    <expression name="expression">measure["subject1"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group1/project</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">project_TOTAL</property>
+                    <expression name="expression">dimension["Group1"]["project"]+" TOTAL"</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">subject1_1</property>
+                    <expression name="expression">measure["subject1"]</expression>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+            </list-property>
+        </extended-item>
+        <text id="378">
+            <property name="contentType">html</property>
+            <text-property name="content"><![CDATA[<br>
+<br>
+<H2>Stories' status per sprint</H2>
+
+]]></text-property>
+        </text>
+        <extended-item extensionName="Crosstab" extensionVersion="3.7.0" id="286">
+            <property name="cube">stories_status_per_sprint</property>
+            <property name="measures">
+                <extended-item extensionName="MeasureView" id="301">
+                    <property name="measure">subject</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="302">
+                            <property name="aggregationOnRow">Group/status</property>
+                            <property name="width">2.7916666666666665in</property>
+                            <property name="content">
+                                <data id="303">
+                                    <property name="marginLeft">10pt</property>
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">subject_Group/status</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="aggregations">
+                        <extended-item extensionName="AggregationCell" id="322">
+                            <property name="aggregationOnRow">Group/project</property>
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <property name="content">
+                                <data id="323">
+                                    <property name="backgroundColor">#C0C0C0</property>
+                                    <property name="marginLeft">10pt</property>
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">subject_Group/project</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="AggregationCell" id="326">
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <property name="content">
+                                <data id="327">
+                                    <property name="backgroundColor">#C0C0C0</property>
+                                    <property name="marginLeft">10pt</property>
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">subject</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="304">
+                            <property name="backgroundColor">#C0C0C0</property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+            </property>
+            <property name="rows">
+                <extended-item extensionName="CrosstabView" id="288">
+                    <property name="grandTotal">
+                        <extended-item extensionName="CrosstabCell" id="325">
+                            <property name="content">
+                                <label id="328">
+                                    <property name="backgroundColor">#C0C0C0</property>
+                                    <text-property name="text">Grand Total</text-property>
+                                </label>
+                            </property>
+                            <property name="backgroundColor">#C0C0C0</property>
+                        </extended-item>
+                    </property>
+                    <property name="views">
+                        <extended-item extensionName="DimensionView" id="289">
+                            <property name="dimension">Group</property>
+                            <property name="levels">
+                                <extended-item extensionName="LevelView" name="NewLevel View" id="290">
+                                    <property name="level">Group/project</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="291">
+                                            <property name="content">
+                                                <data name="project" id="292">
+                                                    <property name="resultSetColumn">project</property>
+                                                </data>
+                                            </property>
+                                            <property name="width">1.46875in</property>
+                                        </extended-item>
+                                    </property>
+                                    <property name="aggregationHeader">
+                                        <extended-item extensionName="CrosstabCell" id="321">
+                                            <property name="content">
+                                                <data name="project_TOTAL" id="324">
+                                                    <property name="backgroundColor">#C0C0C0</property>
+                                                    <property name="resultSetColumn">project_TOTAL</property>
+                                                </data>
+                                            </property>
+                                            <property name="backgroundColor">#C0C0C0</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                                <extended-item extensionName="LevelView" name="NewLevel View1" id="293">
+                                    <property name="level">Group/version</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="294">
+                                            <property name="content">
+                                                <data name="version" id="296">
+                                                    <property name="resultSetColumn">version</property>
+                                                </data>
+                                            </property>
+                                            <property name="width">2.5104166666666665in</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                                <extended-item extensionName="LevelView" name="NewLevel View2" id="297">
+                                    <property name="level">Group/status</property>
+                                    <property name="member">
+                                        <extended-item extensionName="CrosstabCell" id="298">
+                                            <property name="content">
+                                                <data name="status" id="300">
+                                                    <property name="marginRight">10pt</property>
+                                                    <property name="textAlign">right</property>
+                                                    <property name="resultSetColumn">status</property>
+                                                </data>
+                                            </property>
+                                            <property name="width">1.1770833333333333in</property>
+                                        </extended-item>
+                                    </property>
+                                </extended-item>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="grandTotalLocation">after</property>
+                </extended-item>
+            </property>
+            <property name="header">
+                <extended-item extensionName="CrosstabCell" id="287">
+                    <property name="content">
+                        <label id="306">
+                            <text-property name="text">project</text-property>
+                        </label>
+                    </property>
+                    <property name="backgroundColor">#C0C0C0</property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="295">
+                    <property name="content">
+                        <label id="307">
+                            <text-property name="text">version</text-property>
+                        </label>
+                    </property>
+                    <property name="backgroundColor">#C0C0C0</property>
+                </extended-item>
+                <extended-item extensionName="CrosstabCell" id="299">
+                    <property name="content">
+                        <label id="308">
+                            <property name="marginRight">10pt</property>
+                            <property name="textAlign">right</property>
+                            <text-property name="text">status</text-property>
+                        </label>
+                    </property>
+                    <property name="backgroundColor">#C0C0C0</property>
+                </extended-item>
+            </property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">project</property>
+                    <expression name="expression">dimension["Group"]["project"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">version</property>
+                    <expression name="expression">dimension["Group"]["version"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">status</property>
+                    <expression name="expression">dimension["Group"]["status"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">subject_Group/status</property>
+                    <expression name="expression">measure["subject"]</expression>
+                    <property name="dataType">integer</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/status</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">subject_Group/project</property>
+                    <expression name="expression">measure["subject"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/project</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">project_TOTAL</property>
+                    <expression name="expression">dimension["Group"]["project"]+" TOTAL"</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">subject</property>
+                    <expression name="expression">measure["subject"]</expression>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+            </list-property>
+            <property name="style">Normal</property>
+        </extended-item>
+    </body>
+</report>
