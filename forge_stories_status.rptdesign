@@ -58,7 +58,7 @@
     <property name="bidiLayoutOrientation">ltr</property>
     <property name="imageDPI">96</property>
     <data-sources>
-        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="redmine" id="7">
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="redmine_support" id="7">
             <list-property name="privateDriverProperties">
                 <ex-property>
                     <name>metadataBidiFormatStr</name>
@@ -80,9 +80,56 @@
             <property name="odaUser">redmine</property>
             <encrypted-property name="odaPassword" encryptionID="base64">TWdxZ3YxYTV4bTY3a19FZA==</encrypted-property>
         </oda-data-source>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="redmine" id="738">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://localhost:3306/redmine_dump</property>
+            <property name="odaUser">redmine</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">TWdxZ3YxYTV4bTY3a19FZA==</encrypted-property>
+        </oda-data-source>
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="stories" id="8">
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">total_stories</property>
+                    <property name="dataType">integer</property>
+                    <property name="aggregateFunction">COUNT</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value">row["subject"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">open_stories</property>
+                    <property name="dataType">integer</property>
+                    <property name="aggregateFunction">COUNT</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value">row["subject"]</expression>
+                        </structure>
+                    </list-property>
+                    <expression name="filterExpr">row["name"]!="Closed" &amp; row["name"]!="Resolved" &amp; row["name"]!="Rejected"</expression>
+                </structure>
+            </list-property>
             <list-property name="columnHints">
                 <structure>
                     <property name="columnName">subject</property>
@@ -97,16 +144,16 @@
                     <text-property name="heading">status</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">name_3</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">version</text-property>
-                    <text-property name="heading">version</text-property>
+                    <property name="columnName">story_points</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">story_points</text-property>
+                    <text-property name="heading">story_points</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">name_4</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">project</text-property>
-                    <text-property name="heading">project</text-property>
+                    <property name="columnName">estimated_hours</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">estimated_hours</text-property>
+                    <text-property name="heading">estimated_hours</text-property>
                 </structure>
             </list-property>
             <list-property name="parameters"/>
@@ -132,6 +179,26 @@
                         <property name="name">name_4</property>
                         <property name="dataType">string</property>
                     </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">story_points</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">estimated_hours</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">total_stories</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">open_stories</property>
+                        <property name="dataType">integer</property>
+                    </structure>
                 </list-property>
             </structure>
             <property name="dataSource">redmine</property>
@@ -141,35 +208,45 @@
                     <property name="name">subject</property>
                     <property name="nativeName">subject</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">2</property>
                     <property name="name">name</property>
                     <property name="nativeName">name</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">3</property>
                     <property name="name">name_3</property>
                     <property name="nativeName">name</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">4</property>
                     <property name="name">name_4</property>
                     <property name="nativeName">name</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">story_points</property>
+                    <property name="nativeName">story_points</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">estimated_hours</property>
+                    <property name="nativeName">estimated_hours</property>
+                    <property name="dataType">float</property>
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[select
 issues.subject,
 issue_statuses.name as status,
 versions.name as version,
-projects.name as project
+projects.name as project,
+issues.story_points as story_points,
+issues.estimated_hours as estimated_hours
 from issues
 left join
 issue_statuses on issue_statuses.id = issues.status_id
@@ -244,6 +321,14 @@ where (issues.tracker_id = 5 or issues.tracker_id = 8) and (issues.project_id <>
                             <expression name="measureExpression" type="javascript">dataSetRow["subject"]</expression>
                             <property name="dataType">integer</property>
                         </tabular-measure>
+                        <tabular-measure name="story_points2" id="487">
+                            <expression name="measureExpression" type="javascript">dataSetRow["story_points"]</expression>
+                            <property name="dataType">float</property>
+                        </tabular-measure>
+                        <tabular-measure name="estimated_hours2" id="530">
+                            <expression name="measureExpression" type="javascript">dataSetRow["estimated_hours"]</expression>
+                            <property name="dataType">float</property>
+                        </tabular-measure>
                     </property>
                 </tabular-measure-group>
             </property>
@@ -277,6 +362,14 @@ where (issues.tracker_id = 5 or issues.tracker_id = 8) and (issues.project_id <>
                             <expression name="measureExpression" type="javascript">dataSetRow["subject"]</expression>
                             <property name="dataType">integer</property>
                         </tabular-measure>
+                        <tabular-measure name="story_points1" id="451">
+                            <expression name="measureExpression" type="javascript">dataSetRow["story_points"]</expression>
+                            <property name="dataType">float</property>
+                        </tabular-measure>
+                        <tabular-measure name="estimated_hours1" id="529">
+                            <expression name="measureExpression" type="javascript">dataSetRow["estimated_hours"]</expression>
+                            <property name="dataType">float</property>
+                        </tabular-measure>
                     </property>
                 </tabular-measure-group>
             </property>
@@ -305,6 +398,14 @@ where (issues.tracker_id = 5 or issues.tracker_id = 8) and (issues.project_id <>
                             <property name="function">count</property>
                             <expression name="measureExpression" type="javascript">dataSetRow["subject"]</expression>
                             <property name="dataType">integer</property>
+                        </tabular-measure>
+                        <tabular-measure name="story_points" id="423">
+                            <expression name="measureExpression" type="javascript">dataSetRow["story_points"]</expression>
+                            <property name="dataType">float</property>
+                        </tabular-measure>
+                        <tabular-measure name="estimated_hours" id="528">
+                            <expression name="measureExpression" type="javascript">dataSetRow["estimated_hours"]</expression>
+                            <property name="dataType">float</property>
                         </tabular-measure>
                     </property>
                 </tabular-measure-group>
@@ -361,27 +462,274 @@ where (issues.tracker_id = 5 or issues.tracker_id = 8) and (issues.project_id <>
     </page-setup>
     <body>
         <text id="330">
-            <property name="backgroundColor">#C0C0C0</property>
+            <property name="backgroundColor">#FFFFFF</property>
+            <property name="color">#000000</property>
             <property name="contentType">html</property>
-            <text-property name="content"><![CDATA[<H1>FORGE program story status report</H1>
+            <text-property name="content"><![CDATA[<H1>FORGE project status report</H1>
 <br>
 Copyright 2013 DIGILE Ltd
 <br>
 Pasi Kivikangas
 <br>
 <br>
-Created with Eclipse Report Designer
-<br>
-FORGE Redmine machine doesn't expose SSH port so you must have a tunnel up an running to the Redmine.
-<br>
-ssh -L 8888:localhost:3306 pkivikan@support.forgeservicelab.fi<br>
-<br>
+Created with Eclipse Report Designer and BIRT
 <br>
 Details are in <a href="https://support.forgeservicelab.fi/redmine/projects/forge">Redmine</a>
 <br>
-Note! FORGE is the container project.
+Note! FORGE is the container project and contains stories for other projects.
+<br>
 <br>]]></text-property>
         </text>
+        <text id="656">
+            <property name="contentType">html</property>
+            <text-property name="content"><![CDATA[<br>]]></text-property>
+        </text>
+        <text id="655">
+            <property name="backgroundColor">#FFFFFF</property>
+            <property name="color">#FF0000</property>
+            <property name="contentType">html</property>
+            <text-property name="content"><![CDATA[<b>DISCLAIMER! The calculations here are based on the amount of stories because storypoints and est.hours are defined only for planned stories. Therefore storypoints and est.hours figures can be greatly misleading while the amount of stories is less misleading</b><br>]]></text-property>
+        </text>
+        <text id="733">
+            <property name="contentType">html</property>
+            <text-property name="content"><![CDATA[<br>
+<br>
+<H2>Summary</H2>
+
+]]></text-property>
+        </text>
+        <grid id="663">
+            <property name="width">4.520833333333333in</property>
+            <column id="664">
+                <property name="width">2.0208333333333335in</property>
+            </column>
+            <column id="665">
+                <property name="width">1.6666666666666667in</property>
+            </column>
+            <column id="666">
+                <property name="width">0.8333333333333334in</property>
+            </column>
+            <row id="699">
+                <cell id="700"/>
+                <cell id="701"/>
+                <cell id="702"/>
+            </row>
+            <row id="687">
+                <cell id="688">
+                    <property name="backgroundColor">#C0C0C0</property>
+                    <text id="691">
+                        <property name="contentType">html</property>
+                        <text-property name="content"><![CDATA[Project start]]></text-property>
+                    </text>
+                </cell>
+                <cell id="689">
+                    <property name="backgroundColor">#C0C0C0</property>
+                    <text id="660">
+                        <property name="contentType">html</property>
+                        <text-property name="content"><![CDATA[Sep 16 2013]]></text-property>
+                    </text>
+                </cell>
+                <cell id="690">
+                    <property name="backgroundColor">#C0C0C0</property>
+                </cell>
+            </row>
+            <row id="683">
+                <cell id="684">
+                    <property name="backgroundColor">#C0C0C0</property>
+                    <text id="692">
+                        <property name="contentType">html</property>
+                        <text-property name="content"><![CDATA[Now]]></text-property>
+                    </text>
+                </cell>
+                <cell id="685">
+                    <property name="backgroundColor">#C0C0C0</property>
+                    <text-data id="658">
+                        <expression name="valueExpr">new Date()</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+                <cell id="686">
+                    <property name="backgroundColor">#C0C0C0</property>
+                </cell>
+            </row>
+            <row id="734">
+                <cell id="735"/>
+                <cell id="736"/>
+                <cell id="737"/>
+            </row>
+            <row id="727">
+                <cell id="728">
+                    <property name="backgroundColor">#C0C0C0</property>
+                </cell>
+                <cell id="729">
+                    <property name="backgroundColor">#C0C0C0</property>
+                    <text id="731">
+                        <property name="textAlign">right</property>
+                        <property name="contentType">html</property>
+                        <text-property name="content"><![CDATA[Completed]]></text-property>
+                    </text>
+                </cell>
+                <cell id="730">
+                    <property name="backgroundColor">#C0C0C0</property>
+                    <text id="732">
+                        <property name="textAlign">right</property>
+                        <property name="contentType">html</property>
+                        <text-property name="content"><![CDATA[Remaining]]></text-property>
+                    </text>
+                </cell>
+            </row>
+            <row id="667">
+                <cell id="668">
+                    <text id="681">
+                        <property name="contentType">html</property>
+                        <text-property name="content"><![CDATA[Days passed]]></text-property>
+                    </text>
+                </cell>
+                <cell id="669">
+                    <text-data id="680">
+                        <property name="textAlign">right</property>
+                        <expression name="valueExpr">BirtDateTime.diffDay(new Date("16 Sep 2013"), new Date())</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+                <cell id="670">
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                </cell>
+            </row>
+            <row id="671">
+                <cell id="672">
+                    <text id="682">
+                        <property name="contentType">html</property>
+                        <text-property name="content"><![CDATA[Weeks passed]]></text-property>
+                    </text>
+                </cell>
+                <cell id="673">
+                    <text-data id="679">
+                        <property name="textAlign">right</property>
+                        <expression name="valueExpr">BirtDateTime.diffWeek(new Date("16 Sep 2013"), new Date())</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+                <cell id="674">
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                </cell>
+            </row>
+            <row id="675">
+                <cell id="676">
+                    <text id="693">
+                        <property name="contentType">html</property>
+                        <text-property name="content"><![CDATA[Sprints passed]]></text-property>
+                    </text>
+                </cell>
+                <cell id="677">
+                    <text-data id="694">
+                        <property name="textAlign">right</property>
+                        <expression name="valueExpr">(BirtDateTime.diffWeek(new Date("16 Sep 2013"), new Date()))/2</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+                <cell id="678">
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <data id="726">
+                        <property name="textAlign">right</property>
+                        <property name="dataSet">stories</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">open_stories</property>
+                                <text-property name="displayName">stories_open</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["open_stories"]/((dataSetRow["total_stories"]-dataSetRow["open_stories"])/((BirtDateTime.diffWeek(new Date("16 Sep 2013"), new Date()))/2))</expression>
+                                <property name="dataType">integer</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">open_stories</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="720">
+                <cell id="721">
+                    <text id="724">
+                        <property name="contentType">html</property>
+                        <text-property name="content"><![CDATA[Stories completed]]></text-property>
+                    </text>
+                </cell>
+                <cell id="722">
+                    <data id="725">
+                        <property name="textAlign">right</property>
+                        <property name="dataSet">stories</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">total_stories</property>
+                                <text-property name="displayName">stories_completed</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["total_stories"]-dataSetRow["open_stories"]</expression>
+                                <property name="dataType">integer</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">total_stories</property>
+                    </data>
+                </cell>
+                <cell id="723">
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <data id="708">
+                        <property name="textAlign">right</property>
+                        <property name="dataSet">stories</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">open_stories</property>
+                                <text-property name="displayName">stories_open</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["open_stories"]</expression>
+                                <property name="dataType">integer</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">open_stories</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="695">
+                <cell id="696">
+                    <text id="718">
+                        <property name="contentType">html</property>
+                        <text-property name="content"><![CDATA[Stories completed in one sprint]]></text-property>
+                    </text>
+                </cell>
+                <cell id="697">
+                    <data id="719">
+                        <property name="textAlign">right</property>
+                        <property name="dataSet">stories</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">total_stories</property>
+                                <text-property name="displayName">stories_per_sprint</text-property>
+                                <expression name="expression" type="javascript">(dataSetRow["total_stories"]-dataSetRow["open_stories"])/((BirtDateTime.diffWeek(new Date("16 Sep 2013"), new Date()))/2)</expression>
+                                <property name="dataType">integer</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">total_stories</property>
+                    </data>
+                </cell>
+                <cell id="698">
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                </cell>
+            </row>
+            <row id="714">
+                <cell id="715"/>
+                <cell id="716"/>
+                <cell id="717"/>
+            </row>
+            <row id="709">
+                <cell id="710"/>
+                <cell id="711"/>
+                <cell id="712"/>
+            </row>
+        </grid>
         <text id="379">
             <property name="contentType">html</property>
             <text-property name="content"><![CDATA[<br>
@@ -390,18 +738,17 @@ Note! FORGE is the container project.
 
 ]]></text-property>
         </text>
-        <extended-item extensionName="Crosstab" extensionVersion="3.7.0" id="364">
+        <extended-item extensionName="Crosstab" extensionVersion="3.7.0" id="531">
             <property name="cube">stories_status_per_program</property>
             <property name="measures">
-                <extended-item extensionName="MeasureView" id="371">
+                <extended-item extensionName="MeasureView" id="538">
                     <property name="measure">subject11</property>
                     <property name="detail">
-                        <extended-item extensionName="AggregationCell" id="372">
+                        <extended-item extensionName="AggregationCell" id="539">
                             <property name="aggregationOnRow">Group11/status</property>
-                            <property name="width">2.7916666666666665in</property>
+                            <property name="width">1.1458333333333333in</property>
                             <property name="content">
-                                <data id="373">
-                                    <property name="marginLeft">10pt</property>
+                                <data id="540">
                                     <property name="textAlign">right</property>
                                     <property name="resultSetColumn">subject11_Group11/status</property>
                                 </data>
@@ -409,12 +756,11 @@ Note! FORGE is the container project.
                         </extended-item>
                     </property>
                     <property name="aggregations">
-                        <extended-item extensionName="AggregationCell" id="381">
+                        <extended-item extensionName="AggregationCell" id="616">
                             <property name="backgroundColor">#C0C0C0</property>
+                            <property name="height">0.2708333333333333in</property>
                             <property name="content">
-                                <data id="382">
-                                    <property name="backgroundColor">#C0C0C0</property>
-                                    <property name="marginLeft">10pt</property>
+                                <data id="617">
                                     <property name="textAlign">right</property>
                                     <property name="resultSetColumn">subject11</property>
                                 </data>
@@ -422,19 +768,96 @@ Note! FORGE is the container project.
                         </extended-item>
                     </property>
                     <property name="header">
-                        <extended-item extensionName="CrosstabCell" id="374">
+                        <extended-item extensionName="CrosstabCell" id="541">
+                            <property name="content">
+                                <label id="542">
+                                    <text-property name="text">stories</text-property>
+                                </label>
+                            </property>
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <property name="height">0.2708333333333333in</property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="MeasureView" id="543">
+                    <property name="measure">story_points</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="544">
+                            <property name="aggregationOnRow">Group11/status</property>
+                            <property name="width">0.9583333333333334in</property>
+                            <property name="content">
+                                <data id="545">
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">story_points_Group11/status</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="aggregations">
+                        <extended-item extensionName="AggregationCell" id="618">
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <property name="content">
+                                <data id="619">
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">story_points</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="546">
+                            <property name="content">
+                                <label id="547">
+                                    <text-property name="text">storypoints</text-property>
+                                </label>
+                            </property>
+                            <property name="backgroundColor">#C0C0C0</property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="MeasureView" id="548">
+                    <property name="measure">estimated_hours</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="549">
+                            <property name="aggregationOnRow">Group11/status</property>
+                            <property name="width">0.9270833333333334in</property>
+                            <property name="content">
+                                <data id="550">
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">estimated_hours_Group11/status</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="aggregations">
+                        <extended-item extensionName="AggregationCell" id="620">
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <property name="content">
+                                <data id="621">
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">estimated_hours</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="551">
+                            <property name="content">
+                                <label id="552">
+                                    <text-property name="text">est.hours</text-property>
+                                </label>
+                            </property>
                             <property name="backgroundColor">#C0C0C0</property>
                         </extended-item>
                     </property>
                 </extended-item>
             </property>
             <property name="rows">
-                <extended-item extensionName="CrosstabView" id="366">
+                <extended-item extensionName="CrosstabView" id="533">
                     <property name="grandTotal">
-                        <extended-item extensionName="CrosstabCell" id="380">
+                        <extended-item extensionName="CrosstabCell" id="615">
                             <property name="content">
-                                <label id="383">
-                                    <property name="backgroundColor">#C0C0C0</property>
+                                <label id="622">
                                     <text-property name="text">Grand Total</text-property>
                                 </label>
                             </property>
@@ -442,21 +865,19 @@ Note! FORGE is the container project.
                         </extended-item>
                     </property>
                     <property name="views">
-                        <extended-item extensionName="DimensionView" id="367">
+                        <extended-item extensionName="DimensionView" id="534">
                             <property name="dimension">Group11</property>
                             <property name="levels">
-                                <extended-item extensionName="LevelView" name="NewLevel View5" id="368">
+                                <extended-item extensionName="LevelView" name="NewLevel View" id="535">
                                     <property name="level">Group11/status</property>
                                     <property name="member">
-                                        <extended-item extensionName="CrosstabCell" id="369">
+                                        <extended-item extensionName="CrosstabCell" id="536">
                                             <property name="content">
-                                                <data name="status2" id="370">
-                                                    <property name="marginRight">10pt</property>
-                                                    <property name="textAlign">right</property>
+                                                <data name="status" id="537">
                                                     <property name="resultSetColumn">status</property>
                                                 </data>
                                             </property>
-                                            <property name="width">5.15625in</property>
+                                            <property name="width">4.78125in</property>
                                         </extended-item>
                                     </property>
                                 </extended-item>
@@ -467,11 +888,9 @@ Note! FORGE is the container project.
                 </extended-item>
             </property>
             <property name="header">
-                <extended-item extensionName="CrosstabCell" id="365">
+                <extended-item extensionName="CrosstabCell" id="532">
                     <property name="content">
-                        <label id="376">
-                            <property name="marginRight">10pt</property>
-                            <property name="textAlign">right</property>
+                        <label id="553">
                             <text-property name="text">status</text-property>
                         </label>
                     </property>
@@ -494,8 +913,38 @@ Note! FORGE is the container project.
                     <property name="aggregateFunction">SUM</property>
                 </structure>
                 <structure>
+                    <property name="name">story_points_Group11/status</property>
+                    <expression name="expression">measure["story_points"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group11/status</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">estimated_hours_Group11/status</property>
+                    <expression name="expression">measure["estimated_hours"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group11/status</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
                     <property name="name">subject11</property>
                     <expression name="expression">measure["subject11"]</expression>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">story_points</property>
+                    <expression name="expression">measure["story_points"]</expression>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">estimated_hours</property>
+                    <expression name="expression">measure["estimated_hours"]</expression>
                     <property name="dataType">float</property>
                     <property name="aggregateFunction">SUM</property>
                 </structure>
@@ -510,18 +959,17 @@ Note! FORGE is the container project.
 
 ]]></text-property>
         </text>
-        <extended-item extensionName="Crosstab" extensionVersion="3.7.0" id="339">
+        <extended-item extensionName="Crosstab" extensionVersion="3.7.0" id="554">
             <property name="cube">stories_status_per_project</property>
             <property name="measures">
-                <extended-item extensionName="MeasureView" id="350">
+                <extended-item extensionName="MeasureView" id="565">
                     <property name="measure">subject1</property>
                     <property name="detail">
-                        <extended-item extensionName="AggregationCell" id="351">
+                        <extended-item extensionName="AggregationCell" id="566">
                             <property name="aggregationOnRow">Group1/status</property>
-                            <property name="width">2.7604166666666665in</property>
+                            <property name="width">1.1458333333333333in</property>
                             <property name="content">
-                                <data id="352">
-                                    <property name="marginLeft">10pt</property>
+                                <data id="567">
                                     <property name="textAlign">right</property>
                                     <property name="resultSetColumn">subject1_Group1/status</property>
                                 </data>
@@ -529,40 +977,139 @@ Note! FORGE is the container project.
                         </extended-item>
                     </property>
                     <property name="aggregations">
-                        <extended-item extensionName="AggregationCell" id="389">
+                        <extended-item extensionName="AggregationCell" id="624">
                             <property name="aggregationOnRow">Group1/project</property>
                             <property name="backgroundColor">#C0C0C0</property>
+                            <property name="height">0.22916666666666666in</property>
                             <property name="content">
-                                <data id="390">
-                                    <property name="marginLeft">10pt</property>
+                                <data id="625">
                                     <property name="textAlign">right</property>
                                     <property name="resultSetColumn">subject1_Group1/project</property>
                                 </data>
                             </property>
                         </extended-item>
-                        <extended-item extensionName="AggregationCell" id="393">
+                        <extended-item extensionName="AggregationCell" id="632">
                             <property name="backgroundColor">#C0C0C0</property>
+                            <property name="height">0.3020833333333333in</property>
                             <property name="content">
-                                <data id="394">
+                                <data id="633">
                                     <property name="textAlign">right</property>
-                                    <property name="resultSetColumn">subject1_1</property>
+                                    <property name="resultSetColumn">subject1</property>
                                 </data>
                             </property>
                         </extended-item>
                     </property>
                     <property name="header">
-                        <extended-item extensionName="CrosstabCell" id="353">
+                        <extended-item extensionName="CrosstabCell" id="568">
+                            <property name="content">
+                                <label id="569">
+                                    <text-property name="text">stories</text-property>
+                                </label>
+                            </property>
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <property name="height">0.25in</property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="MeasureView" id="570">
+                    <property name="measure">story_points1</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="571">
+                            <property name="aggregationOnRow">Group1/status</property>
+                            <property name="width">0.9895833333333334in</property>
+                            <property name="content">
+                                <data id="572">
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">story_points1_Group1/status</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="aggregations">
+                        <extended-item extensionName="AggregationCell" id="626">
+                            <property name="aggregationOnRow">Group1/project</property>
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <property name="content">
+                                <data id="627">
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">story_points1_Group1/project</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="AggregationCell" id="634">
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <property name="content">
+                                <data id="635">
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">story_points1</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="573">
+                            <property name="content">
+                                <label id="574">
+                                    <text-property name="text">storypoints</text-property>
+                                </label>
+                            </property>
+                            <property name="backgroundColor">#C0C0C0</property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="MeasureView" id="575">
+                    <property name="measure">estimated_hours1</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="576">
+                            <property name="aggregationOnRow">Group1/status</property>
+                            <property name="width">0.875in</property>
+                            <property name="content">
+                                <data id="577">
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">estimated_hours1_Group1/status</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="aggregations">
+                        <extended-item extensionName="AggregationCell" id="628">
+                            <property name="aggregationOnRow">Group1/project</property>
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <property name="content">
+                                <data id="629">
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">estimated_hours1_Group1/project</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="AggregationCell" id="636">
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <property name="content">
+                                <data id="637">
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">estimated_hours1</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="578">
+                            <property name="content">
+                                <label id="579">
+                                    <text-property name="text">est.hours</text-property>
+                                </label>
+                            </property>
                             <property name="backgroundColor">#C0C0C0</property>
                         </extended-item>
                     </property>
                 </extended-item>
             </property>
             <property name="rows">
-                <extended-item extensionName="CrosstabView" id="341">
+                <extended-item extensionName="CrosstabView" id="556">
                     <property name="grandTotal">
-                        <extended-item extensionName="CrosstabCell" id="392">
+                        <extended-item extensionName="CrosstabCell" id="631">
                             <property name="content">
-                                <label id="395">
+                                <label id="638">
                                     <text-property name="text">Grand Total</text-property>
                                 </label>
                             </property>
@@ -570,26 +1117,25 @@ Note! FORGE is the container project.
                         </extended-item>
                     </property>
                     <property name="views">
-                        <extended-item extensionName="DimensionView" id="342">
+                        <extended-item extensionName="DimensionView" id="557">
                             <property name="dimension">Group1</property>
                             <property name="levels">
-                                <extended-item extensionName="LevelView" name="NewLevel View3" id="343">
+                                <extended-item extensionName="LevelView" name="NewLevel View1" id="558">
                                     <property name="level">Group1/project</property>
                                     <property name="member">
-                                        <extended-item extensionName="CrosstabCell" id="344">
+                                        <extended-item extensionName="CrosstabCell" id="559">
                                             <property name="content">
-                                                <data name="project1" id="345">
+                                                <data name="project" id="560">
                                                     <property name="resultSetColumn">project</property>
                                                 </data>
                                             </property>
-                                            <property name="width">1.4895833333333333in</property>
+                                            <property name="width">3.625in</property>
                                         </extended-item>
                                     </property>
                                     <property name="aggregationHeader">
-                                        <extended-item extensionName="CrosstabCell" id="388">
+                                        <extended-item extensionName="CrosstabCell" id="623">
                                             <property name="content">
-                                                <data name="project_TOTAL1" id="391">
-                                                    <property name="marginRight">10pt</property>
+                                                <data name="project_TOTAL" id="630">
                                                     <property name="resultSetColumn">project_TOTAL</property>
                                                 </data>
                                             </property>
@@ -597,18 +1143,16 @@ Note! FORGE is the container project.
                                         </extended-item>
                                     </property>
                                 </extended-item>
-                                <extended-item extensionName="LevelView" name="NewLevel View4" id="346">
+                                <extended-item extensionName="LevelView" name="NewLevel View2" id="561">
                                     <property name="level">Group1/status</property>
                                     <property name="member">
-                                        <extended-item extensionName="CrosstabCell" id="347">
+                                        <extended-item extensionName="CrosstabCell" id="562">
                                             <property name="content">
-                                                <data name="status1" id="349">
-                                                    <property name="marginRight">10pt</property>
-                                                    <property name="textAlign">right</property>
+                                                <data name="status4" id="564">
                                                     <property name="resultSetColumn">status</property>
                                                 </data>
                                             </property>
-                                            <property name="width">3.6979166666666665in</property>
+                                            <property name="width">1.1666666666666667in</property>
                                         </extended-item>
                                     </property>
                                 </extended-item>
@@ -619,19 +1163,17 @@ Note! FORGE is the container project.
                 </extended-item>
             </property>
             <property name="header">
-                <extended-item extensionName="CrosstabCell" id="340">
+                <extended-item extensionName="CrosstabCell" id="555">
                     <property name="content">
-                        <label id="355">
+                        <label id="580">
                             <text-property name="text">project</text-property>
                         </label>
                     </property>
                     <property name="backgroundColor">#C0C0C0</property>
                 </extended-item>
-                <extended-item extensionName="CrosstabCell" id="348">
+                <extended-item extensionName="CrosstabCell" id="563">
                     <property name="content">
-                        <label id="356">
-                            <property name="marginRight">10pt</property>
-                            <property name="textAlign">right</property>
+                        <label id="581">
                             <text-property name="text">status</text-property>
                         </label>
                     </property>
@@ -659,9 +1201,21 @@ Note! FORGE is the container project.
                     <property name="aggregateFunction">SUM</property>
                 </structure>
                 <structure>
-                    <property name="name">subject1</property>
-                    <expression name="expression">measure["subject1"]</expression>
+                    <property name="name">story_points1_Group1/status</property>
+                    <expression name="expression">measure["story_points1"]</expression>
                     <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group1/status</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">estimated_hours1_Group1/status</property>
+                    <expression name="expression">measure["estimated_hours1"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group1/status</value>
+                    </simple-property-list>
                     <property name="aggregateFunction">SUM</property>
                 </structure>
                 <structure>
@@ -674,13 +1228,43 @@ Note! FORGE is the container project.
                     <property name="aggregateFunction">SUM</property>
                 </structure>
                 <structure>
+                    <property name="name">story_points1_Group1/project</property>
+                    <expression name="expression">measure["story_points1"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group1/project</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">estimated_hours1_Group1/project</property>
+                    <expression name="expression">measure["estimated_hours1"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group1/project</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
                     <property name="name">project_TOTAL</property>
                     <expression name="expression">dimension["Group1"]["project"]+" TOTAL"</expression>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="name">subject1_1</property>
+                    <property name="name">subject1</property>
                     <expression name="expression">measure["subject1"]</expression>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">story_points1</property>
+                    <expression name="expression">measure["story_points1"]</expression>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">estimated_hours1</property>
+                    <expression name="expression">measure["estimated_hours1"]</expression>
                     <property name="dataType">float</property>
                     <property name="aggregateFunction">SUM</property>
                 </structure>
@@ -694,18 +1278,17 @@ Note! FORGE is the container project.
 
 ]]></text-property>
         </text>
-        <extended-item extensionName="Crosstab" extensionVersion="3.7.0" id="286">
+        <extended-item extensionName="Crosstab" extensionVersion="3.7.0" id="582">
             <property name="cube">stories_status_per_sprint</property>
             <property name="measures">
-                <extended-item extensionName="MeasureView" id="301">
+                <extended-item extensionName="MeasureView" id="597">
                     <property name="measure">subject</property>
                     <property name="detail">
-                        <extended-item extensionName="AggregationCell" id="302">
+                        <extended-item extensionName="AggregationCell" id="598">
                             <property name="aggregationOnRow">Group/status</property>
-                            <property name="width">2.7916666666666665in</property>
+                            <property name="width">1.1354166666666667in</property>
                             <property name="content">
-                                <data id="303">
-                                    <property name="marginLeft">10pt</property>
+                                <data id="599">
                                     <property name="textAlign">right</property>
                                     <property name="resultSetColumn">subject_Group/status</property>
                                 </data>
@@ -713,24 +1296,22 @@ Note! FORGE is the container project.
                         </extended-item>
                     </property>
                     <property name="aggregations">
-                        <extended-item extensionName="AggregationCell" id="322">
+                        <extended-item extensionName="AggregationCell" id="640">
                             <property name="aggregationOnRow">Group/project</property>
                             <property name="backgroundColor">#C0C0C0</property>
+                            <property name="height">0.23958333333333334in</property>
                             <property name="content">
-                                <data id="323">
-                                    <property name="backgroundColor">#C0C0C0</property>
-                                    <property name="marginLeft">10pt</property>
+                                <data id="641">
                                     <property name="textAlign">right</property>
                                     <property name="resultSetColumn">subject_Group/project</property>
                                 </data>
                             </property>
                         </extended-item>
-                        <extended-item extensionName="AggregationCell" id="326">
+                        <extended-item extensionName="AggregationCell" id="648">
                             <property name="backgroundColor">#C0C0C0</property>
+                            <property name="height">0.2916666666666667in</property>
                             <property name="content">
-                                <data id="327">
-                                    <property name="backgroundColor">#C0C0C0</property>
-                                    <property name="marginLeft">10pt</property>
+                                <data id="649">
                                     <property name="textAlign">right</property>
                                     <property name="resultSetColumn">subject</property>
                                 </data>
@@ -738,19 +1319,116 @@ Note! FORGE is the container project.
                         </extended-item>
                     </property>
                     <property name="header">
-                        <extended-item extensionName="CrosstabCell" id="304">
+                        <extended-item extensionName="CrosstabCell" id="600">
+                            <property name="content">
+                                <label id="601">
+                                    <text-property name="text">stories</text-property>
+                                </label>
+                            </property>
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <property name="height">0.22916666666666666in</property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="MeasureView" id="602">
+                    <property name="measure">story_points2</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="603">
+                            <property name="aggregationOnRow">Group/status</property>
+                            <property name="width">0.96875in</property>
+                            <property name="content">
+                                <data id="604">
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">story_points2_Group/status</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="aggregations">
+                        <extended-item extensionName="AggregationCell" id="642">
+                            <property name="aggregationOnRow">Group/project</property>
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <property name="content">
+                                <data id="643">
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">story_points2_Group/project</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="AggregationCell" id="650">
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <property name="content">
+                                <data id="651">
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">story_points2</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="605">
+                            <property name="content">
+                                <label id="606">
+                                    <text-property name="text">storypoints</text-property>
+                                </label>
+                            </property>
+                            <property name="backgroundColor">#C0C0C0</property>
+                        </extended-item>
+                    </property>
+                </extended-item>
+                <extended-item extensionName="MeasureView" id="607">
+                    <property name="measure">estimated_hours2</property>
+                    <property name="detail">
+                        <extended-item extensionName="AggregationCell" id="608">
+                            <property name="aggregationOnRow">Group/status</property>
+                            <property name="width">0.8958333333333334in</property>
+                            <property name="content">
+                                <data id="609">
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">estimated_hours2_Group/status</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="aggregations">
+                        <extended-item extensionName="AggregationCell" id="644">
+                            <property name="aggregationOnRow">Group/project</property>
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <property name="content">
+                                <data id="645">
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">estimated_hours2_Group/project</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                        <extended-item extensionName="AggregationCell" id="652">
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <property name="content">
+                                <data id="653">
+                                    <property name="textAlign">right</property>
+                                    <property name="resultSetColumn">estimated_hours2</property>
+                                </data>
+                            </property>
+                        </extended-item>
+                    </property>
+                    <property name="header">
+                        <extended-item extensionName="CrosstabCell" id="610">
+                            <property name="content">
+                                <label id="611">
+                                    <text-property name="text">est.hours</text-property>
+                                </label>
+                            </property>
                             <property name="backgroundColor">#C0C0C0</property>
                         </extended-item>
                     </property>
                 </extended-item>
             </property>
             <property name="rows">
-                <extended-item extensionName="CrosstabView" id="288">
+                <extended-item extensionName="CrosstabView" id="584">
                     <property name="grandTotal">
-                        <extended-item extensionName="CrosstabCell" id="325">
+                        <extended-item extensionName="CrosstabCell" id="647">
                             <property name="content">
-                                <label id="328">
-                                    <property name="backgroundColor">#C0C0C0</property>
+                                <label id="654">
                                     <text-property name="text">Grand Total</text-property>
                                 </label>
                             </property>
@@ -758,26 +1436,25 @@ Note! FORGE is the container project.
                         </extended-item>
                     </property>
                     <property name="views">
-                        <extended-item extensionName="DimensionView" id="289">
+                        <extended-item extensionName="DimensionView" id="585">
                             <property name="dimension">Group</property>
                             <property name="levels">
-                                <extended-item extensionName="LevelView" name="NewLevel View" id="290">
+                                <extended-item extensionName="LevelView" name="NewLevel View9" id="586">
                                     <property name="level">Group/project</property>
                                     <property name="member">
-                                        <extended-item extensionName="CrosstabCell" id="291">
+                                        <extended-item extensionName="CrosstabCell" id="587">
                                             <property name="content">
-                                                <data name="project" id="292">
+                                                <data name="project3" id="588">
                                                     <property name="resultSetColumn">project</property>
                                                 </data>
                                             </property>
-                                            <property name="width">1.46875in</property>
+                                            <property name="width">1.5833333333333333in</property>
                                         </extended-item>
                                     </property>
                                     <property name="aggregationHeader">
-                                        <extended-item extensionName="CrosstabCell" id="321">
+                                        <extended-item extensionName="CrosstabCell" id="639">
                                             <property name="content">
-                                                <data name="project_TOTAL" id="324">
-                                                    <property name="backgroundColor">#C0C0C0</property>
+                                                <data name="project_TOTAL3" id="646">
                                                     <property name="resultSetColumn">project_TOTAL</property>
                                                 </data>
                                             </property>
@@ -785,27 +1462,25 @@ Note! FORGE is the container project.
                                         </extended-item>
                                     </property>
                                 </extended-item>
-                                <extended-item extensionName="LevelView" name="NewLevel View1" id="293">
+                                <extended-item extensionName="LevelView" name="NewLevel View10" id="589">
                                     <property name="level">Group/version</property>
                                     <property name="member">
-                                        <extended-item extensionName="CrosstabCell" id="294">
+                                        <extended-item extensionName="CrosstabCell" id="590">
                                             <property name="content">
-                                                <data name="version" id="296">
+                                                <data name="version" id="592">
                                                     <property name="resultSetColumn">version</property>
                                                 </data>
                                             </property>
-                                            <property name="width">2.5104166666666665in</property>
+                                            <property name="width">2.0416666666666665in</property>
                                         </extended-item>
                                     </property>
                                 </extended-item>
-                                <extended-item extensionName="LevelView" name="NewLevel View2" id="297">
+                                <extended-item extensionName="LevelView" name="NewLevel View11" id="593">
                                     <property name="level">Group/status</property>
                                     <property name="member">
-                                        <extended-item extensionName="CrosstabCell" id="298">
+                                        <extended-item extensionName="CrosstabCell" id="594">
                                             <property name="content">
-                                                <data name="status" id="300">
-                                                    <property name="marginRight">10pt</property>
-                                                    <property name="textAlign">right</property>
+                                                <data name="status5" id="596">
                                                     <property name="resultSetColumn">status</property>
                                                 </data>
                                             </property>
@@ -820,27 +1495,25 @@ Note! FORGE is the container project.
                 </extended-item>
             </property>
             <property name="header">
-                <extended-item extensionName="CrosstabCell" id="287">
+                <extended-item extensionName="CrosstabCell" id="583">
                     <property name="content">
-                        <label id="306">
+                        <label id="612">
                             <text-property name="text">project</text-property>
                         </label>
                     </property>
                     <property name="backgroundColor">#C0C0C0</property>
                 </extended-item>
-                <extended-item extensionName="CrosstabCell" id="295">
+                <extended-item extensionName="CrosstabCell" id="591">
                     <property name="content">
-                        <label id="307">
+                        <label id="613">
                             <text-property name="text">version</text-property>
                         </label>
                     </property>
                     <property name="backgroundColor">#C0C0C0</property>
                 </extended-item>
-                <extended-item extensionName="CrosstabCell" id="299">
+                <extended-item extensionName="CrosstabCell" id="595">
                     <property name="content">
-                        <label id="308">
-                            <property name="marginRight">10pt</property>
-                            <property name="textAlign">right</property>
+                        <label id="614">
                             <text-property name="text">status</text-property>
                         </label>
                     </property>
@@ -873,8 +1546,44 @@ Note! FORGE is the container project.
                     <property name="aggregateFunction">SUM</property>
                 </structure>
                 <structure>
+                    <property name="name">story_points2_Group/status</property>
+                    <expression name="expression">measure["story_points2"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/status</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">estimated_hours2_Group/status</property>
+                    <expression name="expression">measure["estimated_hours2"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/status</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
                     <property name="name">subject_Group/project</property>
                     <expression name="expression">measure["subject"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/project</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">story_points2_Group/project</property>
+                    <expression name="expression">measure["story_points2"]</expression>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group/project</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">estimated_hours2_Group/project</property>
+                    <expression name="expression">measure["estimated_hours2"]</expression>
                     <property name="dataType">float</property>
                     <simple-property-list name="aggregateOn">
                         <value>Group/project</value>
@@ -892,8 +1601,19 @@ Note! FORGE is the container project.
                     <property name="dataType">float</property>
                     <property name="aggregateFunction">SUM</property>
                 </structure>
+                <structure>
+                    <property name="name">story_points2</property>
+                    <expression name="expression">measure["story_points2"]</expression>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">estimated_hours2</property>
+                    <expression name="expression">measure["estimated_hours2"]</expression>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                </structure>
             </list-property>
-            <property name="style">Normal</property>
         </extended-item>
     </body>
 </report>
