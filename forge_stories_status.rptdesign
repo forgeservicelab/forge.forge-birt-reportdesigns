@@ -15,50 +15,12 @@
     </list-property>
     <property name="stories_status.stories.x">135</property>
     <property name="stories_status.stories.y">80</property>
-    <list-property name="propertyBindings">
-        <structure>
-            <property name="name">odaDriverClass</property>
-            <property name="id">7</property>
-        </structure>
-        <structure>
-            <property name="name">odaURL</property>
-            <property name="id">7</property>
-        </structure>
-        <structure>
-            <property name="name">odaUser</property>
-            <property name="id">7</property>
-        </structure>
-        <structure>
-            <property name="name">odaAutoCommit</property>
-            <property name="id">7</property>
-        </structure>
-        <structure>
-            <property name="name">odaIsolationMode</property>
-            <property name="id">7</property>
-        </structure>
-        <structure>
-            <property name="name">odaPassword</property>
-            <property name="id">7</property>
-        </structure>
-        <structure>
-            <property name="name">odaJndiName</property>
-            <property name="id">7</property>
-        </structure>
-        <structure>
-            <property name="name">OdaConnProfileName</property>
-            <property name="id">7</property>
-        </structure>
-        <structure>
-            <property name="name">OdaConnProfileStorePath</property>
-            <property name="id">7</property>
-        </structure>
-    </list-property>
     <property name="units">in</property>
     <property name="iconFile">/templates/blank_report.gif</property>
     <property name="bidiLayoutOrientation">ltr</property>
     <property name="imageDPI">96</property>
     <data-sources>
-        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="redmine_support" id="7">
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="redmine" id="7">
             <list-property name="privateDriverProperties">
                 <ex-property>
                     <name>metadataBidiFormatStr</name>
@@ -80,7 +42,7 @@
             <property name="odaUser">redmine</property>
             <encrypted-property name="odaPassword" encryptionID="base64">TWdxZ3YxYTV4bTY3a19FZA==</encrypted-property>
         </oda-data-source>
-        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="redmine" id="738">
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="redmine_local" id="738">
             <list-property name="privateDriverProperties">
                 <ex-property>
                     <name>metadataBidiFormatStr</name>
@@ -98,16 +60,17 @@
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
-            <property name="odaURL">jdbc:mysql://localhost:3306/redmine_dump</property>
+            <property name="odaURL">jdbc:mysql://localhost:3306/redmine</property>
             <property name="odaUser">redmine</property>
             <encrypted-property name="odaPassword" encryptionID="base64">TWdxZ3YxYTV4bTY3a19FZA==</encrypted-property>
         </oda-data-source>
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="stories" id="8">
+            <property name="nullsOrdering">nulls lowest</property>
             <list-property name="computedColumns">
                 <structure>
-                    <property name="name">total_stories</property>
+                    <property name="name">stories_total</property>
                     <property name="dataType">integer</property>
                     <property name="aggregateFunction">COUNT</property>
                     <list-property name="arguments">
@@ -118,7 +81,7 @@
                     </list-property>
                 </structure>
                 <structure>
-                    <property name="name">open_stories</property>
+                    <property name="name">stories_open</property>
                     <property name="dataType">integer</property>
                     <property name="aggregateFunction">COUNT</property>
                     <list-property name="arguments">
@@ -128,6 +91,18 @@
                         </structure>
                     </list-property>
                     <expression name="filterExpr">row["name"]!="Closed" &amp; row["name"]!="Resolved" &amp; row["name"]!="Rejected"</expression>
+                </structure>
+                <structure>
+                    <property name="name">stories_completed</property>
+                    <property name="dataType">integer</property>
+                    <property name="aggregateFunction">COUNT</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value">row["subject"]</expression>
+                        </structure>
+                    </list-property>
+                    <expression name="filterExpr">row["name"]=="Closed" | row["name"]=="Resolved"</expression>
                 </structure>
             </list-property>
             <list-property name="columnHints">
@@ -142,18 +117,6 @@
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">status</text-property>
                     <text-property name="heading">status</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">story_points</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">story_points</text-property>
-                    <text-property name="heading">story_points</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">estimated_hours</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">estimated_hours</text-property>
-                    <text-property name="heading">estimated_hours</text-property>
                 </structure>
             </list-property>
             <list-property name="parameters"/>
@@ -191,17 +154,22 @@
                     </structure>
                     <structure>
                         <property name="position">7</property>
-                        <property name="name">total_stories</property>
+                        <property name="name">stories_total</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
                         <property name="position">8</property>
-                        <property name="name">open_stories</property>
+                        <property name="name">stories_open</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">stories_completed</property>
                         <property name="dataType">integer</property>
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">redmine</property>
+            <property name="dataSource">redmine_local</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
@@ -640,7 +608,7 @@ Note! FORGE is the container project and contains stories for other projects.
                             <structure>
                                 <property name="name">open_stories</property>
                                 <text-property name="displayName">stories_open</text-property>
-                                <expression name="expression" type="javascript">dataSetRow["open_stories"]/((dataSetRow["total_stories"]-dataSetRow["open_stories"])/((BirtDateTime.diffWeek(new Date("16 Sep 2013"), new Date()))/2))</expression>
+                                <expression name="expression" type="javascript">dataSetRow["stories_open"]/(((BirtDateTime.diffWeek(new Date("16 Sep 2013"), new Date()))/2))</expression>
                                 <property name="dataType">integer</property>
                                 <property name="allowExport">true</property>
                             </structure>
@@ -664,7 +632,7 @@ Note! FORGE is the container project and contains stories for other projects.
                             <structure>
                                 <property name="name">total_stories</property>
                                 <text-property name="displayName">stories_completed</text-property>
-                                <expression name="expression" type="javascript">dataSetRow["total_stories"]-dataSetRow["open_stories"]</expression>
+                                <expression name="expression" type="javascript">dataSetRow["stories_completed"]</expression>
                                 <property name="dataType">integer</property>
                                 <property name="allowExport">true</property>
                             </structure>
@@ -682,7 +650,7 @@ Note! FORGE is the container project and contains stories for other projects.
                             <structure>
                                 <property name="name">open_stories</property>
                                 <text-property name="displayName">stories_open</text-property>
-                                <expression name="expression" type="javascript">dataSetRow["open_stories"]</expression>
+                                <expression name="expression" type="javascript">dataSetRow["stories_open"]</expression>
                                 <property name="dataType">integer</property>
                                 <property name="allowExport">true</property>
                             </structure>
@@ -706,7 +674,7 @@ Note! FORGE is the container project and contains stories for other projects.
                             <structure>
                                 <property name="name">total_stories</property>
                                 <text-property name="displayName">stories_per_sprint</text-property>
-                                <expression name="expression" type="javascript">(dataSetRow["total_stories"]-dataSetRow["open_stories"])/((BirtDateTime.diffWeek(new Date("16 Sep 2013"), new Date()))/2)</expression>
+                                <expression name="expression" type="javascript">dataSetRow["stories_completed"]/((BirtDateTime.diffWeek(new Date("16 Sep 2013"), new Date()))/2)</expression>
                                 <property name="dataType">integer</property>
                                 <property name="allowExport">true</property>
                             </structure>
@@ -967,10 +935,11 @@ Note! FORGE is the container project and contains stories for other projects.
                     <property name="detail">
                         <extended-item extensionName="AggregationCell" id="566">
                             <property name="aggregationOnRow">Group1/status</property>
-                            <property name="width">1.1458333333333333in</property>
+                            <property name="paddingTop">0pt</property>
+                            <property name="paddingBottom">0pt</property>
+                            <property name="width">80pt</property>
                             <property name="content">
-                                <data id="567">
-                                    <property name="textAlign">right</property>
+                                <data id="815">
                                     <property name="resultSetColumn">subject1_Group1/status</property>
                                 </data>
                             </property>
@@ -1152,6 +1121,8 @@ Note! FORGE is the container project and contains stories for other projects.
                                                     <property name="resultSetColumn">status</property>
                                                 </data>
                                             </property>
+                                            <property name="paddingTop">0pt</property>
+                                            <property name="paddingBottom">0pt</property>
                                             <property name="width">1.1666666666666667in</property>
                                         </extended-item>
                                     </property>
@@ -1267,6 +1238,15 @@ Note! FORGE is the container project and contains stories for other projects.
                     <expression name="expression">measure["estimated_hours1"]</expression>
                     <property name="dataType">float</property>
                     <property name="aggregateFunction">SUM</property>
+                </structure>
+                <structure>
+                    <property name="name">subject1_Group1/status_1</property>
+                    <expression name="expression">measure["subject1"]</expression>
+                    <property name="dataType">integer</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>Group1/status</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">sum</property>
                 </structure>
             </list-property>
         </extended-item>
@@ -1615,5 +1595,6 @@ Note! FORGE is the container project and contains stories for other projects.
                 </structure>
             </list-property>
         </extended-item>
+        <data id="812"/>
     </body>
 </report>
