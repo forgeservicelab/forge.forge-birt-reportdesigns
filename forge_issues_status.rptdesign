@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
-    <property name="createdBy">Eclipse BIRT Designer Version 4.3.1.v201309091055 Build &lt;4.3.1.v20130917-1035></property>
+    <property name="createdBy">Eclipse BIRT Designer Version 4.3.2.v20140211-1400 Build &lt;4.3.2.v20140218-1056></property>
     <property name="units">in</property>
     <property name="iconFile">/templates/blank_report.gif</property>
     <property name="bidiLayoutOrientation">ltr</property>
@@ -12,15 +12,6 @@
         </structure>
     </list-property>
     <data-sources>
-        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="redmine" id="8"
- extends="redmine.redmine"/>
-        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="redmine_local" id="9"
- extends="redmine.redmine_local">
-            <property name="odaDriverClass">org.gjt.mm.mysql.Driver</property>
-            <property name="odaURL">jdbc:mysql://localhost:3306/redmine</property>
-            <property name="odaUser">redmine</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">TWdxZ3YxYTV4bTY3a19FZA==</encrypted-property>
-        </oda-data-source>
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="redmine_dump" id="1348"
  extends="redmine.redmine_dump"/>
     </data-sources>
@@ -109,33 +100,33 @@
         </tabular-cube>
         <tabular-cube name="issue_status_per_project_and_type1" id="1070" extends="redmine.issue_status_per_project_and_type">
             <overridden-values>
-                <ref-entry baseId="104" name="Group2" id="1387">
+                <ref-entry baseId="104" name="Group2" id="1426">
                     <property name="defaultHierarchy">NewTabularHierarchy2</property>
                 </ref-entry>
-                <ref-entry baseId="105" name="NewTabularHierarchy2" id="1388"/>
-                <ref-entry baseId="106" name="project" id="1389"/>
-                <ref-entry baseId="107" name="issue_type" id="1390"/>
-                <ref-entry baseId="108" name="issue_status" id="1391"/>
-                <ref-entry baseId="79" name="Summary Field212" id="1392"/>
-                <ref-entry baseId="80" name="issues12" id="1393"/>
-                <ref-entry baseId="81" name="story_points32" id="1394"/>
-                <ref-entry baseId="82" name="estimated_hours32" id="1395"/>
+                <ref-entry baseId="105" name="NewTabularHierarchy2" id="1427"/>
+                <ref-entry baseId="106" name="project" id="1428"/>
+                <ref-entry baseId="107" name="issue_type" id="1429"/>
+                <ref-entry baseId="108" name="issue_status" id="1430"/>
+                <ref-entry baseId="79" name="Summary Field212" id="1431"/>
+                <ref-entry baseId="80" name="issues12" id="1432"/>
+                <ref-entry baseId="81" name="story_points32" id="1433"/>
+                <ref-entry baseId="82" name="estimated_hours32" id="1434"/>
             </overridden-values>
         </tabular-cube>
         <tabular-cube name="issue_status_per_project_and_sprint1" id="1113" extends="redmine.issue_status_per_project_and_sprint">
             <overridden-values>
-                <ref-entry baseId="85" name="issue_type111" id="1396">
+                <ref-entry baseId="85" name="issue_type111" id="1435">
                     <property name="defaultHierarchy">NewTabularHierarchy11111</property>
                 </ref-entry>
-                <ref-entry baseId="86" name="NewTabularHierarchy11111" id="1397"/>
-                <ref-entry baseId="87" name="project" id="1398"/>
-                <ref-entry baseId="94" name="version" id="1399"/>
-                <ref-entry baseId="88" name="issue_type" id="1400"/>
-                <ref-entry baseId="89" name="issue_status" id="1401"/>
-                <ref-entry baseId="90" name="Summary Field2111" id="1402"/>
-                <ref-entry baseId="91" name="issues111" id="1403"/>
-                <ref-entry baseId="92" name="story_points311" id="1404"/>
-                <ref-entry baseId="93" name="estimated_hours311" id="1405"/>
+                <ref-entry baseId="86" name="NewTabularHierarchy11111" id="1436"/>
+                <ref-entry baseId="87" name="project" id="1437"/>
+                <ref-entry baseId="94" name="version" id="1438"/>
+                <ref-entry baseId="88" name="issue_type" id="1439"/>
+                <ref-entry baseId="89" name="issue_status" id="1440"/>
+                <ref-entry baseId="90" name="Summary Field2111" id="1441"/>
+                <ref-entry baseId="91" name="issues111" id="1442"/>
+                <ref-entry baseId="92" name="story_points311" id="1443"/>
+                <ref-entry baseId="93" name="estimated_hours311" id="1444"/>
             </overridden-values>
         </tabular-cube>
     </cubes>
@@ -190,7 +181,7 @@
             <property name="contentType">html</property>
             <text-property name="content"><![CDATA[<H1>FORGE project status report</H1>
 <br>
-Copyright 2013 DIGILE Ltd
+Copyright 2014 DIGILE Ltd
 <br>
 Pasi Kivikangas
 <br>
