@@ -29,6 +29,8 @@
  extends="redmine.stories">
             <property name="dataSource">redmine_dump</property>
         </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="projects" id="1464"
+ extends="redmine.projects"/>
     </data-sets>
     <cubes>
         <tabular-cube name="issue_status" id="548" extends="redmine.issue_status">
@@ -105,33 +107,33 @@
         </tabular-cube>
         <tabular-cube name="issue_status_per_project_and_type1" id="1070" extends="redmine.issue_status_per_project_and_type">
             <overridden-values>
-                <ref-entry baseId="104" name="Group2" id="1426">
+                <ref-entry baseId="104" name="Group2" id="1445">
                     <property name="defaultHierarchy">NewTabularHierarchy2</property>
                 </ref-entry>
-                <ref-entry baseId="105" name="NewTabularHierarchy2" id="1427"/>
-                <ref-entry baseId="106" name="project" id="1428"/>
-                <ref-entry baseId="107" name="issue_type" id="1429"/>
-                <ref-entry baseId="108" name="issue_status" id="1430"/>
-                <ref-entry baseId="79" name="Summary Field212" id="1431"/>
-                <ref-entry baseId="80" name="issues12" id="1432"/>
-                <ref-entry baseId="81" name="story_points32" id="1433"/>
-                <ref-entry baseId="82" name="estimated_hours32" id="1434"/>
+                <ref-entry baseId="105" name="NewTabularHierarchy2" id="1446"/>
+                <ref-entry baseId="106" name="project" id="1447"/>
+                <ref-entry baseId="107" name="issue_type" id="1448"/>
+                <ref-entry baseId="108" name="issue_status" id="1449"/>
+                <ref-entry baseId="79" name="Summary Field212" id="1450"/>
+                <ref-entry baseId="80" name="issues12" id="1451"/>
+                <ref-entry baseId="81" name="story_points32" id="1452"/>
+                <ref-entry baseId="82" name="estimated_hours32" id="1453"/>
             </overridden-values>
         </tabular-cube>
         <tabular-cube name="issue_status_per_project_and_sprint1" id="1113" extends="redmine.issue_status_per_project_and_sprint">
             <overridden-values>
-                <ref-entry baseId="85" name="issue_type111" id="1435">
+                <ref-entry baseId="85" name="issue_type111" id="1454">
                     <property name="defaultHierarchy">NewTabularHierarchy11111</property>
                 </ref-entry>
-                <ref-entry baseId="86" name="NewTabularHierarchy11111" id="1436"/>
-                <ref-entry baseId="87" name="project" id="1437"/>
-                <ref-entry baseId="94" name="version" id="1438"/>
-                <ref-entry baseId="88" name="issue_type" id="1439"/>
-                <ref-entry baseId="89" name="issue_status" id="1440"/>
-                <ref-entry baseId="90" name="Summary Field2111" id="1441"/>
-                <ref-entry baseId="91" name="issues111" id="1442"/>
-                <ref-entry baseId="92" name="story_points311" id="1443"/>
-                <ref-entry baseId="93" name="estimated_hours311" id="1444"/>
+                <ref-entry baseId="86" name="NewTabularHierarchy11111" id="1455"/>
+                <ref-entry baseId="87" name="project" id="1456"/>
+                <ref-entry baseId="94" name="version" id="1457"/>
+                <ref-entry baseId="88" name="issue_type" id="1458"/>
+                <ref-entry baseId="89" name="issue_status" id="1459"/>
+                <ref-entry baseId="90" name="Summary Field2111" id="1460"/>
+                <ref-entry baseId="91" name="issues111" id="1461"/>
+                <ref-entry baseId="92" name="story_points311" id="1462"/>
+                <ref-entry baseId="93" name="estimated_hours311" id="1463"/>
             </overridden-values>
         </tabular-cube>
     </cubes>
