@@ -13,7 +13,12 @@
     </list-property>
     <data-sources>
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="redmine_dump" id="1348"
- extends="redmine.redmine_dump"/>
+ extends="redmine.redmine_dump">
+            <property name="odaDriverClass">org.gjt.mm.mysql.Driver</property>
+            <property name="odaURL">jdbc:mysql://localhost:3306/redmine_dump</property>
+            <property name="odaUser">root</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">b3BrYW1qcnY=</encrypted-property>
+        </oda-data-source>
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="issues" id="10"
