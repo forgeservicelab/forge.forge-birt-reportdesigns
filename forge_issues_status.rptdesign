@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
     <property name="createdBy">Eclipse BIRT Designer Version 4.3.2.v20140211-1400 Build &lt;4.3.2.v20140218-1056></property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">odaDriverClass</property>
+            <property name="id">1348</property>
+        </structure>
+        <structure>
+            <property name="name">odaURL</property>
+            <property name="id">1348</property>
+        </structure>
+        <structure>
+            <property name="name">odaUser</property>
+            <property name="id">1348</property>
+        </structure>
+        <structure>
+            <property name="name">odaAutoCommit</property>
+            <property name="id">1348</property>
+        </structure>
+        <structure>
+            <property name="name">odaIsolationMode</property>
+            <property name="id">1348</property>
+        </structure>
+        <structure>
+            <property name="name">odaPassword</property>
+            <property name="id">1348</property>
+        </structure>
+        <structure>
+            <property name="name">odaJndiName</property>
+            <property name="id">1348</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileName</property>
+            <property name="id">1348</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileStorePath</property>
+            <property name="id">1348</property>
+        </structure>
+    </list-property>
     <property name="units">in</property>
     <property name="iconFile">/templates/blank_report.gif</property>
     <property name="bidiLayoutOrientation">ltr</property>
@@ -16,8 +54,8 @@
  extends="redmine.redmine_dump">
             <property name="odaDriverClass">org.gjt.mm.mysql.Driver</property>
             <property name="odaURL">jdbc:mysql://localhost:3306/redmine_dump</property>
-            <property name="odaUser">root</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">b3BrYW1qcnY=</encrypted-property>
+            <property name="odaUser">piwik</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">cGl3aWs=</encrypted-property>
         </oda-data-source>
     </data-sources>
     <data-sets>
@@ -107,33 +145,33 @@
         </tabular-cube>
         <tabular-cube name="issue_status_per_project_and_type1" id="1070" extends="redmine.issue_status_per_project_and_type">
             <overridden-values>
-                <ref-entry baseId="104" name="Group2" id="1445">
+                <ref-entry baseId="104" name="Group2" id="1503">
                     <property name="defaultHierarchy">NewTabularHierarchy2</property>
                 </ref-entry>
-                <ref-entry baseId="105" name="NewTabularHierarchy2" id="1446"/>
-                <ref-entry baseId="106" name="project" id="1447"/>
-                <ref-entry baseId="107" name="issue_type" id="1448"/>
-                <ref-entry baseId="108" name="issue_status" id="1449"/>
-                <ref-entry baseId="79" name="Summary Field212" id="1450"/>
-                <ref-entry baseId="80" name="issues12" id="1451"/>
-                <ref-entry baseId="81" name="story_points32" id="1452"/>
-                <ref-entry baseId="82" name="estimated_hours32" id="1453"/>
+                <ref-entry baseId="105" name="NewTabularHierarchy2" id="1504"/>
+                <ref-entry baseId="106" name="project" id="1505"/>
+                <ref-entry baseId="107" name="issue_type" id="1506"/>
+                <ref-entry baseId="108" name="issue_status" id="1507"/>
+                <ref-entry baseId="79" name="Summary Field212" id="1508"/>
+                <ref-entry baseId="80" name="issues12" id="1509"/>
+                <ref-entry baseId="81" name="story_points32" id="1510"/>
+                <ref-entry baseId="82" name="estimated_hours32" id="1511"/>
             </overridden-values>
         </tabular-cube>
         <tabular-cube name="issue_status_per_project_and_sprint1" id="1113" extends="redmine.issue_status_per_project_and_sprint">
             <overridden-values>
-                <ref-entry baseId="85" name="issue_type111" id="1454">
+                <ref-entry baseId="85" name="issue_type111" id="1512">
                     <property name="defaultHierarchy">NewTabularHierarchy11111</property>
                 </ref-entry>
-                <ref-entry baseId="86" name="NewTabularHierarchy11111" id="1455"/>
-                <ref-entry baseId="87" name="project" id="1456"/>
-                <ref-entry baseId="94" name="version" id="1457"/>
-                <ref-entry baseId="88" name="issue_type" id="1458"/>
-                <ref-entry baseId="89" name="issue_status" id="1459"/>
-                <ref-entry baseId="90" name="Summary Field2111" id="1460"/>
-                <ref-entry baseId="91" name="issues111" id="1461"/>
-                <ref-entry baseId="92" name="story_points311" id="1462"/>
-                <ref-entry baseId="93" name="estimated_hours311" id="1463"/>
+                <ref-entry baseId="86" name="NewTabularHierarchy11111" id="1513"/>
+                <ref-entry baseId="87" name="project" id="1514"/>
+                <ref-entry baseId="94" name="version" id="1515"/>
+                <ref-entry baseId="88" name="issue_type" id="1516"/>
+                <ref-entry baseId="89" name="issue_status" id="1517"/>
+                <ref-entry baseId="90" name="Summary Field2111" id="1518"/>
+                <ref-entry baseId="91" name="issues111" id="1519"/>
+                <ref-entry baseId="92" name="story_points311" id="1520"/>
+                <ref-entry baseId="93" name="estimated_hours311" id="1521"/>
             </overridden-values>
         </tabular-cube>
     </cubes>
