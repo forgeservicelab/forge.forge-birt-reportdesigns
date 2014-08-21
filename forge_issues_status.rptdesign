@@ -145,33 +145,33 @@
         </tabular-cube>
         <tabular-cube name="issue_status_per_project_and_type1" id="1070" extends="redmine.issue_status_per_project_and_type">
             <overridden-values>
-                <ref-entry baseId="104" name="Group2" id="1503">
+                <ref-entry baseId="104" name="Group2" id="1523">
                     <property name="defaultHierarchy">NewTabularHierarchy2</property>
                 </ref-entry>
-                <ref-entry baseId="105" name="NewTabularHierarchy2" id="1504"/>
-                <ref-entry baseId="106" name="project" id="1505"/>
-                <ref-entry baseId="107" name="issue_type" id="1506"/>
-                <ref-entry baseId="108" name="issue_status" id="1507"/>
-                <ref-entry baseId="79" name="Summary Field212" id="1508"/>
-                <ref-entry baseId="80" name="issues12" id="1509"/>
-                <ref-entry baseId="81" name="story_points32" id="1510"/>
-                <ref-entry baseId="82" name="estimated_hours32" id="1511"/>
+                <ref-entry baseId="105" name="NewTabularHierarchy2" id="1524"/>
+                <ref-entry baseId="106" name="project" id="1525"/>
+                <ref-entry baseId="107" name="issue_type" id="1526"/>
+                <ref-entry baseId="108" name="issue_status" id="1527"/>
+                <ref-entry baseId="79" name="Summary Field212" id="1528"/>
+                <ref-entry baseId="80" name="issues12" id="1529"/>
+                <ref-entry baseId="81" name="story_points32" id="1530"/>
+                <ref-entry baseId="82" name="estimated_hours32" id="1531"/>
             </overridden-values>
         </tabular-cube>
         <tabular-cube name="issue_status_per_project_and_sprint1" id="1113" extends="redmine.issue_status_per_project_and_sprint">
             <overridden-values>
-                <ref-entry baseId="85" name="issue_type111" id="1512">
+                <ref-entry baseId="85" name="issue_type111" id="1532">
                     <property name="defaultHierarchy">NewTabularHierarchy11111</property>
                 </ref-entry>
-                <ref-entry baseId="86" name="NewTabularHierarchy11111" id="1513"/>
-                <ref-entry baseId="87" name="project" id="1514"/>
-                <ref-entry baseId="94" name="version" id="1515"/>
-                <ref-entry baseId="88" name="issue_type" id="1516"/>
-                <ref-entry baseId="89" name="issue_status" id="1517"/>
-                <ref-entry baseId="90" name="Summary Field2111" id="1518"/>
-                <ref-entry baseId="91" name="issues111" id="1519"/>
-                <ref-entry baseId="92" name="story_points311" id="1520"/>
-                <ref-entry baseId="93" name="estimated_hours311" id="1521"/>
+                <ref-entry baseId="86" name="NewTabularHierarchy11111" id="1533"/>
+                <ref-entry baseId="87" name="project" id="1534"/>
+                <ref-entry baseId="94" name="version" id="1535"/>
+                <ref-entry baseId="88" name="issue_type" id="1536"/>
+                <ref-entry baseId="89" name="issue_status" id="1537"/>
+                <ref-entry baseId="90" name="Summary Field2111" id="1538"/>
+                <ref-entry baseId="91" name="issues111" id="1539"/>
+                <ref-entry baseId="92" name="story_points311" id="1540"/>
+                <ref-entry baseId="93" name="estimated_hours311" id="1541"/>
             </overridden-values>
         </tabular-cube>
     </cubes>
