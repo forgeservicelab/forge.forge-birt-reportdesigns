@@ -14,8 +14,6 @@
     <data-sources>
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="redmine_production" id="1599"
  extends="redmine.redmine_production"/>
-        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="redmine_dump" id="1600"
- extends="redmine.redmine_dump"/>
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="issues" id="10"
