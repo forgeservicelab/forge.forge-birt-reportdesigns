@@ -2385,7 +2385,7 @@ from public.capasity]]></xml-property>
           </Insets>
           <Visible>true</Visible>
         </Title>
-        <TitlePosition>Below</TitlePosition>
+        <TitlePosition>Above</TitlePosition>
         <LeaderLineAttributes>
           <Style>Solid</Style>
           <Thickness>1</Thickness>
@@ -2685,7 +2685,7 @@ from public.capasity]]></xml-property>
           </Insets>
           <Visible>true</Visible>
         </Title>
-        <TitlePosition>Below</TitlePosition>
+        <TitlePosition>Above</TitlePosition>
         <LeaderLineAttributes>
           <Style>Solid</Style>
           <Thickness>1</Thickness>
@@ -2985,7 +2985,7 @@ from public.capasity]]></xml-property>
           </Insets>
           <Visible>true</Visible>
         </Title>
-        <TitlePosition>Below</TitlePosition>
+        <TitlePosition>Above</TitlePosition>
         <LeaderLineAttributes>
           <Style>Solid</Style>
           <Thickness>1</Thickness>
