@@ -3193,7 +3193,7 @@ from public.capasity]]></xml-property>
       <Visible>true</Visible>
       <Label>
         <Caption>
-          <Value>VCPUs (Usage vs. Quota)</Value>
+          <Value>VCPUs</Value>
           <Font>
             <Size>16.0</Size>
             <Bold>true</Bold>
@@ -3308,6 +3308,33 @@ from public.capasity]]></xml-property>
         <Visible>false</Visible>
       </Outline>
       <Visible>true</Visible>
+      <Triggers>
+        <Condition>onclick</Condition>
+        <Action>
+          <Type>URL_Redirect</Type>
+          <Value xsi:type="attribute:MultiURLValues">
+            <PropertiesMap>
+              <Key>MenuItem</Key>
+              <Value>color:Black;fontSize:10pt;paddingLeft:10px;paddingRight:10px;paddingTop:2px;paddingBottom:2px</Value>
+            </PropertiesMap>
+            <PropertiesMap>
+              <Key>Menu</Key>
+              <Value>zIndex:99999;backgroundColor:#FAFFF8;width:auto;height:auto;border:1px solid #333333;filter:progid:DXImageTransform.Microsoft.Shadow(Color:#333333,Direction=120,strength=5)</Value>
+            </PropertiesMap>
+            <PropertiesMap>
+              <Key>OnMouseOut</Key>
+              <Value>backgroundColor:#FAFFF8;color:#000000</Value>
+            </PropertiesMap>
+            <PropertiesMap>
+              <Key>OnMouseOver</Key>
+              <Value>backgroundColor:#245DDB;color:#FFFFFF</Value>
+            </PropertiesMap>
+          </Value>
+        </Action>
+      </Triggers>
+      <Cursor>
+        <Type>Auto</Type>
+      </Cursor>
       <ClientArea>
         <Outline>
           <Style>Solid</Style>
@@ -3378,7 +3405,7 @@ from public.capasity]]></xml-property>
           <Bottom>0.0</Bottom>
           <Right>3.0</Right>
         </Insets>
-        <Visible>true</Visible>
+        <Visible>false</Visible>
       </Title>
       <TitlePosition>Above</TitlePosition>
     </Children>
@@ -3776,7 +3803,7 @@ from public.capasity]]></xml-property>
               <AggregateExpression>Sum</AggregateExpression>
             </Grouping>
           </DataDefinition>
-          <SeriesIdentifier>Series 1</SeriesIdentifier>
+          <SeriesIdentifier>Quota</SeriesIdentifier>
           <DataPoint>
             <Components>
               <Type>Orthogonal_Value</Type>
@@ -4036,7 +4063,7 @@ from public.capasity]]></xml-property>
               <AggregateExpression>Sum</AggregateExpression>
             </Grouping>
           </DataDefinition>
-          <SeriesIdentifier>Series 2</SeriesIdentifier>
+          <SeriesIdentifier>Usage</SeriesIdentifier>
           <DataPoint>
             <Components>
               <Type>Orthogonal_Value</Type>
@@ -4642,7 +4669,7 @@ from public.capasity]]></xml-property>
       <Visible>true</Visible>
       <Label>
         <Caption>
-          <Value>Memory MB (Usage vs. Quota)</Value>
+          <Value>Memory MB</Value>
           <Font>
             <Size>16.0</Size>
             <Bold>true</Bold>
@@ -4827,7 +4854,7 @@ from public.capasity]]></xml-property>
           <Bottom>0.0</Bottom>
           <Right>3.0</Right>
         </Insets>
-        <Visible>true</Visible>
+        <Visible>false</Visible>
       </Title>
       <TitlePosition>Above</TitlePosition>
       <ShowValue>false</ShowValue>
@@ -5226,7 +5253,7 @@ from public.capasity]]></xml-property>
               <AggregateExpression>Sum</AggregateExpression>
             </Grouping>
           </DataDefinition>
-          <SeriesIdentifier>Series 1</SeriesIdentifier>
+          <SeriesIdentifier>Quota</SeriesIdentifier>
           <DataPoint>
             <Components>
               <Type>Orthogonal_Value</Type>
@@ -5486,7 +5513,7 @@ from public.capasity]]></xml-property>
               <AggregateExpression>Sum</AggregateExpression>
             </Grouping>
           </DataDefinition>
-          <SeriesIdentifier>Series 2</SeriesIdentifier>
+          <SeriesIdentifier>Usage</SeriesIdentifier>
           <DataPoint>
             <Components>
               <Type>Orthogonal_Value</Type>
@@ -6092,7 +6119,7 @@ from public.capasity]]></xml-property>
       <Visible>true</Visible>
       <Label>
         <Caption>
-          <Value>Instances (Usage vs. Quota)</Value>
+          <Value>Instances</Value>
           <Font>
             <Size>16.0</Size>
             <Bold>true</Bold>
@@ -6280,7 +6307,7 @@ from public.capasity]]></xml-property>
           <Bottom>0.0</Bottom>
           <Right>3.0</Right>
         </Insets>
-        <Visible>true</Visible>
+        <Visible>false</Visible>
       </Title>
       <TitlePosition>Above</TitlePosition>
       <ShowValue>false</ShowValue>
@@ -6681,7 +6708,7 @@ from public.capasity]]></xml-property>
               <AggregateExpression>Sum</AggregateExpression>
             </Grouping>
           </DataDefinition>
-          <SeriesIdentifier>Series 1</SeriesIdentifier>
+          <SeriesIdentifier>Quota</SeriesIdentifier>
           <DataPoint>
             <Components>
               <Type>Orthogonal_Value</Type>
@@ -6941,7 +6968,7 @@ from public.capasity]]></xml-property>
               <AggregateExpression>Sum</AggregateExpression>
             </Grouping>
           </DataDefinition>
-          <SeriesIdentifier>Series 2</SeriesIdentifier>
+          <SeriesIdentifier>Usage</SeriesIdentifier>
           <DataPoint>
             <Components>
               <Type>Orthogonal_Value</Type>
