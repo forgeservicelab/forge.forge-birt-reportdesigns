@@ -1374,7 +1374,11 @@ order by public.usage.date
                     <property name="fontWeight">bold</property>
                     <property name="borderTopStyle">solid</property>
                     <property name="borderTopWidth">thin</property>
-                    <cell id="813"/>
+                    <cell id="813">
+                        <label id="824">
+                            <text-property name="text">dsetUsage::date</text-property>
+                        </label>
+                    </cell>
                     <cell id="814">
                         <property name="colSpan">2</property>
                         <property name="rowSpan">1</property>
@@ -1442,7 +1446,11 @@ order by public.usage.date
             <detail>
                 <row id="779">
                     <property name="textAlign">right</property>
-                    <cell id="780"/>
+                    <cell id="780">
+                        <data id="825">
+                            <property name="resultSetColumn">dsetUsage::date</property>
+                        </data>
+                    </cell>
                     <cell id="782">
                         <data id="783">
                             <property name="resultSetColumn">dsetUsage::vcpus</property>
