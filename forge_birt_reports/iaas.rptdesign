@@ -483,7 +483,7 @@ sum(public.usage.vcpus) as vcpus,
 sum(public.usage.memory_mb) as memory_mb,
 count(public.usage.instance_id) as instances
 from public.usage
-where public.usage.date = (select max(public.usage.date) from public.usage)
+where public.usage.date = (select max(public.usage.date) from public.usage) and public.usage.state like 'active'
 group by public.usage.project]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
@@ -1269,11 +1269,17 @@ from public.capasity]]></xml-property>
         </simple-master-page>
     </page-setup>
     <body>
+        <text id="914">
+            <property name="contentType">html</property>
+            <text-property name="content"><![CDATA[<H1>
+FORGE IaaS usage statistics based on active instances
+</H1>]]></text-property>
+        </text>
         <label id="911">
             <property name="fontWeight">bold</property>
             <property name="textAlign">left</property>
             <property name="display">inline</property>
-            <text-property name="text">Situation at</text-property>
+            <text-property name="text">Situation in</text-property>
         </label>
         <data id="758">
             <property name="fontWeight">bold</property>
@@ -1623,6 +1629,9 @@ from public.capasity]]></xml-property>
         <Visible>false</Visible>
       </Outline>
       <Visible>true</Visible>
+      <Cursor>
+        <Type>Auto</Type>
+      </Cursor>
       <Label>
         <Caption>
           <Value>Usage</Value>
@@ -1845,6 +1854,9 @@ from public.capasity]]></xml-property>
       <Visible>false</Visible>
     </Outline>
     <Visible>true</Visible>
+    <Cursor>
+      <Type>Auto</Type>
+    </Cursor>
   </Block>
   <Dimension>Two_Dimensional</Dimension>
   <Units>Points</Units>

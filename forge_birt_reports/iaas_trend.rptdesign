@@ -1032,7 +1032,7 @@ sum(public.usage.vcpus) as vcpus,
 sum(public.usage.memory_mb) as memory_mb,
 count(public.usage.instance_id) as instances
 from public.usage
-where public.usage.project like ?
+where public.usage.project like ? and public.usage.state like 'active'
 group by public.usage.date
 order by public.usage.date
 ]]></xml-property>
@@ -1300,8 +1300,20 @@ order by public.usage.date
         </simple-master-page>
     </page-setup>
     <body>
+        <text id="914">
+            <property name="contentType">html</property>
+            <text-property name="content"><![CDATA[<H1>
+Project's usage statistics based on active instances
+</H1>]]></text-property>
+        </text>
+        <label id="915">
+            <property name="fontWeight">bold</property>
+            <property name="display">inline</property>
+            <text-property name="text">Project</text-property>
+        </label>
         <data id="823">
             <property name="fontWeight">bold</property>
+            <property name="display">inline</property>
             <list-property name="boundDataColumns">
                 <structure>
                     <property name="name">rprmProject</property>
@@ -1374,11 +1386,7 @@ order by public.usage.date
                     <property name="fontWeight">bold</property>
                     <property name="borderTopStyle">solid</property>
                     <property name="borderTopWidth">thin</property>
-                    <cell id="813">
-                        <label id="824">
-                            <text-property name="text">dsetUsage::date</text-property>
-                        </label>
-                    </cell>
+                    <cell id="813"/>
                     <cell id="814">
                         <property name="colSpan">2</property>
                         <property name="rowSpan">1</property>
