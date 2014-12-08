@@ -2347,7 +2347,7 @@ FORGE IaaS usage statistics based on active instances
         <SeriesIdentifier>VCPUs</SeriesIdentifier>
         <DataPoint>
           <Components>
-            <Type>Orthogonal_Value</Type>
+            <Type>Base_Value</Type>
           </Components>
           <Separator>, </Separator>
         </DataPoint>
@@ -2360,6 +2360,56 @@ FORGE IaaS usage statistics based on active instances
             <Value xsi:type="attribute:TooltipValue">
               <Text></Text>
               <Delay>200</Delay>
+            </Value>
+          </Action>
+        </Triggers>
+        <Triggers>
+          <Condition>onclick</Condition>
+          <Action>
+            <Type>URL_Redirect</Type>
+            <Value xsi:type="attribute:MultiURLValues">
+              <URLValues>
+                <Label>
+                  <Caption>
+                    <Value>Project</Value>
+                  </Caption>
+                </Label>
+                <BaseUrl>&lt;structure>
+    &lt;property name=&quot;linkType&quot;>drill-through&lt;/property>
+    &lt;property name=&quot;reportName&quot;>iaas_trend.rptdesign&lt;/property>
+    &lt;property name=&quot;targetWindow&quot;>_self&lt;/property>
+    &lt;property name=&quot;targetFileType&quot;>report-design&lt;/property>
+    &lt;list-property name=&quot;paramBindings&quot;>
+        &lt;structure>
+            &lt;property name=&quot;paramName&quot;>rprmProject&lt;/property>
+            &lt;simple-property-list name=&quot;expression&quot;>
+                &lt;value type=&quot;javascript&quot;>row[&quot;dsetJointUsageQuota::dsetUsage::project&quot;]&lt;/value>
+            &lt;/simple-property-list>
+        &lt;/structure>
+    &lt;/list-property>
+&lt;/structure>
+</BaseUrl>
+                <BaseParameterName></BaseParameterName>
+                <ValueParameterName></ValueParameterName>
+                <SeriesParameterName></SeriesParameterName>
+              </URLValues>
+              <Tooltip></Tooltip>
+              <PropertiesMap>
+                <Key>MenuItem</Key>
+                <Value>color:Black;fontSize:10pt;paddingLeft:10px;paddingRight:10px;paddingTop:2px;paddingBottom:2px</Value>
+              </PropertiesMap>
+              <PropertiesMap>
+                <Key>Menu</Key>
+                <Value>zIndex:99999;backgroundColor:#FAFFF8;width:auto;height:auto;border:1px solid #333333;filter:progid:DXImageTransform.Microsoft.Shadow(Color:#333333,Direction=120,strength=5)</Value>
+              </PropertiesMap>
+              <PropertiesMap>
+                <Key>OnMouseOut</Key>
+                <Value>backgroundColor:#FAFFF8;color:#000000</Value>
+              </PropertiesMap>
+              <PropertiesMap>
+                <Key>OnMouseOver</Key>
+                <Value>backgroundColor:#245DDB;color:#FFFFFF</Value>
+              </PropertiesMap>
             </Value>
           </Action>
         </Triggers>
@@ -2647,7 +2697,7 @@ FORGE IaaS usage statistics based on active instances
         <SeriesIdentifier>Memory MB</SeriesIdentifier>
         <DataPoint>
           <Components>
-            <Type>Orthogonal_Value</Type>
+            <Type>Base_Value</Type>
           </Components>
           <Separator>, </Separator>
         </DataPoint>
@@ -2660,6 +2710,55 @@ FORGE IaaS usage statistics based on active instances
             <Value xsi:type="attribute:TooltipValue">
               <Text></Text>
               <Delay>200</Delay>
+            </Value>
+          </Action>
+        </Triggers>
+        <Triggers>
+          <Condition>onclick</Condition>
+          <Action>
+            <Type>URL_Redirect</Type>
+            <Value xsi:type="attribute:MultiURLValues">
+              <URLValues>
+                <Label>
+                  <Caption>
+                    <Value>Project</Value>
+                  </Caption>
+                </Label>
+                <BaseUrl>&lt;structure>
+    &lt;property name=&quot;linkType&quot;>drill-through&lt;/property>
+    &lt;property name=&quot;reportName&quot;>iaas_trend.rptdesign&lt;/property>
+    &lt;property name=&quot;targetWindow&quot;>_self&lt;/property>
+    &lt;property name=&quot;targetFileType&quot;>report-design&lt;/property>
+    &lt;list-property name=&quot;paramBindings&quot;>
+        &lt;structure>
+            &lt;property name=&quot;paramName&quot;>rprmProject&lt;/property>
+            &lt;simple-property-list name=&quot;expression&quot;>
+                &lt;value type=&quot;javascript&quot;>row[&quot;dsetJointUsageQuota::dsetUsage::project&quot;]&lt;/value>
+            &lt;/simple-property-list>
+        &lt;/structure>
+    &lt;/list-property>
+&lt;/structure>
+</BaseUrl>
+                <BaseParameterName></BaseParameterName>
+                <ValueParameterName></ValueParameterName>
+                <SeriesParameterName></SeriesParameterName>
+              </URLValues>
+              <PropertiesMap>
+                <Key>MenuItem</Key>
+                <Value>color:Black;fontSize:10pt;paddingLeft:10px;paddingRight:10px;paddingTop:2px;paddingBottom:2px</Value>
+              </PropertiesMap>
+              <PropertiesMap>
+                <Key>Menu</Key>
+                <Value>zIndex:99999;backgroundColor:#FAFFF8;width:auto;height:auto;border:1px solid #333333;filter:progid:DXImageTransform.Microsoft.Shadow(Color:#333333,Direction=120,strength=5)</Value>
+              </PropertiesMap>
+              <PropertiesMap>
+                <Key>OnMouseOut</Key>
+                <Value>backgroundColor:#FAFFF8;color:#000000</Value>
+              </PropertiesMap>
+              <PropertiesMap>
+                <Key>OnMouseOver</Key>
+                <Value>backgroundColor:#245DDB;color:#FFFFFF</Value>
+              </PropertiesMap>
             </Value>
           </Action>
         </Triggers>
@@ -2947,7 +3046,7 @@ FORGE IaaS usage statistics based on active instances
         <SeriesIdentifier>Instances</SeriesIdentifier>
         <DataPoint>
           <Components>
-            <Type>Orthogonal_Value</Type>
+            <Type>Base_Value</Type>
           </Components>
           <Separator>, </Separator>
         </DataPoint>
@@ -2960,6 +3059,55 @@ FORGE IaaS usage statistics based on active instances
             <Value xsi:type="attribute:TooltipValue">
               <Text></Text>
               <Delay>200</Delay>
+            </Value>
+          </Action>
+        </Triggers>
+        <Triggers>
+          <Condition>onclick</Condition>
+          <Action>
+            <Type>URL_Redirect</Type>
+            <Value xsi:type="attribute:MultiURLValues">
+              <URLValues>
+                <Label>
+                  <Caption>
+                    <Value>Project</Value>
+                  </Caption>
+                </Label>
+                <BaseUrl>&lt;structure>
+    &lt;property name=&quot;linkType&quot;>drill-through&lt;/property>
+    &lt;property name=&quot;reportName&quot;>iaas_trend.rptdesign&lt;/property>
+    &lt;property name=&quot;targetWindow&quot;>_self&lt;/property>
+    &lt;property name=&quot;targetFileType&quot;>report-design&lt;/property>
+    &lt;list-property name=&quot;paramBindings&quot;>
+        &lt;structure>
+            &lt;property name=&quot;paramName&quot;>rprmProject&lt;/property>
+            &lt;simple-property-list name=&quot;expression&quot;>
+                &lt;value type=&quot;javascript&quot;>row[&quot;dsetJointUsageQuota::dsetUsage::project&quot;]&lt;/value>
+            &lt;/simple-property-list>
+        &lt;/structure>
+    &lt;/list-property>
+&lt;/structure>
+</BaseUrl>
+                <BaseParameterName></BaseParameterName>
+                <ValueParameterName></ValueParameterName>
+                <SeriesParameterName></SeriesParameterName>
+              </URLValues>
+              <PropertiesMap>
+                <Key>MenuItem</Key>
+                <Value>color:Black;fontSize:10pt;paddingLeft:10px;paddingRight:10px;paddingTop:2px;paddingBottom:2px</Value>
+              </PropertiesMap>
+              <PropertiesMap>
+                <Key>Menu</Key>
+                <Value>zIndex:99999;backgroundColor:#FAFFF8;width:auto;height:auto;border:1px solid #333333;filter:progid:DXImageTransform.Microsoft.Shadow(Color:#333333,Direction=120,strength=5)</Value>
+              </PropertiesMap>
+              <PropertiesMap>
+                <Key>OnMouseOut</Key>
+                <Value>backgroundColor:#FAFFF8;color:#000000</Value>
+              </PropertiesMap>
+              <PropertiesMap>
+                <Key>OnMouseOver</Key>
+                <Value>backgroundColor:#245DDB;color:#FFFFFF</Value>
+              </PropertiesMap>
             </Value>
           </Action>
         </Triggers>
@@ -3066,6 +3214,22 @@ FORGE IaaS usage statistics based on active instances
 </model:ChartWithoutAxes>
 ]]></xml-property>
             <property name="outputFormat">SVG</property>
+            <list-property name="action">
+                <structure>
+                    <property name="targetWindow">_self</property>
+                    <property name="linkType">drill-through</property>
+                    <property name="targetFileType">report-design</property>
+                    <property name="reportName">iaas_trend.rptdesign</property>
+                    <list-property name="paramBindings">
+                        <structure>
+                            <property name="paramName">rprmProject</property>
+                            <simple-property-list name="expression">
+                                <value type="javascript">row["dsetJointUsageQuota::dsetUsage::project"]</value>
+                            </simple-property-list>
+                        </structure>
+                    </list-property>
+                </structure>
+            </list-property>
             <property name="inheritColumns">false</property>
             <property name="height">150mm</property>
             <property name="width">200mm</property>
@@ -3834,6 +3998,55 @@ FORGE IaaS usage statistics based on active instances
               </Value>
             </Action>
           </Triggers>
+          <Triggers>
+            <Condition>onclick</Condition>
+            <Action>
+              <Type>URL_Redirect</Type>
+              <Value xsi:type="attribute:MultiURLValues">
+                <URLValues>
+                  <Label>
+                    <Caption>
+                      <Value>Project</Value>
+                    </Caption>
+                  </Label>
+                  <BaseUrl>&lt;structure>
+    &lt;property name=&quot;linkType&quot;>drill-through&lt;/property>
+    &lt;property name=&quot;reportName&quot;>iaas_trend.rptdesign&lt;/property>
+    &lt;property name=&quot;targetWindow&quot;>_self&lt;/property>
+    &lt;property name=&quot;targetFileType&quot;>report-design&lt;/property>
+    &lt;list-property name=&quot;paramBindings&quot;>
+        &lt;structure>
+            &lt;property name=&quot;paramName&quot;>rprmProject&lt;/property>
+            &lt;simple-property-list name=&quot;expression&quot;>
+                &lt;value type=&quot;javascript&quot;>row[&quot;dsetJointUsageQuota::dsetUsage::project&quot;]&lt;/value>
+            &lt;/simple-property-list>
+        &lt;/structure>
+    &lt;/list-property>
+&lt;/structure>
+</BaseUrl>
+                  <BaseParameterName></BaseParameterName>
+                  <ValueParameterName></ValueParameterName>
+                  <SeriesParameterName></SeriesParameterName>
+                </URLValues>
+                <PropertiesMap>
+                  <Key>MenuItem</Key>
+                  <Value>color:Black;fontSize:10pt;paddingLeft:10px;paddingRight:10px;paddingTop:2px;paddingBottom:2px</Value>
+                </PropertiesMap>
+                <PropertiesMap>
+                  <Key>Menu</Key>
+                  <Value>zIndex:99999;backgroundColor:#FAFFF8;width:auto;height:auto;border:1px solid #333333;filter:progid:DXImageTransform.Microsoft.Shadow(Color:#333333,Direction=120,strength=5)</Value>
+                </PropertiesMap>
+                <PropertiesMap>
+                  <Key>OnMouseOut</Key>
+                  <Value>backgroundColor:#FAFFF8;color:#000000</Value>
+                </PropertiesMap>
+                <PropertiesMap>
+                  <Key>OnMouseOver</Key>
+                  <Value>backgroundColor:#245DDB;color:#FFFFFF</Value>
+                </PropertiesMap>
+              </Value>
+            </Action>
+          </Triggers>
           <Riser>Rectangle</Riser>
         </Series>
         <Grouping>
@@ -4094,6 +4307,55 @@ FORGE IaaS usage statistics based on active instances
               </Value>
             </Action>
           </Triggers>
+          <Triggers>
+            <Condition>onclick</Condition>
+            <Action>
+              <Type>URL_Redirect</Type>
+              <Value xsi:type="attribute:MultiURLValues">
+                <URLValues>
+                  <Label>
+                    <Caption>
+                      <Value>Project</Value>
+                    </Caption>
+                  </Label>
+                  <BaseUrl>&lt;structure>
+    &lt;property name=&quot;linkType&quot;>drill-through&lt;/property>
+    &lt;property name=&quot;reportName&quot;>iaas_trend.rptdesign&lt;/property>
+    &lt;property name=&quot;targetWindow&quot;>_self&lt;/property>
+    &lt;property name=&quot;targetFileType&quot;>report-design&lt;/property>
+    &lt;list-property name=&quot;paramBindings&quot;>
+        &lt;structure>
+            &lt;property name=&quot;paramName&quot;>rprmProject&lt;/property>
+            &lt;simple-property-list name=&quot;expression&quot;>
+                &lt;value type=&quot;javascript&quot;>row[&quot;dsetJointUsageQuota::dsetUsage::project&quot;]&lt;/value>
+            &lt;/simple-property-list>
+        &lt;/structure>
+    &lt;/list-property>
+&lt;/structure>
+</BaseUrl>
+                  <BaseParameterName></BaseParameterName>
+                  <ValueParameterName></ValueParameterName>
+                  <SeriesParameterName></SeriesParameterName>
+                </URLValues>
+                <PropertiesMap>
+                  <Key>MenuItem</Key>
+                  <Value>color:Black;fontSize:10pt;paddingLeft:10px;paddingRight:10px;paddingTop:2px;paddingBottom:2px</Value>
+                </PropertiesMap>
+                <PropertiesMap>
+                  <Key>Menu</Key>
+                  <Value>zIndex:99999;backgroundColor:#FAFFF8;width:auto;height:auto;border:1px solid #333333;filter:progid:DXImageTransform.Microsoft.Shadow(Color:#333333,Direction=120,strength=5)</Value>
+                </PropertiesMap>
+                <PropertiesMap>
+                  <Key>OnMouseOut</Key>
+                  <Value>backgroundColor:#FAFFF8;color:#000000</Value>
+                </PropertiesMap>
+                <PropertiesMap>
+                  <Key>OnMouseOver</Key>
+                  <Value>backgroundColor:#245DDB;color:#FFFFFF</Value>
+                </PropertiesMap>
+              </Value>
+            </Action>
+          </Triggers>
           <Riser>Rectangle</Riser>
         </Series>
         <Grouping>
@@ -4145,6 +4407,30 @@ FORGE IaaS usage statistics based on active instances
         <Visible>true</Visible>
       </Label>
       <LabelPosition>Left</LabelPosition>
+      <Triggers>
+        <Condition>onclick</Condition>
+        <Action>
+          <Type>URL_Redirect</Type>
+          <Value xsi:type="attribute:MultiURLValues">
+            <PropertiesMap>
+              <Key>MenuItem</Key>
+              <Value>color:Black;fontSize:10pt;paddingLeft:10px;paddingRight:10px;paddingTop:2px;paddingBottom:2px</Value>
+            </PropertiesMap>
+            <PropertiesMap>
+              <Key>Menu</Key>
+              <Value>zIndex:99999;backgroundColor:#FAFFF8;width:auto;height:auto;border:1px solid #333333;filter:progid:DXImageTransform.Microsoft.Shadow(Color:#333333,Direction=120,strength=5)</Value>
+            </PropertiesMap>
+            <PropertiesMap>
+              <Key>OnMouseOut</Key>
+              <Value>backgroundColor:#FAFFF8;color:#000000</Value>
+            </PropertiesMap>
+            <PropertiesMap>
+              <Key>OnMouseOver</Key>
+              <Value>backgroundColor:#245DDB;color:#FFFFFF</Value>
+            </PropertiesMap>
+          </Value>
+        </Action>
+      </Triggers>
       <MajorGrid>
         <LineAttributes>
           <Style>Solid</Style>
@@ -4206,6 +4492,9 @@ FORGE IaaS usage statistics based on active instances
       </Origin>
       <PrimaryAxis>true</PrimaryAxis>
       <Percent>false</Percent>
+      <Cursor>
+        <Type>Auto</Type>
+      </Cursor>
     </AssociatedAxes>
     <SeriesDefinitions>
       <Query>
@@ -4572,6 +4861,22 @@ FORGE IaaS usage statistics based on active instances
 </model:ChartWithAxes>
 ]]></xml-property>
             <property name="outputFormat">SVG</property>
+            <list-property name="action">
+                <structure>
+                    <property name="targetWindow">_self</property>
+                    <property name="linkType">drill-through</property>
+                    <property name="targetFileType">report-design</property>
+                    <property name="reportName">iaas_trend.rptdesign</property>
+                    <list-property name="paramBindings">
+                        <structure>
+                            <property name="paramName">rprmProject</property>
+                            <simple-property-list name="expression">
+                                <value type="javascript">row["dsetJointUsageQuota::dsetUsage::project"]</value>
+                            </simple-property-list>
+                        </structure>
+                    </list-property>
+                </structure>
+            </list-property>
             <property name="inheritColumns">false</property>
             <property name="height">150mm</property>
             <property name="width">200mm</property>
@@ -4679,6 +4984,9 @@ FORGE IaaS usage statistics based on active instances
         <Visible>false</Visible>
       </Outline>
       <Visible>true</Visible>
+      <Cursor>
+        <Type>Auto</Type>
+      </Cursor>
       <Label>
         <Caption>
           <Value>Memory MB</Value>
@@ -5284,6 +5592,55 @@ FORGE IaaS usage statistics based on active instances
               </Value>
             </Action>
           </Triggers>
+          <Triggers>
+            <Condition>onclick</Condition>
+            <Action>
+              <Type>URL_Redirect</Type>
+              <Value xsi:type="attribute:MultiURLValues">
+                <URLValues>
+                  <Label>
+                    <Caption>
+                      <Value>Project</Value>
+                    </Caption>
+                  </Label>
+                  <BaseUrl>&lt;structure>
+    &lt;property name=&quot;linkType&quot;>drill-through&lt;/property>
+    &lt;property name=&quot;reportName&quot;>iaas_trend.rptdesign&lt;/property>
+    &lt;property name=&quot;targetWindow&quot;>_self&lt;/property>
+    &lt;property name=&quot;targetFileType&quot;>report-design&lt;/property>
+    &lt;list-property name=&quot;paramBindings&quot;>
+        &lt;structure>
+            &lt;property name=&quot;paramName&quot;>rprmProject&lt;/property>
+            &lt;simple-property-list name=&quot;expression&quot;>
+                &lt;value type=&quot;javascript&quot;>row[&quot;dsetJointUsageQuota::dsetUsage::project&quot;]&lt;/value>
+            &lt;/simple-property-list>
+        &lt;/structure>
+    &lt;/list-property>
+&lt;/structure>
+</BaseUrl>
+                  <BaseParameterName></BaseParameterName>
+                  <ValueParameterName></ValueParameterName>
+                  <SeriesParameterName></SeriesParameterName>
+                </URLValues>
+                <PropertiesMap>
+                  <Key>MenuItem</Key>
+                  <Value>color:Black;fontSize:10pt;paddingLeft:10px;paddingRight:10px;paddingTop:2px;paddingBottom:2px</Value>
+                </PropertiesMap>
+                <PropertiesMap>
+                  <Key>Menu</Key>
+                  <Value>zIndex:99999;backgroundColor:#FAFFF8;width:auto;height:auto;border:1px solid #333333;filter:progid:DXImageTransform.Microsoft.Shadow(Color:#333333,Direction=120,strength=5)</Value>
+                </PropertiesMap>
+                <PropertiesMap>
+                  <Key>OnMouseOut</Key>
+                  <Value>backgroundColor:#FAFFF8;color:#000000</Value>
+                </PropertiesMap>
+                <PropertiesMap>
+                  <Key>OnMouseOver</Key>
+                  <Value>backgroundColor:#245DDB;color:#FFFFFF</Value>
+                </PropertiesMap>
+              </Value>
+            </Action>
+          </Triggers>
           <Riser>Rectangle</Riser>
         </Series>
         <Grouping>
@@ -5541,6 +5898,55 @@ FORGE IaaS usage statistics based on active instances
               <Value xsi:type="attribute:TooltipValue">
                 <Text></Text>
                 <Delay>200</Delay>
+              </Value>
+            </Action>
+          </Triggers>
+          <Triggers>
+            <Condition>onclick</Condition>
+            <Action>
+              <Type>URL_Redirect</Type>
+              <Value xsi:type="attribute:MultiURLValues">
+                <URLValues>
+                  <Label>
+                    <Caption>
+                      <Value>Project</Value>
+                    </Caption>
+                  </Label>
+                  <BaseUrl>&lt;structure>
+    &lt;property name=&quot;linkType&quot;>drill-through&lt;/property>
+    &lt;property name=&quot;reportName&quot;>iaas_trend.rptdesign&lt;/property>
+    &lt;property name=&quot;targetWindow&quot;>_self&lt;/property>
+    &lt;property name=&quot;targetFileType&quot;>report-design&lt;/property>
+    &lt;list-property name=&quot;paramBindings&quot;>
+        &lt;structure>
+            &lt;property name=&quot;paramName&quot;>rprmProject&lt;/property>
+            &lt;simple-property-list name=&quot;expression&quot;>
+                &lt;value type=&quot;javascript&quot;>row[&quot;dsetJointUsageQuota::dsetUsage::project&quot;]&lt;/value>
+            &lt;/simple-property-list>
+        &lt;/structure>
+    &lt;/list-property>
+&lt;/structure>
+</BaseUrl>
+                  <BaseParameterName></BaseParameterName>
+                  <ValueParameterName></ValueParameterName>
+                  <SeriesParameterName></SeriesParameterName>
+                </URLValues>
+                <PropertiesMap>
+                  <Key>MenuItem</Key>
+                  <Value>color:Black;fontSize:10pt;paddingLeft:10px;paddingRight:10px;paddingTop:2px;paddingBottom:2px</Value>
+                </PropertiesMap>
+                <PropertiesMap>
+                  <Key>Menu</Key>
+                  <Value>zIndex:99999;backgroundColor:#FAFFF8;width:auto;height:auto;border:1px solid #333333;filter:progid:DXImageTransform.Microsoft.Shadow(Color:#333333,Direction=120,strength=5)</Value>
+                </PropertiesMap>
+                <PropertiesMap>
+                  <Key>OnMouseOut</Key>
+                  <Value>backgroundColor:#FAFFF8;color:#000000</Value>
+                </PropertiesMap>
+                <PropertiesMap>
+                  <Key>OnMouseOver</Key>
+                  <Value>backgroundColor:#245DDB;color:#FFFFFF</Value>
+                </PropertiesMap>
               </Value>
             </Action>
           </Triggers>
@@ -6022,6 +6428,22 @@ FORGE IaaS usage statistics based on active instances
 </model:ChartWithAxes>
 ]]></xml-property>
             <property name="outputFormat">SVG</property>
+            <list-property name="action">
+                <structure>
+                    <property name="targetWindow">_self</property>
+                    <property name="linkType">drill-through</property>
+                    <property name="targetFileType">report-design</property>
+                    <property name="reportName">iaas_trend.rptdesign</property>
+                    <list-property name="paramBindings">
+                        <structure>
+                            <property name="paramName">rprmProject</property>
+                            <simple-property-list name="expression">
+                                <value type="javascript">row["dsetJointUsageQuota::dsetUsage::project"]</value>
+                            </simple-property-list>
+                        </structure>
+                    </list-property>
+                </structure>
+            </list-property>
             <property name="inheritColumns">false</property>
             <property name="height">150mm</property>
             <property name="width">200mm</property>
@@ -6739,6 +7161,55 @@ FORGE IaaS usage statistics based on active instances
               </Value>
             </Action>
           </Triggers>
+          <Triggers>
+            <Condition>onclick</Condition>
+            <Action>
+              <Type>URL_Redirect</Type>
+              <Value xsi:type="attribute:MultiURLValues">
+                <URLValues>
+                  <Label>
+                    <Caption>
+                      <Value>Project</Value>
+                    </Caption>
+                  </Label>
+                  <BaseUrl>&lt;structure>
+    &lt;property name=&quot;linkType&quot;>drill-through&lt;/property>
+    &lt;property name=&quot;reportName&quot;>iaas_trend.rptdesign&lt;/property>
+    &lt;property name=&quot;targetWindow&quot;>_self&lt;/property>
+    &lt;property name=&quot;targetFileType&quot;>report-design&lt;/property>
+    &lt;list-property name=&quot;paramBindings&quot;>
+        &lt;structure>
+            &lt;property name=&quot;paramName&quot;>rprmProject&lt;/property>
+            &lt;simple-property-list name=&quot;expression&quot;>
+                &lt;value type=&quot;javascript&quot;>row[&quot;dsetJointUsageQuota::dsetUsage::project&quot;]&lt;/value>
+            &lt;/simple-property-list>
+        &lt;/structure>
+    &lt;/list-property>
+&lt;/structure>
+</BaseUrl>
+                  <BaseParameterName></BaseParameterName>
+                  <ValueParameterName></ValueParameterName>
+                  <SeriesParameterName></SeriesParameterName>
+                </URLValues>
+                <PropertiesMap>
+                  <Key>MenuItem</Key>
+                  <Value>color:Black;fontSize:10pt;paddingLeft:10px;paddingRight:10px;paddingTop:2px;paddingBottom:2px</Value>
+                </PropertiesMap>
+                <PropertiesMap>
+                  <Key>Menu</Key>
+                  <Value>zIndex:99999;backgroundColor:#FAFFF8;width:auto;height:auto;border:1px solid #333333;filter:progid:DXImageTransform.Microsoft.Shadow(Color:#333333,Direction=120,strength=5)</Value>
+                </PropertiesMap>
+                <PropertiesMap>
+                  <Key>OnMouseOut</Key>
+                  <Value>backgroundColor:#FAFFF8;color:#000000</Value>
+                </PropertiesMap>
+                <PropertiesMap>
+                  <Key>OnMouseOver</Key>
+                  <Value>backgroundColor:#245DDB;color:#FFFFFF</Value>
+                </PropertiesMap>
+              </Value>
+            </Action>
+          </Triggers>
           <Riser>Rectangle</Riser>
         </Series>
         <Grouping>
@@ -6996,6 +7467,55 @@ FORGE IaaS usage statistics based on active instances
               <Value xsi:type="attribute:TooltipValue">
                 <Text></Text>
                 <Delay>200</Delay>
+              </Value>
+            </Action>
+          </Triggers>
+          <Triggers>
+            <Condition>onclick</Condition>
+            <Action>
+              <Type>URL_Redirect</Type>
+              <Value xsi:type="attribute:MultiURLValues">
+                <URLValues>
+                  <Label>
+                    <Caption>
+                      <Value>Project</Value>
+                    </Caption>
+                  </Label>
+                  <BaseUrl>&lt;structure>
+    &lt;property name=&quot;linkType&quot;>drill-through&lt;/property>
+    &lt;property name=&quot;reportName&quot;>iaas_trend.rptdesign&lt;/property>
+    &lt;property name=&quot;targetWindow&quot;>_self&lt;/property>
+    &lt;property name=&quot;targetFileType&quot;>report-design&lt;/property>
+    &lt;list-property name=&quot;paramBindings&quot;>
+        &lt;structure>
+            &lt;property name=&quot;paramName&quot;>rprmProject&lt;/property>
+            &lt;simple-property-list name=&quot;expression&quot;>
+                &lt;value type=&quot;javascript&quot;>row[&quot;dsetJointUsageQuota::dsetUsage::project&quot;]&lt;/value>
+            &lt;/simple-property-list>
+        &lt;/structure>
+    &lt;/list-property>
+&lt;/structure>
+</BaseUrl>
+                  <BaseParameterName></BaseParameterName>
+                  <ValueParameterName></ValueParameterName>
+                  <SeriesParameterName></SeriesParameterName>
+                </URLValues>
+                <PropertiesMap>
+                  <Key>MenuItem</Key>
+                  <Value>color:Black;fontSize:10pt;paddingLeft:10px;paddingRight:10px;paddingTop:2px;paddingBottom:2px</Value>
+                </PropertiesMap>
+                <PropertiesMap>
+                  <Key>Menu</Key>
+                  <Value>zIndex:99999;backgroundColor:#FAFFF8;width:auto;height:auto;border:1px solid #333333;filter:progid:DXImageTransform.Microsoft.Shadow(Color:#333333,Direction=120,strength=5)</Value>
+                </PropertiesMap>
+                <PropertiesMap>
+                  <Key>OnMouseOut</Key>
+                  <Value>backgroundColor:#FAFFF8;color:#000000</Value>
+                </PropertiesMap>
+                <PropertiesMap>
+                  <Key>OnMouseOver</Key>
+                  <Value>backgroundColor:#245DDB;color:#FFFFFF</Value>
+                </PropertiesMap>
               </Value>
             </Action>
           </Triggers>
@@ -7477,6 +7997,22 @@ FORGE IaaS usage statistics based on active instances
 </model:ChartWithAxes>
 ]]></xml-property>
             <property name="outputFormat">SVG</property>
+            <list-property name="action">
+                <structure>
+                    <property name="targetWindow">_self</property>
+                    <property name="linkType">drill-through</property>
+                    <property name="targetFileType">report-design</property>
+                    <property name="reportName">iaas_trend.rptdesign</property>
+                    <list-property name="paramBindings">
+                        <structure>
+                            <property name="paramName">rprmProject</property>
+                            <simple-property-list name="expression">
+                                <value type="javascript">row["dsetJointUsageQuota::dsetUsage::project"]</value>
+                            </simple-property-list>
+                        </structure>
+                    </list-property>
+                </structure>
+            </list-property>
             <property name="inheritColumns">false</property>
             <property name="height">150mm</property>
             <property name="width">200mm</property>
