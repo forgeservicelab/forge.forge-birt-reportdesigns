@@ -152,18 +152,7 @@ public.quota.vcpus,
 public.quota.memory_mb,
 public.quota.instances
 from public.quota
-where public.quota.date = (select max(public.quota.date) from public.quota) and
-( public.quota.project not like 'SeleniumGRID' and
-  public.quota.project not like 'anttidevel' and
-  public.quota.project not like 'csc' and
-  public.quota.project not like 'digile' and
-  public.quota.project not like 'digile-testing' and
-  public.quota.project not like 'jorge-sandbox' and
-  public.quota.project not like 'kainuunetu' and
-  public.quota.project not like 'pasidevel' and
-  public.quota.project not like 'plaza-devel' and
-  public.quota.project not like 'plaza-testing' and
-  public.quota.project not like 'training')]]></xml-property>
+where public.quota.date = (select max(public.quota.date) from public.quota)]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
   <Version>2.0</Version>
@@ -494,18 +483,7 @@ sum(public.usage.vcpus) as vcpus,
 sum(public.usage.memory_mb) as memory_mb,
 count(public.usage.instance_id) as instances
 from public.usage
-where public.usage.date = (select max(public.usage.date) from public.usage) and public.usage.state like 'active' and
-( public.usage.project not like 'SeleniumGRID' and
-  public.usage.project not like 'anttidevel' and
-  public.usage.project not like 'csc' and
-  public.usage.project not like 'digile' and
-  public.usage.project not like 'digile-testing' and
-  public.usage.project not like 'jorge-sandbox' and
-  public.usage.project not like 'kainuunetu' and
-  public.usage.project not like 'pasidevel' and
-  public.usage.project not like 'plaza-devel' and
-  public.usage.project not like 'plaza-testing' and
-  public.usage.project not like 'training')
+where public.usage.date = (select max(public.usage.date) from public.usage) and public.usage.state like 'active'
 group by public.usage.project]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
@@ -1515,7 +1493,6 @@ FORGE IaaS usage statistics based on active instances
                     <property name="borderBottomStyle">solid</property>
                     <property name="borderBottomWidth">thin</property>
                     <property name="textAlign">right</property>
-                    <property name="height">0.4791666666666667in</property>
                     <cell id="832">
                         <label id="833">
                             <text-property name="text">project</text-property>
