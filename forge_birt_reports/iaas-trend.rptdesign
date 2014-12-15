@@ -1,29 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
     <property name="createdBy">Eclipse BIRT Designer Version 4.3.2.v20140211-1400 Build &lt;4.3.2.v20140218-1056></property>
+    <list-property name="userProperties">
+        <structure>
+            <property name="name">Project.usage.x</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+        <structure>
+            <property name="name">Project.usage.y</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+        <structure>
+            <property name="name">Project.usage.width</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+        <structure>
+            <property name="name">Project.usage.height</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+        <structure>
+            <property name="name">Project.Group.NewTabularHierarchy1.x</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+        <structure>
+            <property name="name">Project.Group.NewTabularHierarchy1.y</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+        <structure>
+            <property name="name">Project.Project(quota).NewTabularHierarchy1.x</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+        <structure>
+            <property name="name">Project.Project(quota).NewTabularHierarchy1.y</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+    </list-property>
+    <property name="Project.usage.x">409</property>
+    <property name="Project.usage.y">23</property>
+    <property name="Project.usage.width">150</property>
+    <property name="Project.usage.height">200</property>
+    <property name="Project.Group.NewTabularHierarchy1.x">16</property>
+    <property name="Project.Group.NewTabularHierarchy1.y">46</property>
+    <property name="Project.Project(quota).NewTabularHierarchy1.x">169</property>
+    <property name="Project.Project(quota).NewTabularHierarchy1.y">38</property>
     <property name="units">in</property>
+    <method name="initialize"><![CDATA[var vcpus_sum=0
+var memory_mb_sum=0
+var instances_sum=0]]></method>
     <property name="iconFile">/templates/blank_report.gif</property>
     <property name="bidiLayoutOrientation">ltr</property>
     <property name="imageDPI">96</property>
-    <parameters>
-        <scalar-parameter name="rprmProject" id="761">
-            <property name="hidden">true</property>
-            <property name="valueType">static</property>
-            <property name="isRequired">true</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <simple-property-list name="defaultValue">
-                <value type="constant">julkictlabcscshared</value>
-            </simple-property-list>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="concealValue">true</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-    </parameters>
     <data-sources>
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="iaas_production" id="7">
             <list-property name="privateDriverProperties">
@@ -47,588 +81,33 @@
             <property name="odaUser">pkivikan</property>
             <encrypted-property name="odaPassword" encryptionID="base64">TWlvcGJjMTIj</encrypted-property>
         </oda-data-source>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="iaas_test" id="961">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">org.postgresql.Driver</property>
+            <property name="odaURL">jdbc:postgresql://analytics.forgeservicelab.fi:5432/iaas_test</property>
+            <property name="odaUser">pkivikan</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">TWlvcGJjMTIj</encrypted-property>
+        </oda-data-source>
     </data-sources>
     <data-sets>
-        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="dsetCapasity" id="650">
-            <list-property name="columnHints">
-                <structure>
-                    <property name="columnName">date</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">date</text-property>
-                    <text-property name="heading">date</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">vcpus</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">vcpus</text-property>
-                    <text-property name="heading">vcpus</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">memory_mb</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">memory_mb</text-property>
-                    <text-property name="heading">memory_mb</text-property>
-                </structure>
-            </list-property>
-            <structure name="cachedMetaData">
-                <list-property name="resultSet">
-                    <structure>
-                        <property name="position">1</property>
-                        <property name="name">date</property>
-                        <property name="dataType">date</property>
-                    </structure>
-                    <structure>
-                        <property name="position">2</property>
-                        <property name="name">vcpus</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">3</property>
-                        <property name="name">memory_mb</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                </list-property>
-            </structure>
-            <property name="dataSource">iaas_production</property>
-            <list-property name="resultSet">
-                <structure>
-                    <property name="position">1</property>
-                    <property name="name">date</property>
-                    <property name="nativeName">date</property>
-                    <property name="dataType">date</property>
-                </structure>
-                <structure>
-                    <property name="position">2</property>
-                    <property name="name">vcpus</property>
-                    <property name="nativeName">vcpus</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">3</property>
-                    <property name="name">memory_mb</property>
-                    <property name="nativeName">memory_mb</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-            </list-property>
-            <xml-property name="queryText"><![CDATA[select *
-from public.capasity]]></xml-property>
-            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
-<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
-  <Version>2.0</Version>
-  <design:ResultSets derivedMetaData="true">
-    <design:resultSetDefinitions>
-      <design:resultSetColumns>
-        <design:resultColumnDefinitions>
-          <design:attributes>
-            <design:identifier>
-              <design:name>date</design:name>
-              <design:position>1</design:position>
-            </design:identifier>
-            <design:nativeDataTypeCode>91</design:nativeDataTypeCode>
-            <design:precision>13</design:precision>
-            <design:scale>0</design:scale>
-            <design:nullability>Nullable</design:nullability>
-            <design:uiHints>
-              <design:displayName>date</design:displayName>
-            </design:uiHints>
-          </design:attributes>
-          <design:usageHints>
-            <design:label>date</design:label>
-            <design:formattingHints>
-              <design:displaySize>13</design:displaySize>
-            </design:formattingHints>
-          </design:usageHints>
-        </design:resultColumnDefinitions>
-        <design:resultColumnDefinitions>
-          <design:attributes>
-            <design:identifier>
-              <design:name>vcpus</design:name>
-              <design:position>2</design:position>
-            </design:identifier>
-            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
-            <design:precision>19</design:precision>
-            <design:scale>0</design:scale>
-            <design:nullability>Nullable</design:nullability>
-            <design:uiHints>
-              <design:displayName>vcpus</design:displayName>
-            </design:uiHints>
-          </design:attributes>
-          <design:usageHints>
-            <design:label>vcpus</design:label>
-            <design:formattingHints>
-              <design:displaySize>20</design:displaySize>
-            </design:formattingHints>
-          </design:usageHints>
-        </design:resultColumnDefinitions>
-        <design:resultColumnDefinitions>
-          <design:attributes>
-            <design:identifier>
-              <design:name>memory_mb</design:name>
-              <design:position>3</design:position>
-            </design:identifier>
-            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
-            <design:precision>19</design:precision>
-            <design:scale>0</design:scale>
-            <design:nullability>Nullable</design:nullability>
-            <design:uiHints>
-              <design:displayName>memory_mb</design:displayName>
-            </design:uiHints>
-          </design:attributes>
-          <design:usageHints>
-            <design:label>memory_mb</design:label>
-            <design:formattingHints>
-              <design:displaySize>20</design:displaySize>
-            </design:formattingHints>
-          </design:usageHints>
-        </design:resultColumnDefinitions>
-      </design:resultSetColumns>
-      <design:criteria/>
-    </design:resultSetDefinitions>
-  </design:ResultSets>
-</model:DesignValues>]]></xml-property>
-        </oda-data-set>
-        <joint-data-set name="dsetJointUsageQuota" id="562">
-            <list-property name="columnHints">
-                <structure>
-                    <property name="columnName">dsetUsage::memory_mb</property>
-                    <property name="alias">dsetUsage::memory_mb</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">dsetUsage::memory_mb</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">dsetUsage::instances</property>
-                    <property name="alias">dsetUsage::instances</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">dsetUsage::instances</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">dsetUsage::date</property>
-                    <property name="alias">dsetUsage::date</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">dsetUsage::date</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">dsetQuota::date</property>
-                    <property name="alias">dsetQuota::date</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">dsetQuota::date</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">dsetQuota::memory_mb</property>
-                    <property name="alias">dsetQuota::memory_mb</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">dsetQuota::memory_mb</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">dsetQuota::instances</property>
-                    <property name="alias">dsetQuota::instances</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">dsetQuota::instances</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">dsetQuota::vcpus</property>
-                    <property name="alias">dsetQuota::vcpus</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">dsetQuota::vcpus</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">dsetUsage::vcpus</property>
-                    <property name="alias">dsetUsage::vcpus</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">dsetUsage::vcpus</text-property>
-                </structure>
-            </list-property>
-            <list-property name="parameters">
-                <structure>
-                    <property name="name">dsetUsage::prmProject</property>
-                    <property name="dataType">string</property>
-                    <property name="position">1</property>
-                    <property name="isOptional">false</property>
-                    <property name="allowNull">false</property>
-                    <property name="isInput">true</property>
-                    <property name="isOutput">false</property>
-                </structure>
-            </list-property>
-            <structure name="cachedMetaData">
-                <list-property name="resultSet">
-                    <structure>
-                        <property name="position">1</property>
-                        <property name="name">dsetUsage::date</property>
-                        <property name="dataType">date</property>
-                    </structure>
-                    <structure>
-                        <property name="position">2</property>
-                        <property name="name">dsetUsage::vcpus</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">3</property>
-                        <property name="name">dsetUsage::memory_mb</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">4</property>
-                        <property name="name">dsetUsage::instances</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">5</property>
-                        <property name="name">dsetQuota::date</property>
-                        <property name="dataType">date</property>
-                    </structure>
-                    <structure>
-                        <property name="position">6</property>
-                        <property name="name">dsetQuota::vcpus</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">7</property>
-                        <property name="name">dsetQuota::memory_mb</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">8</property>
-                        <property name="name">dsetQuota::instances</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                </list-property>
-            </structure>
-            <simple-property-list name="dataSets">
-                <value>dsetUsage</value>
-                <value>dsetQuota</value>
-            </simple-property-list>
-            <list-property name="joinConditions">
-                <structure>
-                    <property name="joinType">left-out</property>
-                    <property name="joinOperator">eq</property>
-                    <property name="leftDataSet">dsetUsage</property>
-                    <property name="rightDataSet">dsetQuota</property>
-                    <expression name="leftExpression">dataSetRow["date"]</expression>
-                    <expression name="rightExpression">dataSetRow["date"]</expression>
-                </structure>
-            </list-property>
-        </joint-data-set>
-        <joint-data-set name="dsetJointUsageQuotaCapasity" id="760">
-            <list-property name="computedColumns">
-                <structure>
-                    <property name="name">vcpus_usage_sum</property>
-                    <property name="dataType">integer</property>
-                    <property name="aggregateFunction">SUM</property>
-                    <list-property name="arguments">
-                        <structure>
-                            <property name="name">Expression</property>
-                            <expression name="value">row["dsetUsage::vcpus"]</expression>
-                        </structure>
-                    </list-property>
-                </structure>
-                <structure>
-                    <property name="name">vcpus_quota_sum</property>
-                    <property name="dataType">integer</property>
-                    <property name="aggregateFunction">SUM</property>
-                    <list-property name="arguments">
-                        <structure>
-                            <property name="name">Expression</property>
-                            <expression name="value">row["dsetQuota::vcpus"]</expression>
-                        </structure>
-                    </list-property>
-                </structure>
-                <structure>
-                    <property name="name">memory_usage_sum</property>
-                    <property name="dataType">integer</property>
-                    <property name="aggregateFunction">SUM</property>
-                    <list-property name="arguments">
-                        <structure>
-                            <property name="name">Expression</property>
-                            <expression name="value">row["dsetUsage::memory_mb"]</expression>
-                        </structure>
-                    </list-property>
-                </structure>
-                <structure>
-                    <property name="name">memory_quota_sum</property>
-                    <property name="dataType">integer</property>
-                    <property name="aggregateFunction">SUM</property>
-                    <list-property name="arguments">
-                        <structure>
-                            <property name="name">Expression</property>
-                            <expression name="value">row["dsetQuota::memory_mb"]</expression>
-                        </structure>
-                    </list-property>
-                </structure>
-                <structure>
-                    <property name="name">instances_usage_sum</property>
-                    <property name="dataType">integer</property>
-                    <property name="aggregateFunction">SUM</property>
-                    <list-property name="arguments">
-                        <structure>
-                            <property name="name">Expression</property>
-                            <expression name="value">row["dsetUsage::instances"]</expression>
-                        </structure>
-                    </list-property>
-                </structure>
-                <structure>
-                    <property name="name">instances_quota_sum</property>
-                    <property name="dataType">integer</property>
-                    <property name="aggregateFunction">SUM</property>
-                    <list-property name="arguments">
-                        <structure>
-                            <property name="name">Expression</property>
-                            <expression name="value">row["dsetQuota::instances"]</expression>
-                        </structure>
-                    </list-property>
-                </structure>
-            </list-property>
-            <list-property name="columnHints">
-                <structure>
-                    <property name="columnName">dsetJointUsageQuota::dsetUsage::memory_mb</property>
-                    <property name="alias">dsetUsage::memory_mb</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">dsetJointUsageQuota::dsetUsage::memory_mb</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">dsetJointUsageQuota::dsetUsage::instances</property>
-                    <property name="alias">dsetUsage::instances</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">dsetJointUsageQuota::dsetUsage::instances</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">dsetJointUsageQuota::dsetUsage::date</property>
-                    <property name="alias">dsetUsage::date</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">dsetJointUsageQuota::dsetUsage::date</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">dsetJointUsageQuota::dsetQuota::date</property>
-                    <property name="alias">dsetQuota::date</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">dsetJointUsageQuota::dsetQuota::date</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">dsetCapasity::memory_mb</property>
-                    <property name="alias">memory_mb</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">dsetCapasity::memory_mb</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">dsetJointUsageQuota::dsetQuota::memory_mb</property>
-                    <property name="alias">dsetQuota::memory_mb</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">dsetJointUsageQuota::dsetQuota::memory_mb</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">dsetCapasity::vcpus</property>
-                    <property name="alias">vcpus</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">dsetCapasity::vcpus</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">dsetCapasity::date</property>
-                    <property name="alias">date</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">dsetCapasity::date</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">dsetJointUsageQuota::dsetQuota::instances</property>
-                    <property name="alias">dsetQuota::instances</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">dsetJointUsageQuota::dsetQuota::instances</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">dsetJointUsageQuota::dsetQuota::vcpus</property>
-                    <property name="alias">dsetQuota::vcpus</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">dsetJointUsageQuota::dsetQuota::vcpus</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">dsetJointUsageQuota::dsetUsage::vcpus</property>
-                    <property name="alias">dsetUsage::vcpus</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">dsetJointUsageQuota::dsetUsage::vcpus</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">vcpus_usage_sum</property>
-                    <property name="alias">vcpus_usage_sum</property>
-                    <property name="analysis">measure</property>
-                </structure>
-                <structure>
-                    <property name="columnName">vcpus_quota_sum</property>
-                    <property name="alias">vcpus_quota_sum</property>
-                    <property name="analysis">measure</property>
-                </structure>
-                <structure>
-                    <property name="columnName">memory_usage_sum</property>
-                    <property name="alias">memory_usage_sum</property>
-                    <property name="analysis">measure</property>
-                </structure>
-                <structure>
-                    <property name="columnName">memory_quota_sum</property>
-                    <property name="alias">memory_quota_sum</property>
-                    <property name="analysis">measure</property>
-                </structure>
-                <structure>
-                    <property name="columnName">instances_usage_sum</property>
-                    <property name="alias">instances_usage_sum</property>
-                    <property name="analysis">measure</property>
-                </structure>
-                <structure>
-                    <property name="columnName">instances_quota_sum</property>
-                    <property name="alias">instances_quota_sum</property>
-                    <property name="analysis">measure</property>
-                </structure>
-            </list-property>
-            <list-property name="parameters">
-                <structure>
-                    <property name="name">dsetJointUsageQuota::dsetUsage::prmProject</property>
-                    <property name="dataType">string</property>
-                    <property name="position">0</property>
-                    <property name="isOptional">false</property>
-                    <property name="allowNull">false</property>
-                    <property name="isInput">true</property>
-                    <property name="isOutput">false</property>
-                </structure>
-            </list-property>
-            <structure name="cachedMetaData">
-                <list-property name="resultSet">
-                    <structure>
-                        <property name="position">1</property>
-                        <property name="name">dsetJointUsageQuota::dsetUsage::date</property>
-                        <property name="dataType">date</property>
-                    </structure>
-                    <structure>
-                        <property name="position">2</property>
-                        <property name="name">dsetJointUsageQuota::dsetUsage::vcpus</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">3</property>
-                        <property name="name">dsetJointUsageQuota::dsetUsage::memory_mb</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">4</property>
-                        <property name="name">dsetJointUsageQuota::dsetUsage::instances</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">5</property>
-                        <property name="name">dsetJointUsageQuota::dsetQuota::date</property>
-                        <property name="dataType">date</property>
-                    </structure>
-                    <structure>
-                        <property name="position">6</property>
-                        <property name="name">dsetJointUsageQuota::dsetQuota::vcpus</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">7</property>
-                        <property name="name">dsetJointUsageQuota::dsetQuota::memory_mb</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">8</property>
-                        <property name="name">dsetJointUsageQuota::dsetQuota::instances</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">9</property>
-                        <property name="name">dsetCapasity::date</property>
-                        <property name="dataType">date</property>
-                    </structure>
-                    <structure>
-                        <property name="position">10</property>
-                        <property name="name">dsetCapasity::vcpus</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">11</property>
-                        <property name="name">dsetCapasity::memory_mb</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">12</property>
-                        <property name="name">vcpus_usage_sum</property>
-                        <property name="dataType">integer</property>
-                    </structure>
-                    <structure>
-                        <property name="position">13</property>
-                        <property name="name">vcpus_quota_sum</property>
-                        <property name="dataType">integer</property>
-                    </structure>
-                    <structure>
-                        <property name="position">14</property>
-                        <property name="name">memory_usage_sum</property>
-                        <property name="dataType">integer</property>
-                    </structure>
-                    <structure>
-                        <property name="position">15</property>
-                        <property name="name">memory_quota_sum</property>
-                        <property name="dataType">integer</property>
-                    </structure>
-                    <structure>
-                        <property name="position">16</property>
-                        <property name="name">instances_usage_sum</property>
-                        <property name="dataType">integer</property>
-                    </structure>
-                    <structure>
-                        <property name="position">17</property>
-                        <property name="name">instances_quota_sum</property>
-                        <property name="dataType">integer</property>
-                    </structure>
-                </list-property>
-            </structure>
-            <simple-property-list name="dataSets">
-                <value>dsetJointUsageQuota</value>
-                <value>dsetCapasity</value>
-            </simple-property-list>
-            <list-property name="joinConditions">
-                <structure>
-                    <property name="joinType">left-out</property>
-                    <property name="joinOperator">eq</property>
-                    <property name="leftDataSet">dsetJointUsageQuota</property>
-                    <property name="rightDataSet">dsetCapasity</property>
-                    <expression name="leftExpression">dataSetRow["dsetUsage::date"]</expression>
-                    <expression name="rightExpression">dataSetRow["date"]</expression>
-                </structure>
-            </list-property>
-        </joint-data-set>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="dsetQuota" id="8">
-            <list-property name="columnHints">
-                <structure>
-                    <property name="columnName">date</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">date</text-property>
-                    <text-property name="heading">date</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">vcpus</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">vcpus</text-property>
-                    <text-property name="heading">vcpus</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">memory_mb</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">memory_mb</text-property>
-                    <text-property name="heading">memory_mb</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">instances</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">instances</text-property>
-                    <text-property name="heading">instances</text-property>
-                </structure>
-            </list-property>
-            <list-property name="parameters">
-                <structure>
-                    <property name="name">prmProject</property>
-                    <property name="paramName">rprmProject</property>
-                    <property name="nativeName"></property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                    <property name="position">1</property>
-                    <property name="isInput">true</property>
-                    <property name="isOutput">false</property>
-                </structure>
-            </list-property>
+            <list-property name="columnHints"/>
+            <list-property name="parameters"/>
             <structure name="cachedMetaData">
                 <list-property name="resultSet">
                     <structure>
@@ -638,16 +117,21 @@ from public.capasity]]></xml-property>
                     </structure>
                     <structure>
                         <property name="position">2</property>
+                        <property name="name">project</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
                         <property name="name">vcpus</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
-                        <property name="position">3</property>
+                        <property name="position">4</property>
                         <property name="name">memory_mb</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
-                        <property name="position">4</property>
+                        <property name="position">5</property>
                         <property name="name">instances</property>
                         <property name="dataType">decimal</property>
                     </structure>
@@ -660,59 +144,54 @@ from public.capasity]]></xml-property>
                     <property name="name">date</property>
                     <property name="nativeName">date</property>
                     <property name="dataType">date</property>
-                    <property name="nativeDataType">91</property>
                 </structure>
                 <structure>
                     <property name="position">2</property>
-                    <property name="name">vcpus</property>
-                    <property name="nativeName">vcpus</property>
-                    <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
+                    <property name="name">project</property>
+                    <property name="nativeName">project</property>
+                    <property name="dataType">string</property>
                 </structure>
                 <structure>
                     <property name="position">3</property>
-                    <property name="name">memory_mb</property>
-                    <property name="nativeName">memory_mb</property>
+                    <property name="name">vcpus</property>
+                    <property name="nativeName">vcpus</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">4</property>
+                    <property name="name">memory_mb</property>
+                    <property name="nativeName">memory_mb</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
                     <property name="name">instances</property>
                     <property name="nativeName">instances</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[select distinct
 public.quota.date,
+public.quota.project,
 public.quota.vcpus,
 public.quota.memory_mb,
 public.quota.instances
 from public.quota
-where public.quota.project like ?
-order by public.quota.date
-]]></xml-property>
+where public.quota.date = (select max(public.quota.date) from public.quota) and
+( public.quota.project not like 'SeleniumGRID' and
+  public.quota.project not like 'anttidevel' and
+  public.quota.project not like 'csc' and
+  public.quota.project not like 'digile' and
+  public.quota.project not like 'digile-testing' and
+  public.quota.project not like 'jorge-sandbox' and
+  public.quota.project not like 'kainuunetu' and
+  public.quota.project not like 'pasidevel' and
+  public.quota.project not like 'plaza-devel' and
+  public.quota.project not like 'plaza-testing' and
+  public.quota.project not like 'training')]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
   <Version>2.0</Version>
-  <DataSetParameters>
-    <parameter>
-      <design:ParameterDefinition>
-        <design:inOutMode>In</design:inOutMode>
-        <design:attributes>
-          <design:identifier>
-            <design:name></design:name>
-            <design:position>1</design:position>
-          </design:identifier>
-          <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
-          <design:precision>0</design:precision>
-          <design:scale>0</design:scale>
-          <design:nullability>Unknown</design:nullability>
-        </design:attributes>
-      </design:ParameterDefinition>
-    </parameter>
-  </DataSetParameters>
   <design:ResultSets derivedMetaData="true">
     <design:resultSetDefinitions>
       <design:resultSetColumns>
@@ -933,12 +412,56 @@ order by public.quota.date
 </model:DesignValues>]]></xml-property>
         </oda-data-set>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="dsetUsage" id="14">
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">vcpus_sum</property>
+                    <expression name="expression">if (row["bool"] == 1 )&#13;
+	vcpus_sum += row["vcpus"]&#13;
+if (row["bool"] == 0 &amp;&amp; row["end"] != 'None' )&#13;
+	vcpus_sum -= row["vcpus"]&#13;
+&#13;
+vcpus_sum;</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">memory_mb_sum</property>
+                    <expression name="expression">if (row["bool"] == 1 )&#13;
+	memory_mb_sum += row["memory_mb"]&#13;
+if (row["bool"] == 0 &amp;&amp; row["end"] != 'None' )&#13;
+	memory_mb_sum -= row["memory_mb"]&#13;
+&#13;
+memory_mb_sum;</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">instances_sum</property>
+                    <expression name="expression">if (row["bool"] == 1 )&#13;
+	instances_sum += 1&#13;
+if (row["bool"] == 0 &amp;&amp; row["end"] != 'None' )&#13;
+	instances_sum -= 1&#13;
+&#13;
+instances_sum;</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
             <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">bool</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">bool</text-property>
+                    <text-property name="heading">bool</text-property>
+                </structure>
                 <structure>
                     <property name="columnName">date</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">date</text-property>
                     <text-property name="heading">date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">instance_id</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">instance_id</text-property>
+                    <text-property name="heading">instance_id</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">vcpus</property>
@@ -953,45 +476,92 @@ order by public.quota.date
                     <text-property name="heading">memory_mb</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">instances</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">instances</text-property>
-                    <text-property name="heading">instances</text-property>
+                    <property name="columnName">project</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">project</text-property>
+                    <text-property name="heading">project</text-property>
                 </structure>
-            </list-property>
-            <list-property name="parameters">
                 <structure>
-                    <property name="name">prmProject</property>
-                    <property name="paramName">rprmProject</property>
-                    <property name="nativeName"></property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                    <property name="position">1</property>
-                    <property name="isInput">true</property>
-                    <property name="isOutput">false</property>
+                    <property name="columnName">state</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">state</text-property>
+                    <text-property name="heading">state</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">start</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">start</text-property>
+                    <text-property name="heading">start</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">end</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">end</text-property>
+                    <text-property name="heading">end</text-property>
                 </structure>
             </list-property>
+            <list-property name="parameters"/>
             <structure name="cachedMetaData">
                 <list-property name="resultSet">
                     <structure>
                         <property name="position">1</property>
-                        <property name="name">date</property>
-                        <property name="dataType">date</property>
+                        <property name="name">bool</property>
+                        <property name="dataType">integer</property>
                     </structure>
                     <structure>
                         <property name="position">2</property>
+                        <property name="name">date</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">instance_id</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
                         <property name="name">vcpus</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
-                        <property name="position">3</property>
+                        <property name="position">5</property>
                         <property name="name">memory_mb</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
-                        <property name="position">4</property>
-                        <property name="name">instances</property>
-                        <property name="dataType">decimal</property>
+                        <property name="position">6</property>
+                        <property name="name">project</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">state</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">start</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">end</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">vcpus_sum</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">memory_mb_sum</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">instances_sum</property>
+                        <property name="dataType">integer</property>
                     </structure>
                 </list-property>
             </structure>
@@ -999,63 +569,125 @@ order by public.quota.date
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
-                    <property name="name">date</property>
-                    <property name="nativeName">date</property>
-                    <property name="dataType">date</property>
-                    <property name="nativeDataType">91</property>
+                    <property name="name">bool</property>
+                    <property name="nativeName">bool</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">-7</property>
                 </structure>
                 <structure>
                     <property name="position">2</property>
-                    <property name="name">vcpus</property>
-                    <property name="nativeName">vcpus</property>
-                    <property name="dataType">decimal</property>
-                    <property name="nativeDataType">2</property>
+                    <property name="name">date</property>
+                    <property name="nativeName">date</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">3</property>
-                    <property name="name">memory_mb</property>
-                    <property name="nativeName">memory_mb</property>
-                    <property name="dataType">decimal</property>
-                    <property name="nativeDataType">2</property>
+                    <property name="name">instance_id</property>
+                    <property name="nativeName">instance_id</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">4</property>
-                    <property name="name">instances</property>
-                    <property name="nativeName">instances</property>
+                    <property name="name">vcpus</property>
+                    <property name="nativeName">vcpus</property>
                     <property name="dataType">decimal</property>
                     <property name="nativeDataType">-5</property>
                 </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">memory_mb</property>
+                    <property name="nativeName">memory_mb</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">project</property>
+                    <property name="nativeName">project</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">state</property>
+                    <property name="nativeName">state</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">start</property>
+                    <property name="nativeName">start</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">end</property>
+                    <property name="nativeName">end</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[select distinct
-public.usage.date,
-sum(public.usage.vcpus) as vcpus,
-sum(public.usage.memory_mb) as memory_mb,
-count(public.usage.instance_id) as instances
+true,
+public.usage.start as date,
+public.usage.instance_id,
+public.usage.vcpus,
+public.usage.memory_mb,
+public.usage.project,
+public.usage.state,
+public.usage.start,
+public.usage.end
 from public.usage
-where public.usage.project like ? and public.usage.state like 'active'
-group by public.usage.date
-order by public.usage.date
-]]></xml-property>
+where 
+( public.usage.project not like 'SeleniumGRID' and
+  public.usage.project not like 'anttidevel' and
+  public.usage.project not like 'csc' and
+  public.usage.project not like 'digile' and
+  public.usage.project not like 'digile-testing' and
+  public.usage.project not like 'jorge-sandbox' and
+  public.usage.project not like 'kainuunetu' and
+  public.usage.project not like 'pasidevel' and
+  public.usage.project not like 'plaza-devel' and
+  public.usage.project not like 'plaza-testing' and
+  public.usage.project not like 'training' and
+  public.usage.state not like 'Error' )
+
+union all
+
+select distinct
+false,
+public.usage.end as date,
+public.usage.instance_id,
+public.usage.vcpus,
+public.usage.memory_mb,
+public.usage.project,
+public.usage.state,
+public.usage.start,
+public.usage.end
+from public.usage
+where 
+( public.usage.project not like 'SeleniumGRID' and
+  public.usage.project not like 'anttidevel' and
+  public.usage.project not like 'csc' and
+  public.usage.project not like 'digile' and
+  public.usage.project not like 'digile-testing' and
+  public.usage.project not like 'jorge-sandbox' and
+  public.usage.project not like 'kainuunetu' and
+  public.usage.project not like 'pasidevel' and
+  public.usage.project not like 'plaza-devel' and
+  public.usage.project not like 'plaza-testing' and
+  public.usage.project not like 'training' and
+  public.usage.state not like 'None' and
+  public.usage.state not like 'Error' )
+  
+order by date]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
   <Version>2.0</Version>
-  <DataSetParameters>
-    <parameter>
-      <design:ParameterDefinition>
-        <design:inOutMode>In</design:inOutMode>
-        <design:attributes>
-          <design:identifier>
-            <design:name></design:name>
-            <design:position>1</design:position>
-          </design:identifier>
-          <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
-          <design:precision>0</design:precision>
-          <design:scale>0</design:scale>
-          <design:nullability>Unknown</design:nullability>
-        </design:attributes>
-      </design:ParameterDefinition>
-    </parameter>
-  </DataSetParameters>
   <design:ResultSets derivedMetaData="true">
     <design:resultSetDefinitions>
       <design:resultSetColumns>
@@ -1254,6 +886,542 @@ order by public.usage.date
   </design:ResultSets>
 </model:DesignValues>]]></xml-property>
         </oda-data-set>
+        <joint-data-set name="dsetJointUsageQuota" id="562">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">dsetUsage::memory_mb</property>
+                    <property name="alias">dsetUsage::memory_mb</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">dsetUsage::memory_mb</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">dsetUsage::instances</property>
+                    <property name="alias">dsetUsage::instances</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">dsetUsage::instances</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">dsetQuota::project</property>
+                    <property name="alias">dsetQuota::project</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">dsetQuota::project</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">dsetQuota::memory_mb</property>
+                    <property name="alias">dsetQuota::memory_mb</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">dsetQuota::memory_mb</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">dsetUsage::project</property>
+                    <property name="alias">dsetUsage::project</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">dsetUsage::project</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">dsetQuota::instances</property>
+                    <property name="alias">dsetQuota::instances</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">dsetQuota::instances</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">dsetQuota::vcpus</property>
+                    <property name="alias">dsetQuota::vcpus</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">dsetQuota::vcpus</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">dsetUsage::vcpus</property>
+                    <property name="alias">dsetUsage::vcpus</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">dsetUsage::vcpus</text-property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">dsetUsage::date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">dsetUsage::project</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">dsetUsage::vcpus</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">dsetUsage::memory_mb</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">dsetUsage::instances</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">dsetQuota::date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">dsetQuota::project</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">dsetQuota::vcpus</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">dsetQuota::memory_mb</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">dsetQuota::instances</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <simple-property-list name="dataSets">
+                <value>dsetUsage</value>
+                <value>dsetQuota</value>
+            </simple-property-list>
+            <list-property name="joinConditions">
+                <structure>
+                    <property name="joinType">left-out</property>
+                    <property name="joinOperator">eq</property>
+                    <property name="leftDataSet">dsetUsage</property>
+                    <property name="rightDataSet">dsetQuota</property>
+                    <expression name="leftExpression">dataSetRow["project"]</expression>
+                    <expression name="rightExpression">dataSetRow["project"]</expression>
+                </structure>
+            </list-property>
+        </joint-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="dsetCapasity" id="650">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">date</text-property>
+                    <text-property name="heading">date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">vcpus</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">vcpus</text-property>
+                    <text-property name="heading">vcpus</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">memory_mb</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">memory_mb</text-property>
+                    <text-property name="heading">memory_mb</text-property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">vcpus</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">memory_mb</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">iaas_production</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">date</property>
+                    <property name="nativeName">date</property>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">vcpus</property>
+                    <property name="nativeName">vcpus</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">memory_mb</property>
+                    <property name="nativeName">memory_mb</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select *
+from public.capasity]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>date</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>91</design:nativeDataTypeCode>
+            <design:precision>13</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>date</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>date</design:label>
+            <design:formattingHints>
+              <design:displaySize>13</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>vcpus</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>vcpus</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>vcpus</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>memory_mb</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>memory_mb</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>memory_mb</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <joint-data-set name="dsetJointUsageQuotaCapasity" id="760">
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">vcpus_usage_sum</property>
+                    <property name="dataType">integer</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value">row["dsetUsage::vcpus"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">vcpus_quota_sum</property>
+                    <property name="dataType">integer</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value">row["dsetQuota::vcpus"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">memory_usage_sum</property>
+                    <property name="dataType">integer</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value">row["dsetUsage::memory_mb"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">memory_quota_sum</property>
+                    <property name="dataType">integer</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value">row["dsetQuota::memory_mb"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">instances_usage_sum</property>
+                    <property name="dataType">integer</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value">row["dsetUsage::instances"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">instances_quota_sum</property>
+                    <property name="dataType">integer</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value">row["dsetQuota::instances"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">dsetJointUsageQuota::dsetUsage::memory_mb</property>
+                    <property name="alias">dsetUsage::memory_mb</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">dsetJointUsageQuota::dsetUsage::memory_mb</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">dsetJointUsageQuota::dsetUsage::date</property>
+                    <property name="alias">dsetUsage::date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">dsetJointUsageQuota::dsetUsage::date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">dsetJointUsageQuota::dsetQuota::project</property>
+                    <property name="alias">dsetQuota::project</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">dsetJointUsageQuota::dsetQuota::project</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">dsetCapasity::memory_mb</property>
+                    <property name="alias">memory_mb</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">dsetCapasity::memory_mb</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">dsetJointUsageQuota::dsetQuota::memory_mb</property>
+                    <property name="alias">dsetQuota::memory_mb</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">dsetJointUsageQuota::dsetQuota::memory_mb</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">dsetJointUsageQuota::dsetUsage::project</property>
+                    <property name="alias">dsetUsage::project</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">dsetJointUsageQuota::dsetUsage::project</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">dsetCapasity::vcpus</property>
+                    <property name="alias">vcpus</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">dsetCapasity::vcpus</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">dsetCapasity::date</property>
+                    <property name="alias">date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">dsetCapasity::date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">dsetJointUsageQuota::dsetUsage::instances</property>
+                    <property name="alias">dsetUsage::instances</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">dsetJointUsageQuota::dsetUsage::instances</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">dsetJointUsageQuota::dsetQuota::date</property>
+                    <property name="alias">dsetQuota::date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">dsetJointUsageQuota::dsetQuota::date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">dsetJointUsageQuota::dsetQuota::vcpus</property>
+                    <property name="alias">dsetQuota::vcpus</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">dsetJointUsageQuota::dsetQuota::vcpus</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">dsetJointUsageQuota::dsetQuota::instances</property>
+                    <property name="alias">dsetQuota::instances</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">dsetJointUsageQuota::dsetQuota::instances</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">dsetJointUsageQuota::dsetUsage::vcpus</property>
+                    <property name="alias">dsetUsage::vcpus</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">dsetJointUsageQuota::dsetUsage::vcpus</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">vcpus_usage_sum</property>
+                    <property name="alias">vcpus_usage_sum</property>
+                    <property name="analysis">measure</property>
+                </structure>
+                <structure>
+                    <property name="columnName">vcpus_quota_sum</property>
+                    <property name="alias">vcpus_quota_sum</property>
+                    <property name="analysis">measure</property>
+                </structure>
+                <structure>
+                    <property name="columnName">memory_usage_sum</property>
+                    <property name="alias">memory_usage_sum</property>
+                    <property name="analysis">measure</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">dsetJointUsageQuota::dsetUsage::date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">dsetJointUsageQuota::dsetUsage::project</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">dsetJointUsageQuota::dsetUsage::vcpus</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">dsetJointUsageQuota::dsetUsage::memory_mb</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">dsetJointUsageQuota::dsetUsage::instances</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">dsetJointUsageQuota::dsetQuota::date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">dsetJointUsageQuota::dsetQuota::project</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">dsetJointUsageQuota::dsetQuota::vcpus</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">dsetJointUsageQuota::dsetQuota::memory_mb</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">dsetJointUsageQuota::dsetQuota::instances</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">dsetCapasity::date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">dsetCapasity::vcpus</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">dsetCapasity::memory_mb</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">vcpus_usage_sum</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">vcpus_quota_sum</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">memory_usage_sum</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">memory_quota_sum</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">instances_usage_sum</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">instances_quota_sum</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <simple-property-list name="dataSets">
+                <value>dsetJointUsageQuota</value>
+                <value>dsetCapasity</value>
+            </simple-property-list>
+            <list-property name="joinConditions">
+                <structure>
+                    <property name="joinType">left-out</property>
+                    <property name="joinOperator">eq</property>
+                    <property name="leftDataSet">dsetJointUsageQuota</property>
+                    <property name="rightDataSet">dsetCapasity</property>
+                    <expression name="leftExpression">dataSetRow["dsetUsage::date"]</expression>
+                    <expression name="rightExpression">dataSetRow["date"]</expression>
+                </structure>
+            </list-property>
+        </joint-data-set>
     </data-sets>
     <styles>
         <style name="report" id="4">
@@ -1291,6 +1459,7 @@ order by public.usage.date
     </styles>
     <page-setup>
         <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">a4</property>
             <page-footer>
                 <text id="3">
                     <property name="contentType">html</property>
@@ -1303,210 +1472,104 @@ order by public.usage.date
         <text id="914">
             <property name="contentType">html</property>
             <text-property name="content"><![CDATA[<H1>
-Project's usage statistics based on active instances
-</H1>]]></text-property>
+FORGE IaaS<br>
+</H1>
+<H2>
+Customer usage trend
+</H2>]]></text-property>
         </text>
-        <label id="915">
-            <property name="fontWeight">bold</property>
-            <property name="display">inline</property>
-            <text-property name="text">Project</text-property>
-        </label>
-        <data id="823">
-            <property name="fontWeight">bold</property>
-            <property name="display">inline</property>
-            <list-property name="boundDataColumns">
-                <structure>
-                    <property name="name">rprmProject</property>
-                    <expression name="expression" type="javascript">params["rprmProject"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-            </list-property>
-            <property name="resultSetColumn">rprmProject</property>
-        </data>
-        <data id="781">
-            <property name="resultSetColumn">dsetUsage::date</property>
-        </data>
-        <table id="763">
-            <property name="dataSet">dsetJointUsageQuota</property>
-            <list-property name="boundDataColumns">
-                <structure>
-                    <property name="name">dsetUsage::date</property>
-                    <text-property name="displayName">dsetUsage::date</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetUsage::date"]</expression>
-                    <property name="dataType">date</property>
-                </structure>
-                <structure>
-                    <property name="name">dsetUsage::vcpus</property>
-                    <text-property name="displayName">dsetUsage::vcpus</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetUsage::vcpus"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">dsetUsage::memory_mb</property>
-                    <text-property name="displayName">dsetUsage::memory_mb</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetUsage::memory_mb"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">dsetUsage::instances</property>
-                    <text-property name="displayName">dsetUsage::instances</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetUsage::instances"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">dsetQuota::vcpus</property>
-                    <text-property name="displayName">dsetQuota::vcpus</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetQuota::vcpus"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">dsetQuota::memory_mb</property>
-                    <text-property name="displayName">dsetQuota::memory_mb</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetQuota::memory_mb"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="name">dsetQuota::instances</property>
-                    <text-property name="displayName">dsetQuota::instances</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetQuota::instances"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-            </list-property>
-            <column id="802">
-                <property name="textAlign">left</property>
-            </column>
-            <column id="803"/>
-            <column id="804"/>
-            <column id="805"/>
-            <column id="806"/>
-            <column id="807"/>
-            <column id="808"/>
-            <header>
-                <row id="812">
-                    <property name="fontWeight">bold</property>
-                    <property name="borderTopStyle">solid</property>
-                    <property name="borderTopWidth">thin</property>
-                    <cell id="813"/>
-                    <cell id="814">
-                        <property name="colSpan">2</property>
-                        <property name="rowSpan">1</property>
-                        <label id="820">
-                            <text-property name="text">VCPUs</text-property>
-                        </label>
-                    </cell>
-                    <cell id="816">
-                        <property name="colSpan">2</property>
-                        <property name="rowSpan">1</property>
-                        <label id="821">
-                            <text-property name="text">Memory MB</text-property>
-                        </label>
-                    </cell>
-                    <cell id="818">
-                        <property name="colSpan">2</property>
-                        <property name="rowSpan">1</property>
-                        <label id="822">
-                            <text-property name="text">Instances</text-property>
-                        </label>
-                    </cell>
-                </row>
-                <row id="764">
-                    <property name="fontWeight">bold</property>
-                    <property name="borderBottomStyle">solid</property>
-                    <property name="borderBottomWidth">thin</property>
-                    <property name="textAlign">right</property>
-                    <cell id="765">
-                        <label id="766">
-                            <text-property name="text">date</text-property>
-                        </label>
-                    </cell>
-                    <cell id="767">
-                        <label id="768">
-                            <text-property name="text">usage</text-property>
-                        </label>
-                    </cell>
-                    <cell id="769">
-                        <label id="770">
-                            <text-property name="text">quota</text-property>
-                        </label>
-                    </cell>
-                    <cell id="771">
-                        <label id="772">
-                            <text-property name="text">usage</text-property>
-                        </label>
-                    </cell>
-                    <cell id="773">
-                        <label id="774">
-                            <text-property name="text">quota</text-property>
-                        </label>
-                    </cell>
-                    <cell id="775">
-                        <label id="776">
-                            <text-property name="text">usage</text-property>
-                        </label>
-                    </cell>
-                    <cell id="777">
-                        <label id="778">
-                            <text-property name="text">quota</text-property>
-                        </label>
-                    </cell>
-                </row>
-            </header>
-            <detail>
-                <row id="779">
-                    <property name="textAlign">right</property>
-                    <cell id="780">
-                        <data id="825">
-                            <property name="resultSetColumn">dsetUsage::date</property>
-                        </data>
-                    </cell>
-                    <cell id="782">
-                        <data id="783">
-                            <property name="resultSetColumn">dsetUsage::vcpus</property>
-                        </data>
-                    </cell>
-                    <cell id="784">
-                        <data id="789">
-                            <property name="resultSetColumn">dsetQuota::vcpus</property>
-                        </data>
-                    </cell>
-                    <cell id="786">
-                        <data id="785">
-                            <property name="resultSetColumn">dsetUsage::memory_mb</property>
-                        </data>
-                    </cell>
-                    <cell id="788">
-                        <data id="791">
-                            <property name="resultSetColumn">dsetQuota::memory_mb</property>
-                        </data>
-                    </cell>
-                    <cell id="790">
-                        <data id="787">
-                            <property name="resultSetColumn">dsetUsage::instances</property>
-                        </data>
-                    </cell>
-                    <cell id="792">
-                        <data id="793">
-                            <property name="resultSetColumn">dsetQuota::instances</property>
-                        </data>
-                    </cell>
-                </row>
-            </detail>
-            <footer>
-                <row id="794">
-                    <property name="borderTopStyle">solid</property>
-                    <property name="borderTopWidth">thin</property>
-                    <cell id="795"/>
-                    <cell id="796"/>
-                    <cell id="797"/>
-                    <cell id="798"/>
-                    <cell id="799"/>
-                    <cell id="800"/>
-                    <cell id="801"/>
-                </row>
-            </footer>
-        </table>
-        <extended-item extensionName="Chart" id="762">
-            <xml-property name="xmlRepresentation"><![CDATA[<model:ChartWithAxes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:attribute="http://www.birt.eclipse.org/ChartModelAttribute" xmlns:data="http://www.birt.eclipse.org/ChartModelData" xmlns:layout="http://www.birt.eclipse.org/ChartModelLayout" xmlns:model="http://www.birt.eclipse.org/ChartModel" xmlns:type="http://www.birt.eclipse.org/ChartModelType">
+        <grid id="934">
+            <column id="935"/>
+            <column id="936"/>
+            <column id="937"/>
+            <row id="938">
+                <cell id="939"/>
+                <cell id="940"/>
+                <cell id="941"/>
+            </row>
+            <row id="942">
+                <cell id="943">
+                    <label id="950">
+                        <text-property name="text">All usage report</text-property>
+                        <list-property name="action">
+                            <structure>
+                                <property name="linkType">drill-through</property>
+                                <property name="reportName">iaas-all.rptdesign</property>
+                                <property name="targetWindow">_self</property>
+                                <property name="targetFileType">report-design</property>
+                            </structure>
+                        </list-property>
+                    </label>
+                </cell>
+                <cell id="944"/>
+                <cell id="945"/>
+            </row>
+            <row id="952">
+                <cell id="953">
+                    <label id="969">
+                        <text-property name="text">All usage trend</text-property>
+                        <list-property name="action">
+                            <structure>
+                                <property name="linkType">drill-through</property>
+                                <property name="reportName">iaas-all-trend.rptdesign</property>
+                                <property name="targetWindow">_self</property>
+                                <property name="targetFileType">report-design</property>
+                            </structure>
+                        </list-property>
+                    </label>
+                </cell>
+                <cell id="954"/>
+                <cell id="955"/>
+            </row>
+            <row id="970">
+                <cell id="971">
+                    <label id="951">
+                        <text-property name="text">Customer usage report</text-property>
+                        <list-property name="action">
+                            <structure>
+                                <property name="linkType">drill-through</property>
+                                <property name="reportName">iaas.rptdesign</property>
+                                <property name="targetWindow">_self</property>
+                                <property name="targetFileType">report-design</property>
+                            </structure>
+                        </list-property>
+                    </label>
+                </cell>
+                <cell id="972"/>
+                <cell id="973"/>
+            </row>
+            <row id="965">
+                <cell id="966">
+                    <label id="974">
+                        <text-property name="text">Customer usage trend</text-property>
+                        <list-property name="action">
+                            <structure>
+                                <property name="linkType">drill-through</property>
+                                <property name="reportName">iaas-trend.rptdesign</property>
+                                <property name="targetWindow">_self</property>
+                                <property name="targetFileType">report-design</property>
+                            </structure>
+                        </list-property>
+                    </label>
+                </cell>
+                <cell id="967"/>
+                <cell id="968"/>
+            </row>
+            <row id="956">
+                <cell id="957">
+                    <label id="960"/>
+                </cell>
+                <cell id="958"/>
+                <cell id="959"/>
+            </row>
+            <row id="946">
+                <cell id="947"/>
+                <cell id="948"/>
+                <cell id="949"/>
+            </row>
+        </grid>
+        <extended-item extensionName="Chart" id="962">
+            <xml-property name="xmlRepresentation"><![CDATA[<model:ChartWithAxes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:attribute="http://www.birt.eclipse.org/ChartModelAttribute" xmlns:layout="http://www.birt.eclipse.org/ChartModelLayout" xmlns:model="http://www.birt.eclipse.org/ChartModel" xmlns:type="http://www.birt.eclipse.org/ChartModelType">
   <Version>2.6.1</Version>
   <Type>Area Chart</Type>
   <SubType>Overlay</SubType>
@@ -1769,15 +1832,11 @@ Project's usage statistics based on active instances
   </ExtendedProperties>
   <SampleData>
     <BaseSampleData>
-      <DataSetRepresentation>01/05/2000,02/01/2000,04/12/2000,03/12/2000,02/29/2000</DataSetRepresentation>
+      <DataSetRepresentation>'A','B','C','D','E'</DataSetRepresentation>
     </BaseSampleData>
     <OrthogonalSampleData>
       <DataSetRepresentation>6,4,12,8,10</DataSetRepresentation>
       <SeriesDefinitionIndex>0</SeriesDefinitionIndex>
-    </OrthogonalSampleData>
-    <OrthogonalSampleData>
-      <DataSetRepresentation>12.0,8.0,24.0,16.0,20.0</DataSetRepresentation>
-      <SeriesDefinitionIndex>1</SeriesDefinitionIndex>
     </OrthogonalSampleData>
   </SampleData>
   <Interactivity/>
@@ -1815,7 +1874,7 @@ Project's usage statistics based on active instances
     <Visible>false</Visible>
   </EmptyMessage>
   <Axes>
-    <Type>DateTime</Type>
+    <Type>Text</Type>
     <Title>
       <Caption>
         <Value>X-Axis Title</Value>
@@ -1895,9 +1954,6 @@ Project's usage statistics based on active instances
       <SeriesDefinitions>
         <Query>
           <Definition></Definition>
-          <Grouping>
-            <GroupType>Numeric</GroupType>
-          </Grouping>
         </Query>
         <SeriesPalette>
           <Entries xsi:type="attribute:ColorDefinition">
@@ -2122,13 +2178,13 @@ Project's usage statistics based on active instances
             <Visible>false</Visible>
           </Label>
           <DataDefinition>
-            <Definition>row[&quot;dsetQuota::vcpus&quot;]</Definition>
+            <Definition>row[&quot;vcpus_sum&quot;]</Definition>
             <Grouping>
               <GroupType>Text</GroupType>
               <AggregateExpression>Sum</AggregateExpression>
             </Grouping>
           </DataDefinition>
-          <SeriesIdentifier>Quota</SeriesIdentifier>
+          <SeriesIdentifier>Series 1</SeriesIdentifier>
           <DataPoint>
             <Components>
               <Type>Orthogonal_Value</Type>
@@ -2167,284 +2223,7 @@ Project's usage statistics based on active instances
             <Visible>true</Visible>
           </LineAttributes>
           <PaletteLineColor>true</PaletteLineColor>
-        </Series>
-      </SeriesDefinitions>
-      <SeriesDefinitions>
-        <Query>
-          <Definition></Definition>
-          <Grouping>
-            <GroupType>Numeric</GroupType>
-          </Grouping>
-        </Query>
-        <SeriesPalette>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>242</Red>
-            <Green>88</Green>
-            <Blue>106</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>232</Red>
-            <Green>172</Green>
-            <Blue>57</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>255</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>64</Red>
-            <Green>128</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>128</Green>
-            <Blue>192</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>170</Red>
-            <Green>85</Green>
-            <Blue>85</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>128</Green>
-            <Blue>0</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>192</Red>
-            <Green>192</Green>
-            <Blue>192</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>255</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>192</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>7</Red>
-            <Green>146</Green>
-            <Blue>94</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>128</Green>
-            <Blue>255</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>128</Green>
-            <Blue>192</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>255</Green>
-            <Blue>255</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>128</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>128</Green>
-            <Blue>192</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>0</Green>
-            <Blue>255</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>64</Green>
-            <Blue>64</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>128</Green>
-            <Blue>64</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>80</Red>
-            <Green>240</Green>
-            <Blue>120</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>64</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>0</Green>
-            <Blue>64</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>0</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>128</Green>
-            <Blue>64</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>128</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>128</Green>
-            <Blue>255</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>64</Green>
-            <Blue>0</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>0</Green>
-            <Blue>0</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>255</Green>
-            <Blue>255</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>128</Green>
-            <Blue>0</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>80</Red>
-            <Green>166</Green>
-            <Blue>218</Blue>
-          </Entries>
-        </SeriesPalette>
-        <Series xsi:type="type:AreaSeries">
-          <Visible>true</Visible>
-          <Label>
-            <Caption>
-              <Value></Value>
-              <Font>
-                <Alignment/>
-              </Font>
-            </Caption>
-            <Background xsi:type="attribute:ColorDefinition">
-              <Transparency>0</Transparency>
-              <Red>255</Red>
-              <Green>255</Green>
-              <Blue>255</Blue>
-            </Background>
-            <Outline>
-              <Style>Solid</Style>
-              <Thickness>1</Thickness>
-              <Color>
-                <Transparency>255</Transparency>
-                <Red>0</Red>
-                <Green>0</Green>
-                <Blue>0</Blue>
-              </Color>
-              <Visible>false</Visible>
-            </Outline>
-            <Insets>
-              <Top>0.0</Top>
-              <Left>2.0</Left>
-              <Bottom>0.0</Bottom>
-              <Right>3.0</Right>
-            </Insets>
-            <Visible>false</Visible>
-          </Label>
-          <DataDefinition>
-            <Definition>row[&quot;dsetUsage::vcpus&quot;]</Definition>
-            <Grouping>
-              <Enabled>false</Enabled>
-              <GroupType>Text</GroupType>
-              <AggregateExpression>Sum</AggregateExpression>
-            </Grouping>
-          </DataDefinition>
-          <SeriesIdentifier>Usage</SeriesIdentifier>
-          <DataPoint>
-            <Components>
-              <Type>Orthogonal_Value</Type>
-            </Components>
-            <Separator>, </Separator>
-          </DataPoint>
-          <LabelPosition>Above</LabelPosition>
-          <Stacked>false</Stacked>
-          <Triggers>
-            <Condition>onmouseover</Condition>
-            <Action>
-              <Type>Show_Tooltip</Type>
-              <Value xsi:type="attribute:TooltipValue">
-                <Text></Text>
-                <Delay>200</Delay>
-              </Value>
-            </Action>
-          </Triggers>
-          <Markers>
-            <Type>Box</Type>
-            <Size>4</Size>
-            <Visible>false</Visible>
-            <Outline>
-              <Visible>true</Visible>
-            </Outline>
-          </Markers>
-          <LineAttributes>
-            <Style>Solid</Style>
-            <Thickness>1</Thickness>
-            <Color>
-              <Transparency>255</Transparency>
-              <Red>0</Red>
-              <Green>0</Green>
-              <Blue>0</Blue>
-            </Color>
-            <Visible>true</Visible>
-          </LineAttributes>
-          <PaletteLineColor>true</PaletteLineColor>
+          <ConnectMissingValue>true</ConnectMissingValue>
         </Series>
         <Grouping>
           <GroupType>Text</GroupType>
@@ -2547,15 +2326,16 @@ Project's usage statistics based on active instances
       </MinorGrid>
       <Scale>
         <MinorGridsPerUnit>5</MinorGridsPerUnit>
+        <AutoExpand>true</AutoExpand>
       </Scale>
       <Origin>
         <Type>Min</Type>
-        <Value xsi:type="data:NumberDataElement">
-          <Value>0.0</Value>
-        </Value>
       </Origin>
       <PrimaryAxis>true</PrimaryAxis>
       <Percent>false</Percent>
+      <Cursor>
+        <Type>Auto</Type>
+      </Cursor>
     </AssociatedAxes>
     <SeriesDefinitions>
       <Query>
@@ -2784,7 +2564,7 @@ Project's usage statistics based on active instances
           <Visible>false</Visible>
         </Label>
         <DataDefinition>
-          <Definition>row[&quot;dsetUsage::date&quot;]</Definition>
+          <Definition>row[&quot;date&quot;]</Definition>
         </DataDefinition>
         <SeriesIdentifier></SeriesIdentifier>
         <DataPoint>
@@ -2797,12 +2577,10 @@ Project's usage statistics based on active instances
         <Stacked>false</Stacked>
       </Series>
       <Grouping>
-        <Enabled>false</Enabled>
-        <GroupingUnit>Years</GroupingUnit>
-        <GroupType>DateTime</GroupType>
+        <Enabled>true</Enabled>
+        <GroupType>Text</GroupType>
         <AggregateExpression>Sum</AggregateExpression>
       </Grouping>
-      <SortKey/>
     </SeriesDefinitions>
     <Orientation>Horizontal</Orientation>
     <LineAttributes>
@@ -2847,10 +2625,8 @@ Project's usage statistics based on active instances
       </Insets>
       <Visible>true</Visible>
     </Label>
-    <FormatSpecifier xsi:type="attribute:JavaDateFormatSpecifier">
-      <Pattern>YYYY-MM-dd</Pattern>
-    </FormatSpecifier>
     <LabelPosition>Below</LabelPosition>
+    <Staggered>false</Staggered>
     <MajorGrid>
       <LineAttributes>
         <Style>Solid</Style>
@@ -2907,9 +2683,6 @@ Project's usage statistics based on active instances
     </Scale>
     <Origin>
       <Type>Min</Type>
-      <Value xsi:type="data:NumberDataElement">
-        <Value>0.0</Value>
-      </Value>
     </Origin>
     <PrimaryAxis>true</PrimaryAxis>
     <CategoryAxis>true</CategoryAxis>
@@ -2925,58 +2698,77 @@ Project's usage statistics based on active instances
       <Type>None</Type>
     </Angles>
   </Rotation>
-  <ReverseCategory>false</ReverseCategory>
 </model:ChartWithAxes>
 ]]></xml-property>
             <property name="outputFormat">SVG</property>
             <property name="inheritColumns">false</property>
-            <property name="height">3.3125in</property>
-            <property name="width">8in</property>
-            <property name="dataSet">dsetJointUsageQuota</property>
+            <property name="height">150mm</property>
+            <property name="width">200mm</property>
+            <property name="dataSet">dsetUsage</property>
             <list-property name="boundDataColumns">
                 <structure>
-                    <property name="name">dsetUsage::date</property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetUsage::date"]</expression>
-                    <property name="dataType">date</property>
+                    <property name="name">bool</property>
+                    <expression name="expression" type="javascript">dataSetRow["bool"]</expression>
+                    <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="name">dsetUsage::vcpus</property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetUsage::vcpus"]</expression>
+                    <property name="name">date</property>
+                    <expression name="expression" type="javascript">dataSetRow["date"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">instance_id</property>
+                    <expression name="expression" type="javascript">dataSetRow["instance_id"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">vcpus</property>
+                    <expression name="expression" type="javascript">dataSetRow["vcpus"]</expression>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
-                    <property name="name">dsetUsage::memory_mb</property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetUsage::memory_mb"]</expression>
+                    <property name="name">memory_mb</property>
+                    <expression name="expression" type="javascript">dataSetRow["memory_mb"]</expression>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
-                    <property name="name">dsetUsage::instances</property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetUsage::instances"]</expression>
-                    <property name="dataType">decimal</property>
+                    <property name="name">project</property>
+                    <expression name="expression" type="javascript">dataSetRow["project"]</expression>
+                    <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="name">dsetQuota::date</property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetQuota::date"]</expression>
-                    <property name="dataType">date</property>
+                    <property name="name">state</property>
+                    <expression name="expression" type="javascript">dataSetRow["state"]</expression>
+                    <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="name">dsetQuota::vcpus</property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetQuota::vcpus"]</expression>
-                    <property name="dataType">decimal</property>
+                    <property name="name">start</property>
+                    <expression name="expression" type="javascript">dataSetRow["start"]</expression>
+                    <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="name">dsetQuota::memory_mb</property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetQuota::memory_mb"]</expression>
-                    <property name="dataType">decimal</property>
+                    <property name="name">end</property>
+                    <expression name="expression" type="javascript">dataSetRow["end"]</expression>
+                    <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="name">dsetQuota::instances</property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetQuota::instances"]</expression>
-                    <property name="dataType">decimal</property>
+                    <property name="name">vcpus_sum</property>
+                    <expression name="expression" type="javascript">dataSetRow["vcpus_sum"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">memory_mb_sum</property>
+                    <expression name="expression" type="javascript">dataSetRow["memory_mb_sum"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">instances_sum</property>
+                    <expression name="expression" type="javascript">dataSetRow["instances_sum"]</expression>
+                    <property name="dataType">integer</property>
                 </structure>
             </list-property>
         </extended-item>
-        <extended-item extensionName="Chart" id="811">
+        <extended-item extensionName="Chart" id="963">
             <xml-property name="xmlRepresentation"><![CDATA[<model:ChartWithAxes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:attribute="http://www.birt.eclipse.org/ChartModelAttribute" xmlns:data="http://www.birt.eclipse.org/ChartModelData" xmlns:layout="http://www.birt.eclipse.org/ChartModelLayout" xmlns:model="http://www.birt.eclipse.org/ChartModel" xmlns:type="http://www.birt.eclipse.org/ChartModelType">
   <Version>2.6.1</Version>
   <Type>Area Chart</Type>
@@ -3240,15 +3032,11 @@ Project's usage statistics based on active instances
   </ExtendedProperties>
   <SampleData>
     <BaseSampleData>
-      <DataSetRepresentation>01/05/2000,02/01/2000,04/12/2000,03/12/2000,02/29/2000</DataSetRepresentation>
+      <DataSetRepresentation>'A','B','C','D','E'</DataSetRepresentation>
     </BaseSampleData>
     <OrthogonalSampleData>
       <DataSetRepresentation>6,4,12,8,10</DataSetRepresentation>
       <SeriesDefinitionIndex>0</SeriesDefinitionIndex>
-    </OrthogonalSampleData>
-    <OrthogonalSampleData>
-      <DataSetRepresentation>12.0,8.0,24.0,16.0,20.0</DataSetRepresentation>
-      <SeriesDefinitionIndex>1</SeriesDefinitionIndex>
     </OrthogonalSampleData>
   </SampleData>
   <Interactivity/>
@@ -3286,7 +3074,7 @@ Project's usage statistics based on active instances
     <Visible>false</Visible>
   </EmptyMessage>
   <Axes>
-    <Type>DateTime</Type>
+    <Type>Text</Type>
     <Title>
       <Caption>
         <Value>X-Axis Title</Value>
@@ -3366,9 +3154,6 @@ Project's usage statistics based on active instances
       <SeriesDefinitions>
         <Query>
           <Definition></Definition>
-          <Grouping>
-            <GroupType>Numeric</GroupType>
-          </Grouping>
         </Query>
         <SeriesPalette>
           <Entries xsi:type="attribute:ColorDefinition">
@@ -3593,291 +3378,13 @@ Project's usage statistics based on active instances
             <Visible>false</Visible>
           </Label>
           <DataDefinition>
-            <Definition>row[&quot;dsetQuota::memory_mb&quot;]</Definition>
+            <Definition>row[&quot;memory_mb_sum&quot;]</Definition>
             <Grouping>
               <GroupType>Text</GroupType>
               <AggregateExpression>Sum</AggregateExpression>
             </Grouping>
           </DataDefinition>
-          <SeriesIdentifier>Quota</SeriesIdentifier>
-          <DataPoint>
-            <Components>
-              <Type>Orthogonal_Value</Type>
-            </Components>
-            <Separator>, </Separator>
-          </DataPoint>
-          <LabelPosition>Above</LabelPosition>
-          <Stacked>false</Stacked>
-          <Triggers>
-            <Condition>onmouseover</Condition>
-            <Action>
-              <Type>Show_Tooltip</Type>
-              <Value xsi:type="attribute:TooltipValue">
-                <Text></Text>
-                <Delay>200</Delay>
-              </Value>
-            </Action>
-          </Triggers>
-          <Markers>
-            <Type>Box</Type>
-            <Size>4</Size>
-            <Visible>false</Visible>
-            <Outline>
-              <Visible>true</Visible>
-            </Outline>
-          </Markers>
-          <LineAttributes>
-            <Style>Solid</Style>
-            <Thickness>1</Thickness>
-            <Color>
-              <Transparency>255</Transparency>
-              <Red>0</Red>
-              <Green>0</Green>
-              <Blue>0</Blue>
-            </Color>
-            <Visible>true</Visible>
-          </LineAttributes>
-          <PaletteLineColor>true</PaletteLineColor>
-        </Series>
-      </SeriesDefinitions>
-      <SeriesDefinitions>
-        <Query>
-          <Definition></Definition>
-          <Grouping>
-            <GroupType>Numeric</GroupType>
-          </Grouping>
-        </Query>
-        <SeriesPalette>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>242</Red>
-            <Green>88</Green>
-            <Blue>106</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>232</Red>
-            <Green>172</Green>
-            <Blue>57</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>255</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>64</Red>
-            <Green>128</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>128</Green>
-            <Blue>192</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>170</Red>
-            <Green>85</Green>
-            <Blue>85</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>128</Green>
-            <Blue>0</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>192</Red>
-            <Green>192</Green>
-            <Blue>192</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>255</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>192</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>7</Red>
-            <Green>146</Green>
-            <Blue>94</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>128</Green>
-            <Blue>255</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>128</Green>
-            <Blue>192</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>255</Green>
-            <Blue>255</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>128</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>128</Green>
-            <Blue>192</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>0</Green>
-            <Blue>255</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>64</Green>
-            <Blue>64</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>128</Green>
-            <Blue>64</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>80</Red>
-            <Green>240</Green>
-            <Blue>120</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>64</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>0</Green>
-            <Blue>64</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>0</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>128</Green>
-            <Blue>64</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>128</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>128</Green>
-            <Blue>255</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>64</Green>
-            <Blue>0</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>0</Green>
-            <Blue>0</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>255</Green>
-            <Blue>255</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>128</Green>
-            <Blue>0</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>80</Red>
-            <Green>166</Green>
-            <Blue>218</Blue>
-          </Entries>
-        </SeriesPalette>
-        <Series xsi:type="type:AreaSeries">
-          <Visible>true</Visible>
-          <Label>
-            <Caption>
-              <Value></Value>
-              <Font>
-                <Alignment/>
-              </Font>
-            </Caption>
-            <Background xsi:type="attribute:ColorDefinition">
-              <Transparency>0</Transparency>
-              <Red>255</Red>
-              <Green>255</Green>
-              <Blue>255</Blue>
-            </Background>
-            <Outline>
-              <Style>Solid</Style>
-              <Thickness>1</Thickness>
-              <Color>
-                <Transparency>255</Transparency>
-                <Red>0</Red>
-                <Green>0</Green>
-                <Blue>0</Blue>
-              </Color>
-              <Visible>false</Visible>
-            </Outline>
-            <Insets>
-              <Top>0.0</Top>
-              <Left>2.0</Left>
-              <Bottom>0.0</Bottom>
-              <Right>3.0</Right>
-            </Insets>
-            <Visible>false</Visible>
-          </Label>
-          <DataDefinition>
-            <Definition>row[&quot;dsetUsage::memory_mb&quot;]</Definition>
-            <Grouping>
-              <Enabled>false</Enabled>
-              <GroupType>Text</GroupType>
-              <AggregateExpression>Sum</AggregateExpression>
-            </Grouping>
-          </DataDefinition>
-          <SeriesIdentifier>Usage</SeriesIdentifier>
+          <SeriesIdentifier>Series 1</SeriesIdentifier>
           <DataPoint>
             <Components>
               <Type>Orthogonal_Value</Type>
@@ -4018,9 +3525,10 @@ Project's usage statistics based on active instances
       </MinorGrid>
       <Scale>
         <MinorGridsPerUnit>5</MinorGridsPerUnit>
+        <AutoExpand>true</AutoExpand>
       </Scale>
       <Origin>
-        <Type>Min</Type>
+        <Type>Value</Type>
         <Value xsi:type="data:NumberDataElement">
           <Value>0.0</Value>
         </Value>
@@ -4255,7 +3763,7 @@ Project's usage statistics based on active instances
           <Visible>false</Visible>
         </Label>
         <DataDefinition>
-          <Definition>row[&quot;dsetUsage::date&quot;]</Definition>
+          <Definition>row[&quot;date&quot;]</Definition>
         </DataDefinition>
         <SeriesIdentifier></SeriesIdentifier>
         <DataPoint>
@@ -4268,12 +3776,10 @@ Project's usage statistics based on active instances
         <Stacked>false</Stacked>
       </Series>
       <Grouping>
-        <Enabled>false</Enabled>
-        <GroupingUnit>Years</GroupingUnit>
-        <GroupType>DateTime</GroupType>
+        <Enabled>true</Enabled>
+        <GroupType>Text</GroupType>
         <AggregateExpression>Sum</AggregateExpression>
       </Grouping>
-      <SortKey/>
     </SeriesDefinitions>
     <Orientation>Horizontal</Orientation>
     <LineAttributes>
@@ -4318,9 +3824,6 @@ Project's usage statistics based on active instances
       </Insets>
       <Visible>true</Visible>
     </Label>
-    <FormatSpecifier xsi:type="attribute:JavaDateFormatSpecifier">
-      <Pattern>YYYY-MM-dd</Pattern>
-    </FormatSpecifier>
     <LabelPosition>Below</LabelPosition>
     <MajorGrid>
       <LineAttributes>
@@ -4374,7 +3877,6 @@ Project's usage statistics based on active instances
     </MinorGrid>
     <Scale>
       <MinorGridsPerUnit>5</MinorGridsPerUnit>
-      <ShowOutside>false</ShowOutside>
     </Scale>
     <Origin>
       <Type>Min</Type>
@@ -4396,58 +3898,67 @@ Project's usage statistics based on active instances
       <Type>None</Type>
     </Angles>
   </Rotation>
-  <ReverseCategory>false</ReverseCategory>
 </model:ChartWithAxes>
 ]]></xml-property>
             <property name="outputFormat">SVG</property>
             <property name="inheritColumns">false</property>
-            <property name="height">3.3125in</property>
-            <property name="width">8in</property>
-            <property name="dataSet">dsetJointUsageQuota</property>
+            <property name="height">150mm</property>
+            <property name="width">200mm</property>
+            <property name="dataSet">dsetUsage</property>
             <list-property name="boundDataColumns">
                 <structure>
-                    <property name="name">dsetUsage::date</property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetUsage::date"]</expression>
-                    <property name="dataType">date</property>
+                    <property name="name">bool</property>
+                    <expression name="expression" type="javascript">dataSetRow["bool"]</expression>
+                    <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="name">dsetUsage::vcpus</property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetUsage::vcpus"]</expression>
+                    <property name="name">project</property>
+                    <expression name="expression" type="javascript">dataSetRow["project"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">date</property>
+                    <expression name="expression" type="javascript">dataSetRow["date"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">vcpus</property>
+                    <expression name="expression" type="javascript">dataSetRow["vcpus"]</expression>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
-                    <property name="name">dsetUsage::memory_mb</property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetUsage::memory_mb"]</expression>
+                    <property name="name">memory_mb</property>
+                    <expression name="expression" type="javascript">dataSetRow["memory_mb"]</expression>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
-                    <property name="name">dsetUsage::instances</property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetUsage::instances"]</expression>
-                    <property name="dataType">decimal</property>
+                    <property name="name">state</property>
+                    <expression name="expression" type="javascript">dataSetRow["state"]</expression>
+                    <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="name">dsetQuota::date</property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetQuota::date"]</expression>
-                    <property name="dataType">date</property>
+                    <property name="name">instance_id</property>
+                    <expression name="expression" type="javascript">dataSetRow["instance_id"]</expression>
+                    <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="name">dsetQuota::vcpus</property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetQuota::vcpus"]</expression>
-                    <property name="dataType">decimal</property>
+                    <property name="name">vcpus_sum</property>
+                    <expression name="expression" type="javascript">dataSetRow["vcpus_sum"]</expression>
+                    <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="name">dsetQuota::memory_mb</property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetQuota::memory_mb"]</expression>
-                    <property name="dataType">decimal</property>
+                    <property name="name">memory_mb_sum</property>
+                    <expression name="expression" type="javascript">dataSetRow["memory_mb_sum"]</expression>
+                    <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="name">dsetQuota::instances</property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetQuota::instances"]</expression>
-                    <property name="dataType">decimal</property>
+                    <property name="name">instances_sum</property>
+                    <expression name="expression" type="javascript">dataSetRow["instances_sum"]</expression>
+                    <property name="dataType">integer</property>
                 </structure>
             </list-property>
         </extended-item>
-        <extended-item extensionName="Chart" id="810">
+        <extended-item extensionName="Chart" id="964">
             <xml-property name="xmlRepresentation"><![CDATA[<model:ChartWithAxes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:attribute="http://www.birt.eclipse.org/ChartModelAttribute" xmlns:data="http://www.birt.eclipse.org/ChartModelData" xmlns:layout="http://www.birt.eclipse.org/ChartModelLayout" xmlns:model="http://www.birt.eclipse.org/ChartModel" xmlns:type="http://www.birt.eclipse.org/ChartModelType">
   <Version>2.6.1</Version>
   <Type>Area Chart</Type>
@@ -4711,15 +4222,11 @@ Project's usage statistics based on active instances
   </ExtendedProperties>
   <SampleData>
     <BaseSampleData>
-      <DataSetRepresentation>01/05/2000,02/01/2000,04/12/2000,03/12/2000,02/29/2000</DataSetRepresentation>
+      <DataSetRepresentation>'A','B','C','D','E'</DataSetRepresentation>
     </BaseSampleData>
     <OrthogonalSampleData>
       <DataSetRepresentation>6,4,12,8,10</DataSetRepresentation>
       <SeriesDefinitionIndex>0</SeriesDefinitionIndex>
-    </OrthogonalSampleData>
-    <OrthogonalSampleData>
-      <DataSetRepresentation>12.0,8.0,24.0,16.0,20.0</DataSetRepresentation>
-      <SeriesDefinitionIndex>1</SeriesDefinitionIndex>
     </OrthogonalSampleData>
   </SampleData>
   <Interactivity/>
@@ -4757,7 +4264,7 @@ Project's usage statistics based on active instances
     <Visible>false</Visible>
   </EmptyMessage>
   <Axes>
-    <Type>DateTime</Type>
+    <Type>Text</Type>
     <Title>
       <Caption>
         <Value>X-Axis Title</Value>
@@ -4837,9 +4344,6 @@ Project's usage statistics based on active instances
       <SeriesDefinitions>
         <Query>
           <Definition></Definition>
-          <Grouping>
-            <GroupType>Numeric</GroupType>
-          </Grouping>
         </Query>
         <SeriesPalette>
           <Entries xsi:type="attribute:ColorDefinition">
@@ -5064,295 +4568,13 @@ Project's usage statistics based on active instances
             <Visible>false</Visible>
           </Label>
           <DataDefinition>
-            <Definition>row[&quot;dsetQuota::instances&quot;]</Definition>
+            <Definition>row[&quot;instances_sum&quot;]</Definition>
             <Grouping>
               <GroupType>Text</GroupType>
               <AggregateExpression>Sum</AggregateExpression>
             </Grouping>
           </DataDefinition>
-          <SeriesIdentifier>Quota</SeriesIdentifier>
-          <DataPoint>
-            <Components>
-              <Type>Orthogonal_Value</Type>
-            </Components>
-            <Separator>, </Separator>
-          </DataPoint>
-          <LabelPosition>Above</LabelPosition>
-          <Stacked>false</Stacked>
-          <Triggers>
-            <Condition>onmouseover</Condition>
-            <Action>
-              <Type>Show_Tooltip</Type>
-              <Value xsi:type="attribute:TooltipValue">
-                <Text></Text>
-                <Delay>200</Delay>
-              </Value>
-            </Action>
-          </Triggers>
-          <Markers>
-            <Type>Box</Type>
-            <Size>4</Size>
-            <Visible>false</Visible>
-            <Outline>
-              <Visible>true</Visible>
-            </Outline>
-          </Markers>
-          <LineAttributes>
-            <Style>Solid</Style>
-            <Thickness>1</Thickness>
-            <Color>
-              <Transparency>255</Transparency>
-              <Red>0</Red>
-              <Green>0</Green>
-              <Blue>0</Blue>
-            </Color>
-            <Visible>true</Visible>
-          </LineAttributes>
-          <PaletteLineColor>true</PaletteLineColor>
-        </Series>
-        <Grouping>
-          <GroupType>Text</GroupType>
-          <AggregateExpression>Sum</AggregateExpression>
-        </Grouping>
-      </SeriesDefinitions>
-      <SeriesDefinitions>
-        <Query>
-          <Definition></Definition>
-          <Grouping>
-            <GroupType>Numeric</GroupType>
-          </Grouping>
-        </Query>
-        <SeriesPalette>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>242</Red>
-            <Green>88</Green>
-            <Blue>106</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>232</Red>
-            <Green>172</Green>
-            <Blue>57</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>255</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>64</Red>
-            <Green>128</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>128</Green>
-            <Blue>192</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>170</Red>
-            <Green>85</Green>
-            <Blue>85</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>128</Green>
-            <Blue>0</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>192</Red>
-            <Green>192</Green>
-            <Blue>192</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>255</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>192</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>7</Red>
-            <Green>146</Green>
-            <Blue>94</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>128</Green>
-            <Blue>255</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>128</Green>
-            <Blue>192</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>255</Green>
-            <Blue>255</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>128</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>128</Green>
-            <Blue>192</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>0</Green>
-            <Blue>255</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>64</Green>
-            <Blue>64</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>128</Green>
-            <Blue>64</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>80</Red>
-            <Green>240</Green>
-            <Blue>120</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>64</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>0</Green>
-            <Blue>64</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>0</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>128</Green>
-            <Blue>64</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>128</Red>
-            <Green>128</Green>
-            <Blue>128</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>128</Green>
-            <Blue>255</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>64</Green>
-            <Blue>0</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>0</Red>
-            <Green>0</Green>
-            <Blue>0</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>255</Green>
-            <Blue>255</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>255</Red>
-            <Green>128</Green>
-            <Blue>0</Blue>
-          </Entries>
-          <Entries xsi:type="attribute:ColorDefinition">
-            <Transparency>255</Transparency>
-            <Red>80</Red>
-            <Green>166</Green>
-            <Blue>218</Blue>
-          </Entries>
-        </SeriesPalette>
-        <Series xsi:type="type:AreaSeries">
-          <Visible>true</Visible>
-          <Label>
-            <Caption>
-              <Value></Value>
-              <Font>
-                <Alignment/>
-              </Font>
-            </Caption>
-            <Background xsi:type="attribute:ColorDefinition">
-              <Transparency>0</Transparency>
-              <Red>255</Red>
-              <Green>255</Green>
-              <Blue>255</Blue>
-            </Background>
-            <Outline>
-              <Style>Solid</Style>
-              <Thickness>1</Thickness>
-              <Color>
-                <Transparency>255</Transparency>
-                <Red>0</Red>
-                <Green>0</Green>
-                <Blue>0</Blue>
-              </Color>
-              <Visible>false</Visible>
-            </Outline>
-            <Insets>
-              <Top>0.0</Top>
-              <Left>2.0</Left>
-              <Bottom>0.0</Bottom>
-              <Right>3.0</Right>
-            </Insets>
-            <Visible>false</Visible>
-          </Label>
-          <DataDefinition>
-            <Definition>row[&quot;dsetUsage::instances&quot;]</Definition>
-            <Grouping>
-              <Enabled>false</Enabled>
-              <GroupType>Text</GroupType>
-              <AggregateExpression>Sum</AggregateExpression>
-            </Grouping>
-          </DataDefinition>
-          <SeriesIdentifier>Usage</SeriesIdentifier>
+          <SeriesIdentifier>Series 1</SeriesIdentifier>
           <DataPoint>
             <Components>
               <Type>Orthogonal_Value</Type>
@@ -5493,9 +4715,10 @@ Project's usage statistics based on active instances
       </MinorGrid>
       <Scale>
         <MinorGridsPerUnit>5</MinorGridsPerUnit>
+        <AutoExpand>true</AutoExpand>
       </Scale>
       <Origin>
-        <Type>Min</Type>
+        <Type>Value</Type>
         <Value xsi:type="data:NumberDataElement">
           <Value>0.0</Value>
         </Value>
@@ -5730,7 +4953,7 @@ Project's usage statistics based on active instances
           <Visible>false</Visible>
         </Label>
         <DataDefinition>
-          <Definition>row[&quot;dsetUsage::date&quot;]</Definition>
+          <Definition>row[&quot;date&quot;]</Definition>
         </DataDefinition>
         <SeriesIdentifier></SeriesIdentifier>
         <DataPoint>
@@ -5743,12 +4966,10 @@ Project's usage statistics based on active instances
         <Stacked>false</Stacked>
       </Series>
       <Grouping>
-        <Enabled>false</Enabled>
-        <GroupingUnit>Years</GroupingUnit>
-        <GroupType>DateTime</GroupType>
+        <Enabled>true</Enabled>
+        <GroupType>Text</GroupType>
         <AggregateExpression>Sum</AggregateExpression>
       </Grouping>
-      <SortKey/>
     </SeriesDefinitions>
     <Orientation>Horizontal</Orientation>
     <LineAttributes>
@@ -5793,9 +5014,6 @@ Project's usage statistics based on active instances
       </Insets>
       <Visible>true</Visible>
     </Label>
-    <FormatSpecifier xsi:type="attribute:JavaDateFormatSpecifier">
-      <Pattern>YYYY-MM-dd</Pattern>
-    </FormatSpecifier>
     <LabelPosition>Below</LabelPosition>
     <MajorGrid>
       <LineAttributes>
@@ -5849,7 +5067,6 @@ Project's usage statistics based on active instances
     </MinorGrid>
     <Scale>
       <MinorGridsPerUnit>5</MinorGridsPerUnit>
-      <ShowOutside>false</ShowOutside>
     </Scale>
     <Origin>
       <Type>Min</Type>
@@ -5871,54 +5088,63 @@ Project's usage statistics based on active instances
       <Type>None</Type>
     </Angles>
   </Rotation>
-  <ReverseCategory>false</ReverseCategory>
 </model:ChartWithAxes>
 ]]></xml-property>
             <property name="outputFormat">SVG</property>
             <property name="inheritColumns">false</property>
-            <property name="height">3.3125in</property>
-            <property name="width">8in</property>
-            <property name="dataSet">dsetJointUsageQuota</property>
+            <property name="height">150mm</property>
+            <property name="width">200mm</property>
+            <property name="dataSet">dsetUsage</property>
             <list-property name="boundDataColumns">
                 <structure>
-                    <property name="name">dsetUsage::date</property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetUsage::date"]</expression>
-                    <property name="dataType">date</property>
+                    <property name="name">bool</property>
+                    <expression name="expression" type="javascript">dataSetRow["bool"]</expression>
+                    <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="name">dsetUsage::vcpus</property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetUsage::vcpus"]</expression>
+                    <property name="name">project</property>
+                    <expression name="expression" type="javascript">dataSetRow["project"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">date</property>
+                    <expression name="expression" type="javascript">dataSetRow["date"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">vcpus</property>
+                    <expression name="expression" type="javascript">dataSetRow["vcpus"]</expression>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
-                    <property name="name">dsetUsage::memory_mb</property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetUsage::memory_mb"]</expression>
+                    <property name="name">memory_mb</property>
+                    <expression name="expression" type="javascript">dataSetRow["memory_mb"]</expression>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
-                    <property name="name">dsetUsage::instances</property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetUsage::instances"]</expression>
-                    <property name="dataType">decimal</property>
+                    <property name="name">state</property>
+                    <expression name="expression" type="javascript">dataSetRow["state"]</expression>
+                    <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="name">dsetQuota::date</property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetQuota::date"]</expression>
-                    <property name="dataType">date</property>
+                    <property name="name">instance_id</property>
+                    <expression name="expression" type="javascript">dataSetRow["instance_id"]</expression>
+                    <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="name">dsetQuota::vcpus</property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetQuota::vcpus"]</expression>
-                    <property name="dataType">decimal</property>
+                    <property name="name">vcpus_sum</property>
+                    <expression name="expression" type="javascript">dataSetRow["vcpus_sum"]</expression>
+                    <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="name">dsetQuota::memory_mb</property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetQuota::memory_mb"]</expression>
-                    <property name="dataType">decimal</property>
+                    <property name="name">memory_mb_sum</property>
+                    <expression name="expression" type="javascript">dataSetRow["memory_mb_sum"]</expression>
+                    <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="name">dsetQuota::instances</property>
-                    <expression name="expression" type="javascript">dataSetRow["dsetQuota::instances"]</expression>
-                    <property name="dataType">decimal</property>
+                    <property name="name">instances_sum</property>
+                    <expression name="expression" type="javascript">dataSetRow["instances_sum"]</expression>
+                    <property name="dataType">integer</property>
                 </structure>
             </list-property>
         </extended-item>

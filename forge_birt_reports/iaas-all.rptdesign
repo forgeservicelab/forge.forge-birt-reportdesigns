@@ -1272,8 +1272,11 @@ from public.capasity]]></xml-property>
         <text id="914">
             <property name="contentType">html</property>
             <text-property name="content"><![CDATA[<H1>
-FORGE IaaS usage statistics based on active instances
-</H1>]]></text-property>
+FORGE IaaS<br>
+</H1>
+<H2>
+All usage report
+</H2>]]></text-property>
         </text>
         <grid id="934">
             <column id="935"/>
@@ -1303,6 +1306,23 @@ FORGE IaaS usage statistics based on active instances
             </row>
             <row id="952">
                 <cell id="953">
+                    <label id="969">
+                        <text-property name="text">All usage trend</text-property>
+                        <list-property name="action">
+                            <structure>
+                                <property name="linkType">drill-through</property>
+                                <property name="reportName">iaas-all-trend.rptdesign</property>
+                                <property name="targetWindow">_self</property>
+                                <property name="targetFileType">report-design</property>
+                            </structure>
+                        </list-property>
+                    </label>
+                </cell>
+                <cell id="954"/>
+                <cell id="955"/>
+            </row>
+            <row id="961">
+                <cell id="962">
                     <label id="951">
                         <text-property name="text">Customer usage report</text-property>
                         <list-property name="action">
@@ -1315,8 +1335,25 @@ FORGE IaaS usage statistics based on active instances
                         </list-property>
                     </label>
                 </cell>
-                <cell id="954"/>
-                <cell id="955"/>
+                <cell id="963"/>
+                <cell id="964"/>
+            </row>
+            <row id="965">
+                <cell id="966">
+                    <label id="970">
+                        <text-property name="text">Customer usage trend</text-property>
+                        <list-property name="action">
+                            <structure>
+                                <property name="linkType">drill-through</property>
+                                <property name="reportName">iaas-trend.rptdesign</property>
+                                <property name="targetWindow">_self</property>
+                                <property name="targetFileType">report-design</property>
+                            </structure>
+                        </list-property>
+                    </label>
+                </cell>
+                <cell id="967"/>
+                <cell id="968"/>
             </row>
             <row id="956">
                 <cell id="957">
