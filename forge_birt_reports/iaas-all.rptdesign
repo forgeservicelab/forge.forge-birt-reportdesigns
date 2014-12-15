@@ -1586,7 +1586,7 @@ All usage report
                             <list-property name="action">
                                 <structure>
                                     <property name="linkType">drill-through</property>
-                                    <property name="reportName">iaas_trend.rptdesign</property>
+                                    <property name="reportName">iaas-project.rptdesign</property>
                                     <property name="targetWindow">_self</property>
                                     <property name="targetFileType">report-design</property>
                                     <list-property name="paramBindings">
@@ -2470,7 +2470,7 @@ All usage report
                 </Label>
                 <BaseUrl>&lt;structure>
     &lt;property name=&quot;linkType&quot;>drill-through&lt;/property>
-    &lt;property name=&quot;reportName&quot;>iaas_trend.rptdesign&lt;/property>
+    &lt;property name=&quot;reportName&quot;>iaas-project.rptdesign&lt;/property>
     &lt;property name=&quot;targetWindow&quot;>_self&lt;/property>
     &lt;property name=&quot;targetFileType&quot;>report-design&lt;/property>
     &lt;list-property name=&quot;paramBindings&quot;>
@@ -2820,7 +2820,7 @@ All usage report
                 </Label>
                 <BaseUrl>&lt;structure>
     &lt;property name=&quot;linkType&quot;>drill-through&lt;/property>
-    &lt;property name=&quot;reportName&quot;>iaas_trend.rptdesign&lt;/property>
+    &lt;property name=&quot;reportName&quot;>iaas-project.rptdesign&lt;/property>
     &lt;property name=&quot;targetWindow&quot;>_self&lt;/property>
     &lt;property name=&quot;targetFileType&quot;>report-design&lt;/property>
     &lt;list-property name=&quot;paramBindings&quot;>
@@ -3169,7 +3169,7 @@ All usage report
                 </Label>
                 <BaseUrl>&lt;structure>
     &lt;property name=&quot;linkType&quot;>drill-through&lt;/property>
-    &lt;property name=&quot;reportName&quot;>iaas_trend.rptdesign&lt;/property>
+    &lt;property name=&quot;reportName&quot;>iaas-project.rptdesign&lt;/property>
     &lt;property name=&quot;targetWindow&quot;>_self&lt;/property>
     &lt;property name=&quot;targetFileType&quot;>report-design&lt;/property>
     &lt;list-property name=&quot;paramBindings&quot;>
@@ -3313,7 +3313,7 @@ All usage report
                     <property name="targetWindow">_self</property>
                     <property name="linkType">drill-through</property>
                     <property name="targetFileType">report-design</property>
-                    <property name="reportName">iaas_trend.rptdesign</property>
+                    <property name="reportName">iaas-project.rptdesign</property>
                     <list-property name="paramBindings">
                         <structure>
                             <property name="paramName">rprmProject</property>
@@ -3584,10 +3584,6 @@ All usage report
           <Type>URL_Redirect</Type>
           <Value xsi:type="attribute:MultiURLValues">
             <PropertiesMap>
-              <Key>MenuItem</Key>
-              <Value>color:Black;fontSize:10pt;paddingLeft:10px;paddingRight:10px;paddingTop:2px;paddingBottom:2px</Value>
-            </PropertiesMap>
-            <PropertiesMap>
               <Key>Menu</Key>
               <Value>zIndex:99999;backgroundColor:#FAFFF8;width:auto;height:auto;border:1px solid #333333;filter:progid:DXImageTransform.Microsoft.Shadow(Color:#333333,Direction=120,strength=5)</Value>
             </PropertiesMap>
@@ -3598,6 +3594,10 @@ All usage report
             <PropertiesMap>
               <Key>OnMouseOver</Key>
               <Value>backgroundColor:#245DDB;color:#FFFFFF</Value>
+            </PropertiesMap>
+            <PropertiesMap>
+              <Key>MenuItem</Key>
+              <Value>color:Black;fontSize:10pt;paddingLeft:10px;paddingRight:10px;paddingTop:2px;paddingBottom:2px</Value>
             </PropertiesMap>
           </Value>
         </Action>
@@ -4105,7 +4105,7 @@ All usage report
                   </Label>
                   <BaseUrl>&lt;structure>
     &lt;property name=&quot;linkType&quot;>drill-through&lt;/property>
-    &lt;property name=&quot;reportName&quot;>iaas_trend.rptdesign&lt;/property>
+    &lt;property name=&quot;reportName&quot;>iaas-project.rptdesign&lt;/property>
     &lt;property name=&quot;targetWindow&quot;>_self&lt;/property>
     &lt;property name=&quot;targetFileType&quot;>report-design&lt;/property>
     &lt;list-property name=&quot;paramBindings&quot;>
@@ -4414,7 +4414,7 @@ All usage report
                   </Label>
                   <BaseUrl>&lt;structure>
     &lt;property name=&quot;linkType&quot;>drill-through&lt;/property>
-    &lt;property name=&quot;reportName&quot;>iaas_trend.rptdesign&lt;/property>
+    &lt;property name=&quot;reportName&quot;>iaas-project.rptdesign&lt;/property>
     &lt;property name=&quot;targetWindow&quot;>_self&lt;/property>
     &lt;property name=&quot;targetFileType&quot;>report-design&lt;/property>
     &lt;list-property name=&quot;paramBindings&quot;>
@@ -4941,6 +4941,9 @@ All usage report
     <PrimaryAxis>true</PrimaryAxis>
     <CategoryAxis>true</CategoryAxis>
     <Percent>false</Percent>
+    <Cursor>
+      <Type>Auto</Type>
+    </Cursor>
   </Axes>
   <Orientation>Horizontal</Orientation>
   <UnitSpacing>50.0</UnitSpacing>
@@ -4960,7 +4963,7 @@ All usage report
                     <property name="targetWindow">_self</property>
                     <property name="linkType">drill-through</property>
                     <property name="targetFileType">report-design</property>
-                    <property name="reportName">iaas_trend.rptdesign</property>
+                    <property name="reportName">iaas-project.rptdesign</property>
                     <list-property name="paramBindings">
                         <structure>
                             <property name="paramName">rprmProject</property>
@@ -5699,7 +5702,7 @@ All usage report
                   </Label>
                   <BaseUrl>&lt;structure>
     &lt;property name=&quot;linkType&quot;>drill-through&lt;/property>
-    &lt;property name=&quot;reportName&quot;>iaas_trend.rptdesign&lt;/property>
+    &lt;property name=&quot;reportName&quot;>iaas-project.rptdesign&lt;/property>
     &lt;property name=&quot;targetWindow&quot;>_self&lt;/property>
     &lt;property name=&quot;targetFileType&quot;>report-design&lt;/property>
     &lt;list-property name=&quot;paramBindings&quot;>
@@ -6008,7 +6011,7 @@ All usage report
                   </Label>
                   <BaseUrl>&lt;structure>
     &lt;property name=&quot;linkType&quot;>drill-through&lt;/property>
-    &lt;property name=&quot;reportName&quot;>iaas_trend.rptdesign&lt;/property>
+    &lt;property name=&quot;reportName&quot;>iaas-project.rptdesign&lt;/property>
     &lt;property name=&quot;targetWindow&quot;>_self&lt;/property>
     &lt;property name=&quot;targetFileType&quot;>report-design&lt;/property>
     &lt;list-property name=&quot;paramBindings&quot;>
@@ -6527,7 +6530,7 @@ All usage report
                     <property name="targetWindow">_self</property>
                     <property name="linkType">drill-through</property>
                     <property name="targetFileType">report-design</property>
-                    <property name="reportName">iaas_trend.rptdesign</property>
+                    <property name="reportName">iaas-project.rptdesign</property>
                     <list-property name="paramBindings">
                         <structure>
                             <property name="paramName">rprmProject</property>
@@ -7268,7 +7271,7 @@ All usage report
                   </Label>
                   <BaseUrl>&lt;structure>
     &lt;property name=&quot;linkType&quot;>drill-through&lt;/property>
-    &lt;property name=&quot;reportName&quot;>iaas_trend.rptdesign&lt;/property>
+    &lt;property name=&quot;reportName&quot;>iaas-project.rptdesign&lt;/property>
     &lt;property name=&quot;targetWindow&quot;>_self&lt;/property>
     &lt;property name=&quot;targetFileType&quot;>report-design&lt;/property>
     &lt;list-property name=&quot;paramBindings&quot;>
@@ -7577,7 +7580,7 @@ All usage report
                   </Label>
                   <BaseUrl>&lt;structure>
     &lt;property name=&quot;linkType&quot;>drill-through&lt;/property>
-    &lt;property name=&quot;reportName&quot;>iaas_trend.rptdesign&lt;/property>
+    &lt;property name=&quot;reportName&quot;>iaas-project.rptdesign&lt;/property>
     &lt;property name=&quot;targetWindow&quot;>_self&lt;/property>
     &lt;property name=&quot;targetFileType&quot;>report-design&lt;/property>
     &lt;list-property name=&quot;paramBindings&quot;>
@@ -8096,7 +8099,7 @@ All usage report
                     <property name="targetWindow">_self</property>
                     <property name="linkType">drill-through</property>
                     <property name="targetFileType">report-design</property>
-                    <property name="reportName">iaas_trend.rptdesign</property>
+                    <property name="reportName">iaas-project.rptdesign</property>
                     <list-property name="paramBindings">
                         <structure>
                             <property name="paramName">rprmProject</property>
