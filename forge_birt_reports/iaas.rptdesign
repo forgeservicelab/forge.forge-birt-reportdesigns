@@ -81,7 +81,44 @@
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="dsetQuota" id="8">
-            <list-property name="columnHints"/>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">date</text-property>
+                    <text-property name="heading">date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">project</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">project</text-property>
+                    <text-property name="heading">project</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">vcpus</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">vcpus</text-property>
+                    <text-property name="heading">vcpus</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">memory_mb</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">memory_mb</text-property>
+                    <text-property name="heading">memory_mb</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">instances</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">instances</text-property>
+                    <text-property name="heading">instances</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">volume_gb</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">volume_gb</text-property>
+                    <text-property name="heading">volume_gb</text-property>
+                </structure>
+            </list-property>
             <list-property name="parameters"/>
             <structure name="cachedMetaData">
                 <list-property name="resultSet">
@@ -110,6 +147,11 @@
                         <property name="name">instances</property>
                         <property name="dataType">decimal</property>
                     </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">volume_gb</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
                 </list-property>
             </structure>
             <property name="dataSource">iaas_production</property>
@@ -119,30 +161,42 @@
                     <property name="name">date</property>
                     <property name="nativeName">date</property>
                     <property name="dataType">date</property>
+                    <property name="nativeDataType">91</property>
                 </structure>
                 <structure>
                     <property name="position">2</property>
                     <property name="name">project</property>
                     <property name="nativeName">project</property>
                     <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">3</property>
                     <property name="name">vcpus</property>
                     <property name="nativeName">vcpus</property>
                     <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">4</property>
                     <property name="name">memory_mb</property>
                     <property name="nativeName">memory_mb</property>
                     <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">5</property>
                     <property name="name">instances</property>
                     <property name="nativeName">instances</property>
                     <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">volume_gb</property>
+                    <property name="nativeName">volume_gb</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[select distinct
@@ -150,7 +204,8 @@ public.quota.date,
 public.quota.project,
 public.quota.vcpus,
 public.quota.memory_mb,
-public.quota.instances
+public.quota.instances,
+public.quota.volume_gb
 from public.quota
 where public.quota.date = (select max(public.quota.date) from public.quota) and
 ( public.quota.project not like 'SeleniumGRID' and
@@ -387,38 +442,7 @@ where public.quota.date = (select max(public.quota.date) from public.quota) and
 </model:DesignValues>]]></xml-property>
         </oda-data-set>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="dsetUsage" id="14">
-            <list-property name="columnHints">
-                <structure>
-                    <property name="columnName">date</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">date</text-property>
-                    <text-property name="heading">date</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">project</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">project</text-property>
-                    <text-property name="heading">project</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">vcpus</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">vcpus</text-property>
-                    <text-property name="heading">vcpus</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">memory_mb</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">memory_mb</text-property>
-                    <text-property name="heading">memory_mb</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">instances</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">instances</text-property>
-                    <text-property name="heading">instances</text-property>
-                </structure>
-            </list-property>
+            <list-property name="columnHints"/>
             <list-property name="parameters"/>
             <structure name="cachedMetaData">
                 <list-property name="resultSet">
@@ -447,6 +471,11 @@ where public.quota.date = (select max(public.quota.date) from public.quota) and
                         <property name="name">instances</property>
                         <property name="dataType">decimal</property>
                     </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">volume_gb</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
                 </list-property>
             </structure>
             <property name="dataSource">iaas_production</property>
@@ -456,40 +485,44 @@ where public.quota.date = (select max(public.quota.date) from public.quota) and
                     <property name="name">date</property>
                     <property name="nativeName">date</property>
                     <property name="dataType">date</property>
-                    <property name="nativeDataType">91</property>
                 </structure>
                 <structure>
                     <property name="position">2</property>
                     <property name="name">project</property>
                     <property name="nativeName">project</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">3</property>
                     <property name="name">vcpus</property>
                     <property name="nativeName">vcpus</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">2</property>
                 </structure>
                 <structure>
                     <property name="position">4</property>
                     <property name="name">memory_mb</property>
                     <property name="nativeName">memory_mb</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">2</property>
                 </structure>
                 <structure>
                     <property name="position">5</property>
                     <property name="name">instances</property>
                     <property name="nativeName">instances</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">volume_gb</property>
+                    <property name="nativeName">volume_gb</property>
+                    <property name="dataType">decimal</property>
                 </structure>
             </list-property>
-            <xml-property name="queryText"><![CDATA[select 
+            <xml-property name="queryText"><![CDATA[select a.*, b.volume_gb
+from 
+
+(select
 max(public.usage.date) as date, 
-public.usage.project,
+public.usage.project as project,
 sum(public.usage.vcpus) as vcpus,
 sum(public.usage.memory_mb) as memory_mb,
 count(public.usage.instance_id) as instances
@@ -506,7 +539,18 @@ where public.usage.date = (select max(public.usage.date) from public.usage) and 
   public.usage.project not like 'plaza-devel' and
   public.usage.project not like 'plaza-testing' and
   public.usage.project not like 'training')
-group by public.usage.project]]></xml-property>
+group by public.usage.project) a
+
+left join 
+
+(select
+public.volumeusage.date as date,
+public.volumeusage.project as project,
+public.volumeusage.volume_gb as volume_gb
+from public.volumeusage) b
+
+on a.date = b.date and a.project = b.project
+]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
   <Version>2.0</Version>
@@ -866,6 +910,11 @@ group by public.usage.project]]></xml-property>
                         <property name="name">memory_mb</property>
                         <property name="dataType">decimal</property>
                     </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">volume_gb</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
                 </list-property>
             </structure>
             <property name="dataSource">iaas_production</property>
@@ -886,6 +935,12 @@ group by public.usage.project]]></xml-property>
                     <property name="position">3</property>
                     <property name="name">memory_mb</property>
                     <property name="nativeName">memory_mb</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">volume_gb</property>
+                    <property name="nativeName">volume_gb</property>
                     <property name="dataType">decimal</property>
                 </structure>
             </list-property>
@@ -1159,71 +1214,86 @@ from public.capasity]]></xml-property>
                     </structure>
                     <structure>
                         <property name="position">6</property>
+                        <property name="name">dsetJointUsageQuota::dsetUsage::volume_gb</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
                         <property name="name">dsetJointUsageQuota::dsetQuota::date</property>
                         <property name="dataType">date</property>
                     </structure>
                     <structure>
-                        <property name="position">7</property>
+                        <property name="position">8</property>
                         <property name="name">dsetJointUsageQuota::dsetQuota::project</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">8</property>
+                        <property name="position">9</property>
                         <property name="name">dsetJointUsageQuota::dsetQuota::vcpus</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
-                        <property name="position">9</property>
+                        <property name="position">10</property>
                         <property name="name">dsetJointUsageQuota::dsetQuota::memory_mb</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
-                        <property name="position">10</property>
+                        <property name="position">11</property>
                         <property name="name">dsetJointUsageQuota::dsetQuota::instances</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
-                        <property name="position">11</property>
-                        <property name="name">dsetCapasity::date</property>
-                        <property name="dataType">date</property>
-                    </structure>
-                    <structure>
                         <property name="position">12</property>
-                        <property name="name">dsetCapasity::vcpus</property>
+                        <property name="name">dsetJointUsageQuota::dsetQuota::volume_gb</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
                         <property name="position">13</property>
+                        <property name="name">dsetCapasity::date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">dsetCapasity::vcpus</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
                         <property name="name">dsetCapasity::memory_mb</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
-                        <property name="position">14</property>
+                        <property name="position">16</property>
+                        <property name="name">dsetCapasity::volume_gb</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
                         <property name="name">vcpus_usage_sum</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">15</property>
+                        <property name="position">18</property>
                         <property name="name">vcpus_quota_sum</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">16</property>
+                        <property name="position">19</property>
                         <property name="name">memory_usage_sum</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">17</property>
+                        <property name="position">20</property>
                         <property name="name">memory_quota_sum</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">18</property>
+                        <property name="position">21</property>
                         <property name="name">instances_usage_sum</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">19</property>
+                        <property name="position">22</property>
                         <property name="name">instances_quota_sum</property>
                         <property name="dataType">integer</property>
                     </structure>
@@ -1291,28 +1361,42 @@ from public.capasity]]></xml-property>
         </simple-master-page>
     </page-setup>
     <body>
-        <text id="914">
-            <property name="contentType">html</property>
-            <text-property name="content"><![CDATA[<H1>
-FORGE IaaS<br>
-</H1>
-<H2>
-Customer usage report
-</H2>]]></text-property>
-        </text>
         <grid id="934">
             <column id="935"/>
             <column id="936"/>
             <column id="937"/>
             <row id="938">
-                <cell id="939"/>
-                <cell id="940"/>
-                <cell id="941"/>
+                <cell id="939">
+                    <property name="colSpan">2</property>
+                    <property name="rowSpan">1</property>
+                    <text id="914">
+                        <property name="display">block</property>
+                        <property name="contentType">html</property>
+                        <text-property name="content"><![CDATA[<H1>
+FORGE IaaS - Customer usage report
+</H1>]]></text-property>
+                    </text>
+                </cell>
+                <cell id="941">
+                    <property name="textAlign">right</property>
+                    <image id="1002">
+                        <property name="display">block</property>
+                        <property name="height">0.5in</property>
+                        <property name="width">0.5in</property>
+                        <property name="source">embed</property>
+                        <property name="imageName">FORGE_icon_colour_36x36.png</property>
+                    </image>
+                </cell>
+            </row>
+            <row id="1003">
+                <cell id="1004"/>
+                <cell id="1005"/>
+                <cell id="1006"/>
             </row>
             <row id="942">
                 <cell id="943">
                     <label id="950">
-                        <text-property name="text">All usage report</text-property>
+                        <text-property name="text">Report - All usage</text-property>
                         <list-property name="action">
                             <structure>
                                 <property name="linkType">drill-through</property>
@@ -1328,12 +1412,12 @@ Customer usage report
             </row>
             <row id="952">
                 <cell id="953">
-                    <label id="969">
-                        <text-property name="text">All usage trend</text-property>
+                    <label id="951">
+                        <text-property name="text">Report - Customer usage</text-property>
                         <list-property name="action">
                             <structure>
                                 <property name="linkType">drill-through</property>
-                                <property name="reportName">iaas-all-trend.rptdesign</property>
+                                <property name="reportName">iaas.rptdesign</property>
                                 <property name="targetWindow">_self</property>
                                 <property name="targetFileType">report-design</property>
                             </structure>
@@ -1345,12 +1429,12 @@ Customer usage report
             </row>
             <row id="961">
                 <cell id="962">
-                    <label id="951">
-                        <text-property name="text">Customer usage report</text-property>
+                    <label id="969">
+                        <text-property name="text">Trend - All usage</text-property>
                         <list-property name="action">
                             <structure>
                                 <property name="linkType">drill-through</property>
-                                <property name="reportName">iaas.rptdesign</property>
+                                <property name="reportName">iaas-all-trend.rptdesign</property>
                                 <property name="targetWindow">_self</property>
                                 <property name="targetFileType">report-design</property>
                             </structure>
@@ -1363,7 +1447,7 @@ Customer usage report
             <row id="965">
                 <cell id="966">
                     <label id="970">
-                        <text-property name="text">Customer usage trend</text-property>
+                        <text-property name="text">Trend - Customer usage</text-property>
                         <list-property name="action">
                             <structure>
                                 <property name="linkType">drill-through</property>
@@ -1483,6 +1567,54 @@ Customer usage report
                     <expression name="expression" type="javascript">dataSetRow["instances_quota_sum"]</expression>
                     <property name="dataType">integer</property>
                 </structure>
+                <structure>
+                    <property name="name">Column Binding</property>
+                    <expression name="expression" type="javascript">dataSetRow["dsetJointUsageQuota::dsetQuota::volume_gb"]</expression>
+                    <property name="dataType">integer</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">volume_gb</property>
+                    <expression name="expression" type="javascript">dataSetRow["dsetCapasity::volume_gb"]</expression>
+                    <property name="dataType">integer</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">dsetJointUsageQuota::dsetQuota::volume_gb</property>
+                    <expression name="expression" type="javascript">dataSetRow["dsetJointUsageQuota::dsetQuota::volume_gb"]</expression>
+                    <property name="dataType">integer</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">dsetJointUsageQuota::dsetUsage::volume_gb</property>
+                    <expression name="expression" type="javascript">dataSetRow["dsetJointUsageQuota::dsetUsage::volume_gb"]</expression>
+                    <property name="dataType">integer</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">dataSetRow["dsetJointUsageQuota::dsetUsage::volume_gb"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_1</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">dataSetRow["dsetJointUsageQuota::dsetQuota::volume_gb"]</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
             </list-property>
             <column id="879">
                 <property name="textAlign">left</property>
@@ -1496,12 +1628,19 @@ Customer usage report
             <column id="885"/>
             <column id="886"/>
             <column id="887"/>
+            <column id="993"/>
+            <column id="980"/>
+            <column id="985"/>
             <header>
                 <row id="888">
                     <property name="fontWeight">bold</property>
                     <property name="borderTopStyle">solid</property>
                     <property name="borderTopWidth">thin</property>
                     <cell id="889">
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
                         <label id="911">
                             <property name="fontWeight">bold</property>
                             <property name="textAlign">left</property>
@@ -1535,6 +1674,8 @@ Customer usage report
                     <cell id="893">
                         <property name="colSpan">3</property>
                         <property name="rowSpan">1</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
                         <label id="899">
                             <text-property name="text">Memory MB</text-property>
                         </label>
@@ -1542,8 +1683,21 @@ Customer usage report
                     <cell id="896">
                         <property name="colSpan">2</property>
                         <property name="rowSpan">1</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
                         <label id="901">
                             <text-property name="text">Instances</text-property>
+                        </label>
+                    </cell>
+                    <cell id="989">
+                        <property name="colSpan">3</property>
+                        <property name="rowSpan">1</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <label id="999">
+                            <text-property name="text">Volume GB</text-property>
                         </label>
                     </cell>
                 </row>
@@ -1552,8 +1706,11 @@ Customer usage report
                     <property name="borderBottomStyle">solid</property>
                     <property name="borderBottomWidth">thin</property>
                     <property name="textAlign">right</property>
-                    <property name="height">0.4791666666666667in</property>
                     <cell id="832">
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
                         <label id="833">
                             <text-property name="text">project</text-property>
                         </label>
@@ -1570,10 +1727,12 @@ Customer usage report
                     </cell>
                     <cell id="838">
                         <label id="839">
-                            <text-property name="text">capasity</text-property>
+                            <text-property name="text">capacity</text-property>
                         </label>
                     </cell>
                     <cell id="840">
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
                         <label id="841">
                             <text-property name="text">usage</text-property>
                         </label>
@@ -1585,10 +1744,12 @@ Customer usage report
                     </cell>
                     <cell id="844">
                         <label id="845">
-                            <text-property name="text">capasity</text-property>
+                            <text-property name="text">capacity</text-property>
                         </label>
                     </cell>
                     <cell id="846">
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
                         <label id="847">
                             <text-property name="text">usage</text-property>
                         </label>
@@ -1598,12 +1759,35 @@ Customer usage report
                             <text-property name="text">quota</text-property>
                         </label>
                     </cell>
+                    <cell id="990">
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <label id="997">
+                            <text-property name="text">usage</text-property>
+                        </label>
+                    </cell>
+                    <cell id="977">
+                        <label id="998">
+                            <text-property name="text">quota</text-property>
+                        </label>
+                    </cell>
+                    <cell id="982">
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <label id="1000">
+                            <text-property name="text">capacity</text-property>
+                        </label>
+                    </cell>
                 </row>
             </header>
             <detail>
                 <row id="850">
                     <property name="textAlign">right</property>
                     <cell id="851">
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
                         <data id="852">
                             <property name="resultSetColumn">dsetJointUsageQuota::dsetUsage::project</property>
                             <list-property name="action">
@@ -1636,6 +1820,8 @@ Customer usage report
                     </cell>
                     <cell id="857"/>
                     <cell id="859">
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
                         <data id="856">
                             <property name="resultSetColumn">dsetJointUsageQuota::dsetUsage::memory_mb</property>
                         </data>
@@ -1647,6 +1833,8 @@ Customer usage report
                     </cell>
                     <cell id="863"/>
                     <cell id="865">
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
                         <data id="858">
                             <property name="resultSetColumn">dsetJointUsageQuota::dsetUsage::instances</property>
                         </data>
@@ -1656,6 +1844,22 @@ Customer usage report
                             <property name="resultSetColumn">dsetJointUsageQuota::dsetQuota::instances</property>
                         </data>
                     </cell>
+                    <cell id="991">
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <data id="994">
+                            <property name="resultSetColumn">dsetJointUsageQuota::dsetUsage::volume_gb</property>
+                        </data>
+                    </cell>
+                    <cell id="978">
+                        <data id="988">
+                            <property name="resultSetColumn">dsetJointUsageQuota::dsetQuota::volume_gb</property>
+                        </data>
+                    </cell>
+                    <cell id="983">
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                    </cell>
                 </row>
             </detail>
             <footer>
@@ -1664,48 +1868,100 @@ Customer usage report
                     <property name="borderTopWidth">thin</property>
                     <property name="textAlign">right</property>
                     <cell id="870">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
                         <label id="912">
+                            <property name="fontWeight">bold</property>
                             <text-property name="text">Total</text-property>
                         </label>
                     </cell>
                     <cell id="871">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
                         <data id="904">
                             <property name="resultSetColumn">vcpus_usage_sum</property>
                         </data>
                     </cell>
                     <cell id="872">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
                         <data id="905">
                             <property name="resultSetColumn">vcpus_quota_sum</property>
                         </data>
                     </cell>
                     <cell id="873">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
                         <data id="909">
                             <property name="resultSetColumn">dsetCapasity::vcpus</property>
                         </data>
                     </cell>
                     <cell id="874">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
                         <data id="902">
                             <property name="resultSetColumn">memory_usage_sum</property>
                         </data>
                     </cell>
                     <cell id="875">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
                         <data id="903">
                             <property name="resultSetColumn">memory_quota_sum</property>
                         </data>
                     </cell>
                     <cell id="876">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
                         <data id="908">
                             <property name="resultSetColumn">dsetCapasity::memory_mb</property>
                         </data>
                     </cell>
                     <cell id="877">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
                         <data id="906">
                             <property name="resultSetColumn">instances_usage_sum</property>
                         </data>
                     </cell>
                     <cell id="878">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
                         <data id="907">
                             <property name="resultSetColumn">instances_quota_sum</property>
+                        </data>
+                    </cell>
+                    <cell id="992">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <data id="995">
+                            <property name="resultSetColumn">Aggregation</property>
+                        </data>
+                    </cell>
+                    <cell id="979">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <data id="996">
+                            <property name="resultSetColumn">Aggregation_1</property>
+                        </data>
+                    </cell>
+                    <cell id="984">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <data id="987">
+                            <property name="resultSetColumn">volume_gb</property>
                         </data>
                     </cell>
                 </row>
@@ -3378,6 +3634,11 @@ Customer usage report
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
+                    <property name="name">dsetJointUsageQuota::dsetUsage::volume_gb</property>
+                    <expression name="expression" type="javascript">dataSetRow["dsetJointUsageQuota::dsetUsage::volume_gb"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
                     <property name="name">dsetJointUsageQuota::dsetQuota::date</property>
                     <expression name="expression" type="javascript">dataSetRow["dsetJointUsageQuota::dsetQuota::date"]</expression>
                     <property name="dataType">date</property>
@@ -3403,6 +3664,11 @@ Customer usage report
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
+                    <property name="name">dsetJointUsageQuota::dsetQuota::volume_gb</property>
+                    <expression name="expression" type="javascript">dataSetRow["dsetJointUsageQuota::dsetQuota::volume_gb"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
                     <property name="name">dsetCapasity::date</property>
                     <expression name="expression" type="javascript">dataSetRow["dsetCapasity::date"]</expression>
                     <property name="dataType">date</property>
@@ -3415,6 +3681,11 @@ Customer usage report
                 <structure>
                     <property name="name">dsetCapasity::memory_mb</property>
                     <expression name="expression" type="javascript">dataSetRow["dsetCapasity::memory_mb"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">dsetCapasity::volume_gb</property>
+                    <expression name="expression" type="javascript">dataSetRow["dsetCapasity::volume_gb"]</expression>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
@@ -8206,4 +8477,92 @@ Customer usage report
             </list-property>
         </extended-item>
     </body>
+    <list-property name="images">
+        <structure>
+            <property name="name">FORGE_icon_colour_36x36.png</property>
+            <property name="type">image/png</property>
+            <property name="data">
+                iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAKOWlDQ1BQaG90b3Nob3AgSUNDIHByb2Zp
+                bGUAAEjHnZZ3VFTXFofPvXd6oc0wAlKG3rvAANJ7k15FYZgZYCgDDjM0sSGiAhFFRJoiSFDEgNFQJFZE
+                sRAUVLAHJAgoMRhFVCxvRtaLrqy89/Ly++Osb+2z97n77L3PWhcAkqcvl5cGSwGQyhPwgzyc6RGRUXTs
+                AIABHmCAKQBMVka6X7B7CBDJy82FniFyAl8EAfB6WLwCcNPQM4BOB/+fpFnpfIHomAARm7M5GSwRF4g4
+                JUuQLrbPipgalyxmGCVmvihBEcuJOWGRDT77LLKjmNmpPLaIxTmns1PZYu4V8bZMIUfEiK+ICzO5nCwR
+                3xKxRoowlSviN+LYVA4zAwAUSWwXcFiJIjYRMYkfEuQi4uUA4EgJX3HcVyzgZAvEl3JJS8/hcxMSBXQd
+                li7d1NqaQffkZKVwBALDACYrmcln013SUtOZvBwAFu/8WTLi2tJFRbY0tba0NDQzMv2qUP91829K3NtF
+                ehn4uWcQrf+L7a/80hoAYMyJarPziy2uCoDOLQDI3fti0zgAgKSobx3Xv7oPTTwviQJBuo2xcVZWlhGX
+                wzISF/QP/U+Hv6GvvmckPu6P8tBdOfFMYYqALq4bKy0lTcinZ6QzWRy64Z+H+B8H/nUeBkGceA6fwxNF
+                hImmjMtLELWbx+YKuGk8Opf3n5r4D8P+pMW5FonS+BFQY4yA1HUqQH7tBygKESDR+8Vd/6NvvvgwIH55
+                4SqTi3P/7zf9Z8Gl4iWDm/A5ziUohM4S8jMX98TPEqABAUgCKpAHykAd6ABDYAasgC1wBG7AG/iDEBAJ
+                VgMWSASpgA+yQB7YBApBMdgJ9oBqUAcaQTNoBcdBJzgFzoNL4Bq4AW6D+2AUTIBnYBa8BgsQBGEhMkSB
+                5CEVSBPSh8wgBmQPuUG+UBAUCcVCCRAPEkJ50GaoGCqDqqF6qBn6HjoJnYeuQIPQXWgMmoZ+h97BCEyC
+                qbASrAUbwwzYCfaBQ+BVcAK8Bs6FC+AdcCXcAB+FO+Dz8DX4NjwKP4PnEIAQERqiihgiDMQF8UeikHiE
+                j6xHipAKpAFpRbqRPuQmMorMIG9RGBQFRUcZomxRnqhQFAu1BrUeVYKqRh1GdaB6UTdRY6hZ1Ec0Ga2I
+                1kfboL3QEegEdBa6EF2BbkK3oy+ib6Mn0K8xGAwNo42xwnhiIjFJmLWYEsw+TBvmHGYQM46Zw2Kx8lh9
+                rB3WH8vECrCF2CrsUexZ7BB2AvsGR8Sp4Mxw7rgoHA+Xj6vAHcGdwQ3hJnELeCm8Jt4G749n43PwpfhG
+                fDf+On4Cv0CQJmgT7AghhCTCJkIloZVwkfCA8JJIJKoRrYmBRC5xI7GSeIx4mThGfEuSIemRXEjRJCFp
+                B+kQ6RzpLuklmUzWIjuSo8gC8g5yM/kC+RH5jQRFwkjCS4ItsUGiRqJDYkjiuSReUlPSSXK1ZK5kheQJ
+                yeuSM1J4KS0pFymm1HqpGqmTUiNSc9IUaVNpf+lU6RLpI9JXpKdksDJaMm4ybJkCmYMyF2TGKQhFneJC
+                YVE2UxopFykTVAxVm+pFTaIWU7+jDlBnZWVkl8mGyWbL1sielh2lITQtmhcthVZKO04bpr1borTEaQln
+                yfYlrUuGlszLLZVzlOPIFcm1yd2WeydPl3eTT5bfJd8p/1ABpaCnEKiQpbBf4aLCzFLqUtulrKVFS48v
+                vacIK+opBimuVTyo2K84p6Ss5KGUrlSldEFpRpmm7KicpFyufEZ5WoWiYq/CVSlXOavylC5Ld6Kn0Cvp
+                vfRZVUVVT1Whar3qgOqCmrZaqFq+WpvaQ3WCOkM9Xr1cvUd9VkNFw08jT6NF454mXpOhmai5V7NPc15L
+                Wytca6tWp9aUtpy2l3audov2Ax2yjoPOGp0GnVu6GF2GbrLuPt0berCehV6iXo3edX1Y31Kfq79Pf9AA
+                bWBtwDNoMBgxJBk6GWYathiOGdGMfI3yjTqNnhtrGEcZ7zLuM/5oYmGSYtJoct9UxtTbNN+02/R3Mz0z
+                llmN2S1zsrm7+QbzLvMXy/SXcZbtX3bHgmLhZ7HVosfig6WVJd+y1XLaSsMq1qrWaoRBZQQwShiXrdHW
+                ztYbrE9Zv7WxtBHYHLf5zdbQNtn2iO3Ucu3lnOWNy8ft1OyYdvV2o/Z0+1j7A/ajDqoOTIcGh8eO6o5s
+                xybHSSddpySno07PnU2c+c7tzvMuNi7rXM65Iq4erkWuA24ybqFu1W6P3NXcE9xb3Gc9LDzWepzzRHv6
+                eO7yHPFS8mJ5NXvNelt5r/Pu9SH5BPtU+zz21fPl+3b7wX7efrv9HqzQXMFb0ekP/L38d/s/DNAOWBPw
+                YyAmMCCwJvBJkGlQXlBfMCU4JvhI8OsQ55DSkPuhOqHC0J4wybDosOaw+XDX8LLw0QjjiHUR1yIVIrmR
+                XVHYqLCopqi5lW4r96yciLaILoweXqW9KnvVldUKq1NWn46RjGHGnIhFx4bHHol9z/RnNjDn4rziauNm
+                WS6svaxnbEd2OXuaY8cp40zG28WXxU8l2CXsTphOdEisSJzhunCruS+SPJPqkuaT/ZMPJX9KCU9pS8Wl
+                xqae5Mnwknm9acpp2WmD6frphemja2zW7Fkzy/fhN2VAGasyugRU0c9Uv1BHuEU4lmmfWZP5Jiss60S2
+                dDYvuz9HL2d7zmSue+63a1FrWWt78lTzNuWNrXNaV78eWh+3vmeD+oaCDRMbPTYe3kTYlLzpp3yT/LL8
+                V5vDN3cXKBVsLBjf4rGlpVCikF84stV2a9021DbutoHt5turtn8sYhddLTYprih+X8IqufqN6TeV33za
+                Eb9joNSydP9OzE7ezuFdDrsOl0mX5ZaN7/bb3VFOLy8qf7UnZs+VimUVdXsJe4V7Ryt9K7uqNKp2Vr2v
+                Tqy+XeNc01arWLu9dn4fe9/Qfsf9rXVKdcV17w5wD9yp96jvaNBqqDiIOZh58EljWGPft4xvm5sUmoqb
+                PhziHRo9HHS4t9mqufmI4pHSFrhF2DJ9NProje9cv+tqNWytb6O1FR8Dx4THnn4f+/3wcZ/jPScYJ1p/
+                0Pyhtp3SXtQBdeR0zHYmdo52RXYNnvQ+2dNt293+o9GPh06pnqo5LXu69AzhTMGZT2dzz86dSz83cz7h
+                /HhPTM/9CxEXbvUG9g5c9Ll4+ZL7pQt9Tn1nL9tdPnXF5srJq4yrndcsr3X0W/S3/2TxU/uA5UDHdavr
+                XTesb3QPLh88M+QwdP6m681Lt7xuXbu94vbgcOjwnZHokdE77DtTd1PuvriXeW/h/sYH6AdFD6UeVjxS
+                fNTws+7PbaOWo6fHXMf6Hwc/vj/OGn/2S8Yv7ycKnpCfVEyqTDZPmU2dmnafvvF05dOJZ+nPFmYKf5X+
+                tfa5zvMffnP8rX82YnbiBf/Fp99LXsq/PPRq2aueuYC5R69TXy/MF72Rf3P4LeNt37vwd5MLWe+x7ys/
+                6H7o/ujz8cGn1E+f/gUDmPP8usTo0wAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqc
+                GAAAAAd0SU1FB94KAgcJMPYNmrUAAAfpSURBVFjDpZh7jFxVHcc/59zH3HnsY7bL7tLdLTClhUYopSjF
+                iMY2oiYGwYTESXxggv9hNPyBEonBEB8xIWqikcTYPxQTFw0QMYSUNzUk0lKoUMDS7raUfXYfs/O4M3fu
+                vecc/5iZZbqvbttfMsnMnHPP+d7v7/f7nt/vCDZgI2MF8rls67sHdAF9wE3ADmAY6AYcLswMMAk8BRzI
+                57KB2OiTI2OFbuAe4AvAjUB/+6oAgkuyfwJ3ivOxMjJWkMBDwIOAbO1rAGPAscCTFghDEBsibRCAuDh0
+                XxXnYeUW4E/AJwwgBXQ7Fn1Jm80ph00JG0us9MF8PWbSj5kJIhZDhdIbBviEWIeZ+4CfA8lIGy5POlzf
+                49HjWthyY6srA8VQcWwx4EwlxDn/c/8RazBzT5MZpBDs6vHY1pm4pAA57YccmasRa7PetEOynZl2MNpA
+                whJ8diC9BOaJsTI1ZS4K0JVpl88PZMg4kvUwyWXM7AZ+DZC0Bbdt7mDAswHY/94i331xgm8+N37RLG1K
+                WOwdyNDpyDVlYPnII0CnFPDpy9Kk7cbwq+MVvv/iOAljeOlUif3HChcNKmVL9vSlsdaIctlyFfBtYG9s
+                DNd0efQnG8zM1WLue2mCpDTEkcIyhj+8NctcLb5oUL0Ji929qVXjSbYUGHjUAF2uxc6stzThmZNFRueq
+                mEhhohgTK07OVTk86V9SkOcyDoNpF7Oay0bGCncDKQzc1JM8Z8ajh6axtCEu+JTeGkf7dYTS/P29eS7V
+                dnQlluuYsUfGChbwFYAuV7KpGcQAU+WINyfKpLXGPzaBiTX+uxEdNwzz0onFFRvMjc4xdWya8mQJE8W4
+                CZsdd1xHZqBzddd5FmlbUo700n9281DcCZBN2Lht4vXy2CIqVlROTKHrdQDixYhgssBCR4rYNBb46O1J
+                Xv/rEWrzPgnPxnEsbEuS7HAxem2GLCHoTzqUonrrHDQ2kAGuBuhvYwfgxHwVXapiihWoBuBXMT3d1CcX
+                YJvHR5MlTjx+lNNHxkkkHRzXASmJlQGhMZbEzbjrum047XC8GCxlnQ1sBiwD9HjWOZPrsYbFCsavwswM
+                aAMSlCOhWOLpHz+LXQuZL5zFL5cwcUzCsrjuphtQCizPIdHprQuoz7MxZqlUMDZwRWuwpTst6884UPRh
+                dhbCoHG8z81CMgEvn2Q6m2Z0fAwbgec4JGwblfDQCFQQM7h7aEPBnbAEzQPAtGKoQdcysdoz1AllH4IK
+                +AVQCtJZGHuX7soMh8+CMQopBB1uiu5UNz2b0sSxxnYstu/btiFAniWpxBoBkd1WX62wW7Z0NpxaLUK9
+                1OC1qqF4DFdIzloJbGHjSgtLWCSjmJ7efgK/zr57P4OQF1wUFSSw0F4urKiYbh6CWhF0CCaC4tuIeAqh
+                KixGBXxVJtQRlnRIptOkUx0M7tzMVTdv2TCKQJlWln0ogdHWQCVWKybfvW8bSNUAFBUhOo1NRGRq1HVA
+                bBRIFzfRwfCW7WS29PLFH+1F2nLDRXVdL2nD2zYwBwQCvEJd0eWcm2m37trC1qt6GX3/BKhpIMAli0Ih
+                MMS6jojPomfnCV97ny3Hhzj6ytN07dlB/12fI7N7GzK9dqbNBXF7Lf5v664fPCCAO4E+1xIMps5tHNKe
+                TT0yPP+v50FM4xqJEJrY+MSmiNTzdMaLXKVqDKmQWrUICxXMO5PMPvYCpWcPY4KQ9K6rEdZK1o4X6yyE
+                CgEF4CGZz2UXgf8CLASKcJVAuv97t3PtzhwoH4VPYObR+HQSMYzmCjQYn2m1wGw4x6h/gjP1U9hpj/rp
+                aaZ+McLJ23+CKvrLSlzDTG2JoVcB1YL8BEAhVBRCtSq1zz3zG4Y3pckQMohgK7AZgQsUiaijqZqABVMG
+                DKVglg8Lx9BGAYbam6OM7f0h0Ydn29ylWnFrmn1ZLAHyuexTwIQQ8MZ8bXWJH7qcg68d5LYbPkWIQWFo
+                hWISC6v5ng52GwMx2igEIF2b+vFxCvsPLI3/r1hvZbYPPL28QPuOAEqh4p1CsHpdfM12/nH0EL+77yGu
+                lGl6sejDpgOLtHC4THbSJZIIBD2pAXI9u7Ctj5uDy391D30PfwuAM37IuB+23PXnfC47OTJWaPxua32e
+                BL4mBHx+IEPfssO23eZff5eDv93P6CuvEUzP4GGTtB267TT9iV4yMgVK4fVl6br1OvrvvYPUJxvKvRgq
+                npsotxR5ChjK57J6Rfc7MlbYChwGsgkp+PJQJ561jtpqQ31mgcKbHzD/whFq753BVAKcZILMNcNk991I
+                x55rcQZ6EHZDTkJteH6iTCXWAArYl89lD7ZIWa1RvBN40oCwhOBLgxk6l2nTxVqgNAcmKtRi3epkH8nn
+                sve3X2aINbrWrwN/AVxbCq7Pemy/xEbxVDnk6EKNul46Jh7J57L3r9uXtYF6vCmWxNrw1nyNZ8ZLLNTV
+                BQMpRZoDE2UOzVUJPwbzQPNDW1KtfYPSxtR24G/AbgMobRhIOWztcOl2LRKWwBEC2eRfG0NsDHVlKEaa
+                U+WQiWqIFKK10UfAg/lc9rG1XmAj1zFJ4C7gl8Bg6xrGtQSeFDiWWNIgReM6JlCGUBmEOGeDnwJ/zOey
+                Uy1W2lqw8wNa4/bsG8DPgKHms2tFu25mUAX4PfBwPpeN29e6YIbOA3IbcEvzOq8fSDbjMaBxSH4AvJHP
+                ZQ+v9mLr2f8BMmiNOgOiK30AAAAASUVORK5CYII=
+</property>
+        </structure>
+    </list-property>
 </report>
