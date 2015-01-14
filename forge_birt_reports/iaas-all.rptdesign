@@ -1453,7 +1453,7 @@ from public.capasity]]></xml-property>
                     <text id="914">
                         <property name="contentType">html</property>
                         <text-property name="content"><![CDATA[<H1>
-FORGE IaaS - All usage report
+FORGE IaaS report - All usage
 </H1>]]></text-property>
                     </text>
                 </cell>
@@ -1526,7 +1526,7 @@ FORGE IaaS - All usage report
             <row id="965">
                 <cell id="966">
                     <label id="970">
-                        <text-property name="text">Trend - Customer</text-property>
+                        <text-property name="text">Trend - Customer usage</text-property>
                         <list-property name="action">
                             <structure>
                                 <property name="linkType">drill-through</property>

@@ -107,7 +107,38 @@ var instances_sum=0]]></method>
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="dsetQuota" id="8">
-            <list-property name="columnHints"/>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">date</text-property>
+                    <text-property name="heading">date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">project</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">project</text-property>
+                    <text-property name="heading">project</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">vcpus</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">vcpus</text-property>
+                    <text-property name="heading">vcpus</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">memory_mb</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">memory_mb</text-property>
+                    <text-property name="heading">memory_mb</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">instances</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">instances</text-property>
+                    <text-property name="heading">instances</text-property>
+                </structure>
+            </list-property>
             <list-property name="parameters"/>
             <structure name="cachedMetaData">
                 <list-property name="resultSet">
@@ -145,30 +176,35 @@ var instances_sum=0]]></method>
                     <property name="name">date</property>
                     <property name="nativeName">date</property>
                     <property name="dataType">date</property>
+                    <property name="nativeDataType">91</property>
                 </structure>
                 <structure>
                     <property name="position">2</property>
                     <property name="name">project</property>
                     <property name="nativeName">project</property>
                     <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">3</property>
                     <property name="name">vcpus</property>
                     <property name="nativeName">vcpus</property>
                     <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">4</property>
                     <property name="name">memory_mb</property>
                     <property name="nativeName">memory_mb</property>
                     <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">5</property>
                     <property name="name">instances</property>
                     <property name="nativeName">instances</property>
                     <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[select distinct
@@ -189,6 +225,7 @@ where public.quota.date = (select max(public.quota.date) from public.quota) and
   public.quota.project not like 'pasidevel' and
   public.quota.project not like 'plaza-devel' and
   public.quota.project not like 'plaza-testing' and
+  public.quota.project not like 'druid' and
   public.quota.project not like 'training')]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
@@ -655,6 +692,7 @@ where
   public.usage.project not like 'plaza-devel' and
   public.usage.project not like 'plaza-testing' and
   public.usage.project not like 'training' and
+  public.usage.project not like 'druid' and
   public.usage.state not like 'Error' )
 
 union all
@@ -682,6 +720,7 @@ where
   public.usage.project not like 'plaza-devel' and
   public.usage.project not like 'plaza-testing' and
   public.usage.project not like 'training' and
+  public.usage.project not like 'druid' and
   public.usage.state not like 'None' and
   public.usage.state not like 'Error' )
   
@@ -1493,7 +1532,7 @@ from public.capasity]]></xml-property>
                     <text id="914">
                         <property name="contentType">html</property>
                         <text-property name="content"><![CDATA[<H1>
-FORGE IaaS - Customer usage trend
+FORGE IaaS trend - Customer usage
 </H1>]]></text-property>
                     </text>
                 </cell>
@@ -1515,7 +1554,7 @@ FORGE IaaS - Customer usage trend
             <row id="942">
                 <cell id="943">
                     <label id="950">
-                        <text-property name="text">All usage report</text-property>
+                        <text-property name="text">Report - All usage</text-property>
                         <list-property name="action">
                             <structure>
                                 <property name="linkType">drill-through</property>
@@ -1531,12 +1570,12 @@ FORGE IaaS - Customer usage trend
             </row>
             <row id="952">
                 <cell id="953">
-                    <label id="969">
-                        <text-property name="text">All usage trend</text-property>
+                    <label id="951">
+                        <text-property name="text">Report - Customer usage</text-property>
                         <list-property name="action">
                             <structure>
                                 <property name="linkType">drill-through</property>
-                                <property name="reportName">iaas-all-trend.rptdesign</property>
+                                <property name="reportName">iaas.rptdesign</property>
                                 <property name="targetWindow">_self</property>
                                 <property name="targetFileType">report-design</property>
                             </structure>
@@ -1548,12 +1587,12 @@ FORGE IaaS - Customer usage trend
             </row>
             <row id="970">
                 <cell id="971">
-                    <label id="951">
-                        <text-property name="text">Customer usage report</text-property>
+                    <label id="969">
+                        <text-property name="text">Trend - All usage</text-property>
                         <list-property name="action">
                             <structure>
                                 <property name="linkType">drill-through</property>
-                                <property name="reportName">iaas.rptdesign</property>
+                                <property name="reportName">iaas-all-trend.rptdesign</property>
                                 <property name="targetWindow">_self</property>
                                 <property name="targetFileType">report-design</property>
                             </structure>
@@ -1566,7 +1605,7 @@ FORGE IaaS - Customer usage trend
             <row id="965">
                 <cell id="966">
                     <label id="974">
-                        <text-property name="text">Customer usage trend</text-property>
+                        <text-property name="text">Trend - Customer usage</text-property>
                         <list-property name="action">
                             <structure>
                                 <property name="linkType">drill-through</property>

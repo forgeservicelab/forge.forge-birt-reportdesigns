@@ -1324,7 +1324,7 @@ order by public.usage.date
                     <text id="940">
                         <property name="contentType">html</property>
                         <text-property name="content"><![CDATA[<H1>
-FORGE IaaS - Project usage trend
+FORGE IaaS report - Project usage
 </H1>]]></text-property>
                     </text>
                 </cell>
@@ -1346,7 +1346,7 @@ FORGE IaaS - Project usage trend
             <row id="942">
                 <cell id="943">
                     <label id="950">
-                        <text-property name="text">All usage report</text-property>
+                        <text-property name="text">Report - All usage</text-property>
                         <list-property name="action">
                             <structure>
                                 <property name="linkType">drill-through</property>
@@ -1362,12 +1362,12 @@ FORGE IaaS - Project usage trend
             </row>
             <row id="952">
                 <cell id="953">
-                    <label id="969">
-                        <text-property name="text">All usage trend</text-property>
+                    <label id="951">
+                        <text-property name="text">Report - Customer usage</text-property>
                         <list-property name="action">
                             <structure>
                                 <property name="linkType">drill-through</property>
-                                <property name="reportName">iaas-all-trend.rptdesign</property>
+                                <property name="reportName">iaas.rptdesign</property>
                                 <property name="targetWindow">_self</property>
                                 <property name="targetFileType">report-design</property>
                             </structure>
@@ -1379,12 +1379,12 @@ FORGE IaaS - Project usage trend
             </row>
             <row id="970">
                 <cell id="962">
-                    <label id="951">
-                        <text-property name="text">Customer usage report</text-property>
+                    <label id="969">
+                        <text-property name="text">Trend - All usage</text-property>
                         <list-property name="action">
                             <structure>
                                 <property name="linkType">drill-through</property>
-                                <property name="reportName">iaas.rptdesign</property>
+                                <property name="reportName">iaas-all-trend.rptdesign</property>
                                 <property name="targetWindow">_self</property>
                                 <property name="targetFileType">report-design</property>
                             </structure>
@@ -1397,7 +1397,7 @@ FORGE IaaS - Project usage trend
             <row id="971">
                 <cell id="972">
                     <label id="973">
-                        <text-property name="text">Customer usage trend</text-property>
+                        <text-property name="text">Trend - Customer usage</text-property>
                         <list-property name="action">
                             <structure>
                                 <property name="linkType">drill-through</property>
