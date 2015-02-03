@@ -629,7 +629,6 @@ public.volumeusage.project as project,
 public.volumeusage.volumes as volumes,
 public.volumeusage.volume_gb as volume_gb
 from public.volumeusage
-where public.volumeusage.date = (select max(public.volumeusage.date) from public.volumeusage)
 ) c
 on a.date = c.date and a.project = c.project]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>

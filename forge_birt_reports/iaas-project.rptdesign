@@ -968,6 +968,7 @@ order by public.quota.date
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                     <property name="position">1</property>
+                    <property name="isOptional">false</property>
                     <property name="isInput">true</property>
                     <property name="isOutput">false</property>
                 </structure>
