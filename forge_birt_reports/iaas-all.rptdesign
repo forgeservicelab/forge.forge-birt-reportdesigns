@@ -1655,7 +1655,23 @@ FORGE IaaS report - All usage
                     </list-property>
                     <property name="allowExport">true</property>
                 </structure>
+                <structure>
+                    <property name="name">count</property>
+                    <property name="dataType">integer</property>
+                    <property name="aggregateFunction">COUNT</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row.__rownum</expression>
+                        </structure>
+                    </list-property>
+                    <property name="allowExport">true</property>
+                </structure>
             </list-property>
+            <column id="1013">
+                <property name="textAlign">left</property>
+                <property name="width">2%</property>
+            </column>
             <column id="879">
                 <property name="textAlign">left</property>
                 <property name="width">20%</property>
@@ -1677,6 +1693,12 @@ FORGE IaaS report - All usage
                     <property name="fontWeight">bold</property>
                     <property name="borderTopStyle">solid</property>
                     <property name="borderTopWidth">thin</property>
+                    <cell id="1009">
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                    </cell>
                     <cell id="889">
                         <property name="borderLeftStyle">solid</property>
                         <property name="borderLeftWidth">thin</property>
@@ -1747,6 +1769,12 @@ FORGE IaaS report - All usage
                     <property name="borderBottomStyle">solid</property>
                     <property name="borderBottomWidth">thin</property>
                     <property name="textAlign">right</property>
+                    <cell id="1010">
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                    </cell>
                     <cell id="832">
                         <property name="borderLeftStyle">solid</property>
                         <property name="borderLeftWidth">thin</property>
@@ -1829,6 +1857,17 @@ FORGE IaaS report - All usage
             <detail>
                 <row id="850">
                     <property name="textAlign">right</property>
+                    <cell id="1011">
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <text-data id="1014">
+                            <property name="textAlign">left</property>
+                            <expression name="valueExpr">(row.__rownum)+1</expression>
+                            <property name="contentType">html</property>
+                        </text-data>
+                    </cell>
                     <cell id="851">
                         <property name="borderLeftStyle">solid</property>
                         <property name="borderLeftWidth">thin</property>
@@ -1918,6 +1957,19 @@ FORGE IaaS report - All usage
                     <property name="borderTopStyle">solid</property>
                     <property name="borderTopWidth">thin</property>
                     <property name="textAlign">right</property>
+                    <cell id="1012">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="textAlign">right</property>
+                        <data id="1015">
+                            <property name="textAlign">left</property>
+                            <property name="resultSetColumn">count</property>
+                        </data>
+                    </cell>
                     <cell id="870">
                         <property name="borderBottomStyle">solid</property>
                         <property name="borderBottomWidth">thin</property>
@@ -1926,6 +1978,7 @@ FORGE IaaS report - All usage
                         <property name="borderRightStyle">solid</property>
                         <property name="borderRightWidth">thin</property>
                         <label id="912">
+                            <property name="fontWeight">bold</property>
                             <text-property name="text">Total</text-property>
                         </label>
                     </cell>
