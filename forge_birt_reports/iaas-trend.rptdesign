@@ -227,6 +227,7 @@ where public.quota.date = (select max(public.quota.date) from public.quota) and
   public.quota.project not like 'plaza-testing' and
   public.quota.project not like 'druid' and
   public.quota.project not like 'digile-sales' and
+  public.quota.project not like 'Plaza.Security' and
   public.quota.project not like 'training')]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
@@ -695,6 +696,7 @@ where
   public.usage.project not like 'training' and
   public.usage.project not like 'druid' and
   public.usage.project not like 'digile-sales' and
+  public.usage.project not like 'Plaza.Security' and
   public.usage.state not like 'Error' )
 
 union all
@@ -724,6 +726,7 @@ where
   public.usage.project not like 'training' and
   public.usage.project not like 'druid' and
   public.usage.project not like 'digile-sales' and
+  public.usage.project not like 'Plaza.Security' and
   public.usage.state not like 'None' and
   public.usage.state not like 'Error' )
   
