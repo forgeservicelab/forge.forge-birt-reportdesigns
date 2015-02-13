@@ -222,7 +222,8 @@ where public.quota.date = (select max(public.quota.date) from public.quota) and
   public.quota.project not like 'Digile%' and
   public.quota.project not like 'forge%' and
   public.quota.project not like 'Forge%' and  
-  public.quota.project not like 'jorge-sandbox' and
+  public.quota.project not like '%sandbox' and
+  public.quota.project not like '%Sandbox' and
   public.quota.project not like 'kainuunetu' and
   public.quota.project not like 'pasidevel' and
   public.quota.project not like 'plaza-devel' and
@@ -700,7 +701,8 @@ where
   public.usage.project not like 'Digile%' and
   public.usage.project not like 'forge%' and
   public.usage.project not like 'Forge%' and  
-  public.usage.project not like 'jorge-sandbox' and
+  public.usage.project not like '%sandbox' and
+  public.usage.project not like '%Sandbox' and
   public.usage.project not like 'kainuunetu' and
   public.usage.project not like 'pasidevel' and
   public.usage.project not like 'plaza%' and
@@ -738,7 +740,8 @@ where
   public.usage.project not like 'Digile%' and
   public.usage.project not like 'forge%' and
   public.usage.project not like 'Forge%' and  
-  public.usage.project not like 'jorge-sandbox' and
+  public.usage.project not like '%sandbox' and
+  public.usage.project not like '%Sandbox' and
   public.usage.project not like 'kainuunetu' and
   public.usage.project not like 'pasidevel' and
   public.usage.project not like 'plaza%' and
