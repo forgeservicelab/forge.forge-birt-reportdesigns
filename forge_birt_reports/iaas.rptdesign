@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
-    <property name="createdBy">Eclipse BIRT Designer Version 4.3.2.v20140211-1400 Build &lt;4.3.2.v20140218-1056></property>
+    <property name="createdBy">Eclipse BIRT Designer Version 4.4.2.v201410272105 Build &lt;4.4.2.v20150217-1805></property>
     <list-property name="userProperties">
         <structure>
             <property name="name">Project.usage.x</property>
@@ -51,33 +51,64 @@
     <property name="Project.Group.NewTabularHierarchy1.y">46</property>
     <property name="Project.Project(quota).NewTabularHierarchy1.x">169</property>
     <property name="Project.Project(quota).NewTabularHierarchy1.y">38</property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">odaDriverClass</property>
+            <property name="id">1025</property>
+        </structure>
+        <structure>
+            <property name="name">odaURL</property>
+            <property name="id">1025</property>
+        </structure>
+        <structure>
+            <property name="name">odaUser</property>
+            <property name="id">1025</property>
+        </structure>
+        <structure>
+            <property name="name">odaAutoCommit</property>
+            <property name="id">1025</property>
+        </structure>
+        <structure>
+            <property name="name">odaIsolationMode</property>
+            <property name="id">1025</property>
+        </structure>
+        <structure>
+            <property name="name">odaPassword</property>
+            <property name="id">1025</property>
+        </structure>
+        <structure>
+            <property name="name">odaJndiName</property>
+            <property name="id">1025</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileName</property>
+            <property name="id">1025</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileStorePath</property>
+            <property name="id">1025</property>
+        </structure>
+    </list-property>
     <property name="units">in</property>
     <property name="iconFile">/templates/blank_report.gif</property>
     <property name="layoutPreference">auto layout</property>
     <property name="bidiLayoutOrientation">ltr</property>
     <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">iaas.rptlibrary</property>
+            <property name="namespace">iaas</property>
+        </structure>
+    </list-property>
     <data-sources>
-        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="iaas_production" id="7">
-            <list-property name="privateDriverProperties">
-                <ex-property>
-                    <name>metadataBidiFormatStr</name>
-                    <value>ILYNN</value>
-                </ex-property>
-                <ex-property>
-                    <name>disabledMetadataBidiFormatStr</name>
-                </ex-property>
-                <ex-property>
-                    <name>contentBidiFormatStr</name>
-                    <value>ILYNN</value>
-                </ex-property>
-                <ex-property>
-                    <name>disabledContentBidiFormatStr</name>
-                </ex-property>
-            </list-property>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="iaas_production" id="1025"
+ extends="iaas.iaas_production">
             <property name="odaDriverClass">org.postgresql.Driver</property>
             <property name="odaURL">jdbc:postgresql://analytics.forgeservicelab.fi:5432/iaas</property>
             <property name="odaUser">pkivikan</property>
             <encrypted-property name="odaPassword" encryptionID="base64">TWlvcGJjMTIj</encrypted-property>
+            <property name="OdaConnProfileName">iaas_production</property>
+            <property name="OdaConnProfileStorePath">iaas_production</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
