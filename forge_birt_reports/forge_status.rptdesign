@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
     <property name="createdBy">Eclipse BIRT Designer Version 4.4.2.v201410272105 Build &lt;4.4.2.v20150217-1805></property>
+    <list-property name="userProperties">
+        <structure>
+            <property name="name">issue_status.issues.x</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+        <structure>
+            <property name="name">issue_status.issues.y</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+    </list-property>
+    <property name="issue_status.issues.x">135</property>
+    <property name="issue_status.issues.y">80</property>
     <property name="units">in</property>
     <property name="iconFile">/templates/blank_report.gif</property>
     <property name="bidiLayoutOrientation">ltr</property>
@@ -36,6 +50,7 @@
                 <ref-entry baseId="102" name="story_points4" id="102"/>
                 <ref-entry baseId="103" name="estimated_hours4" id="103"/>
             </overridden-values>
+            <property name="dataSet">issues</property>
         </tabular-cube>
         <tabular-cube name="issue_status_per_type" id="989" extends="redmine.issue_status_per_type">
             <overridden-values>

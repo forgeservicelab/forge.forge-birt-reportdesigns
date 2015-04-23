@@ -63,7 +63,7 @@
         </structure>
     </list-property>
     <data-sources>
-        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="iaas_db" id="1026"
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="iaas_db" id="1027"
  extends="iaas.iaas_db"/>
     </data-sources>
     <data-sets>
