@@ -12,7 +12,7 @@
         </structure>
     </list-property>
     <data-sources>
-        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="redmine_production" id="1599"
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="redmine_db" id="1599"
  extends="redmine.redmine_production">
             <list-property name="privateDriverProperties">
                 <ex-property>
@@ -31,7 +31,7 @@
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">org.postgresql.Driver</property>
-            <property name="odaURL">jdbc:postgresql://193.166.24.141:5432/redmine_production?ssl=true</property>
+            <property name="odaURL">jdbc:postgresql://dbserver.forgeservicelab.fi:5432/redmine_testing?ssl=true</property>
             <property name="odaUser">redmine</property>
             <encrypted-property name="odaPassword" encryptionID="base64">dm9UU0M3YnNLQVJGSkVH</encrypted-property>
             <property name="OdaConnProfileName">redmine_production</property>

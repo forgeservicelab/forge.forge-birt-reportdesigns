@@ -66,7 +66,7 @@ var instances_sum=0]]></method>
         </structure>
     </list-property>
     <data-sources>
-        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="iaas_production" id="980"
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="iaas_db" id="980"
  extends="iaas.iaas_production">
             <list-property name="privateDriverProperties">
                 <ex-property>
@@ -156,7 +156,7 @@ var instances_sum=0]]></method>
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">iaas_production</property>
+            <property name="dataSource">iaas_db</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
@@ -603,7 +603,7 @@ instances_sum;</expression>
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">iaas_production</property>
+            <property name="dataSource">iaas_db</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
@@ -1108,7 +1108,7 @@ order by date]]></xml-property>
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">iaas_production</property>
+            <property name="dataSource">iaas_db</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>

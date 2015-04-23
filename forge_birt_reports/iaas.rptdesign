@@ -101,7 +101,7 @@
         </structure>
     </list-property>
     <data-sources>
-        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="iaas_production" id="1025"
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="iaas_db" id="1025"
  extends="iaas.iaas_production">
             <list-property name="privateDriverProperties">
                 <ex-property>
@@ -202,7 +202,7 @@
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">iaas_production</property>
+            <property name="dataSource">iaas_db</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
@@ -580,7 +580,7 @@ where public.quota.date = (select max(public.quota.date) from public.quota) and
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">iaas_production</property>
+            <property name="dataSource">iaas_db</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
@@ -1067,7 +1067,7 @@ on a.date = c.date and a.project = c.project]]></xml-property>
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">iaas_production</property>
+            <property name="dataSource">iaas_db</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>

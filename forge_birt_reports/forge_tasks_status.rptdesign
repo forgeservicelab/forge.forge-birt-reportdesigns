@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
-    <property name="createdBy">Eclipse BIRT Designer Version 4.3.1.v201309091055 Build &lt;4.3.1.v20130917-1035></property>
+    <property name="createdBy">Eclipse BIRT Designer Version 4.4.2.v201410272105 Build &lt;4.4.2.v20150217-1805></property>
     <list-property name="userProperties">
         <structure>
             <property name="name">stories_status.stories.x</property>
@@ -34,7 +34,7 @@
     <property name="bidiLayoutOrientation">ltr</property>
     <property name="imageDPI">96</property>
     <data-sources>
-        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="redmine" id="7">
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="redmine_db" id="816">
             <list-property name="privateDriverProperties">
                 <ex-property>
                     <name>metadataBidiFormatStr</name>
@@ -51,32 +51,12 @@
                     <name>disabledContentBidiFormatStr</name>
                 </ex-property>
             </list-property>
-            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
-            <property name="odaURL">jdbc:mysql://localhost:8888/redmine</property>
+            <property name="odaDriverClass">org.postgresql.Driver</property>
+            <property name="odaURL">jdbc:postgresql://dbserver.forgeservicelab.fi:5432/redmine_testing?ssl=true</property>
             <property name="odaUser">redmine</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">TWdxZ3YxYTV4bTY3a19FZA==</encrypted-property>
-        </oda-data-source>
-        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="redmine_local" id="816">
-            <list-property name="privateDriverProperties">
-                <ex-property>
-                    <name>metadataBidiFormatStr</name>
-                    <value>ILYNN</value>
-                </ex-property>
-                <ex-property>
-                    <name>disabledMetadataBidiFormatStr</name>
-                </ex-property>
-                <ex-property>
-                    <name>contentBidiFormatStr</name>
-                    <value>ILYNN</value>
-                </ex-property>
-                <ex-property>
-                    <name>disabledContentBidiFormatStr</name>
-                </ex-property>
-            </list-property>
-            <property name="odaDriverClass">org.gjt.mm.mysql.Driver</property>
-            <property name="odaURL">jdbc:mysql://localhost:3306/redmine</property>
-            <property name="odaUser">redmine</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">TWdxZ3YxYTV4bTY3a19FZA==</encrypted-property>
+            <encrypted-property name="odaPassword" encryptionID="base64">dm9UU0M3YnNLQVJGSkVH</encrypted-property>
+            <property name="OdaConnProfileName">redmine_production</property>
+            <property name="OdaConnProfileStorePath">redmine_db</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
@@ -218,7 +198,7 @@
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">redmine_local</property>
+            <property name="dataSource">redmine_db</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
