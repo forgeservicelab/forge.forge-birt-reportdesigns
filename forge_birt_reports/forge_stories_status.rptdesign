@@ -19,31 +19,15 @@
     <property name="iconFile">/templates/blank_report.gif</property>
     <property name="bidiLayoutOrientation">ltr</property>
     <property name="imageDPI">96</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">redmine.rptlibrary</property>
+            <property name="namespace">redmine</property>
+        </structure>
+    </list-property>
     <data-sources>
-        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="redmine_db" id="738">
-            <list-property name="privateDriverProperties">
-                <ex-property>
-                    <name>metadataBidiFormatStr</name>
-                    <value>ILYNN</value>
-                </ex-property>
-                <ex-property>
-                    <name>disabledMetadataBidiFormatStr</name>
-                </ex-property>
-                <ex-property>
-                    <name>contentBidiFormatStr</name>
-                    <value>ILYNN</value>
-                </ex-property>
-                <ex-property>
-                    <name>disabledContentBidiFormatStr</name>
-                </ex-property>
-            </list-property>
-            <property name="odaDriverClass">org.postgresql.Driver</property>
-            <property name="odaURL">jdbc:postgresql://dbserver.forgeservicelab.fi:5432/redmine_testing?ssl=true</property>
-            <property name="odaUser">redmine</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">dm9UU0M3YnNLQVJGSkVH</encrypted-property>
-            <property name="OdaConnProfileName">redmine_production</property>
-            <property name="OdaConnProfileStorePath">redmine_db</property>
-        </oda-data-source>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="redmine_db" id="816"
+ extends="redmine.redmine_db"/>
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="stories" id="8">

@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
     <property name="createdBy">Eclipse BIRT Designer Version 4.4.2.v201410272105 Build &lt;4.4.2.v20150217-1805></property>
+    <list-property name="userProperties">
+        <structure>
+            <property name="name">issue_status.issues.x</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+        <structure>
+            <property name="name">issue_status.issues.y</property>
+            <property name="type">integer</property>
+            <property name="isVisible">false</property>
+        </structure>
+    </list-property>
+    <property name="issue_status.issues.x">135</property>
+    <property name="issue_status.issues.y">80</property>
     <property name="units">in</property>
     <property name="iconFile">/templates/blank_report.gif</property>
     <property name="bidiLayoutOrientation">ltr</property>
@@ -12,15 +26,8 @@
         </structure>
     </list-property>
     <data-sources>
-        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="redmine_db" id="1599"
- extends="redmine.redmine_production">
-            <property name="odaDriverClass">org.postgresql.Driver</property>
-            <property name="odaURL">jdbc:postgresql://dbserver.forgeservicelab.fi:5432/redmine_testing?ssl=true</property>
-            <property name="odaUser">redmine</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">dm9UU0M3YnNLQVJGSkVH</encrypted-property>
-            <property name="OdaConnProfileName">redmine_production</property>
-            <property name="OdaConnProfileStorePath">redmine_db</property>
-        </oda-data-source>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="redmine_db" id="1600"
+ extends="redmine.redmine_db"/>
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="issues" id="10"
@@ -43,6 +50,7 @@
                 <ref-entry baseId="102" name="story_points4" id="102"/>
                 <ref-entry baseId="103" name="estimated_hours4" id="103"/>
             </overridden-values>
+            <property name="dataSet">issues</property>
         </tabular-cube>
         <tabular-cube name="issue_status_per_type" id="989" extends="redmine.issue_status_per_type">
             <overridden-values>
@@ -57,6 +65,7 @@
                 <ref-entry baseId="44" name="story_points" id="44"/>
                 <ref-entry baseId="45" name="estimated_hours" id="45"/>
             </overridden-values>
+            <property name="dataSet">issues</property>
         </tabular-cube>
         <tabular-cube name="issue_status_per_project" id="990" extends="redmine.issue_status_per_project">
             <overridden-values>
@@ -71,6 +80,7 @@
                 <ref-entry baseId="139" name="story_points1" id="139"/>
                 <ref-entry baseId="140" name="estimated_hours1" id="140"/>
             </overridden-values>
+            <property name="dataSet">issues</property>
         </tabular-cube>
         <tabular-cube name="issue_status_per_project_and_sprint" id="991" extends="redmine.issue_status_per_project_and_sprint">
             <overridden-values>
@@ -87,6 +97,7 @@
                 <ref-entry baseId="92" name="story_points31" id="92"/>
                 <ref-entry baseId="93" name="estimated_hours31" id="93"/>
             </overridden-values>
+            <property name="dataSet">issues</property>
         </tabular-cube>
         <tabular-cube name="issue_status_per_project_and_type" id="992" extends="redmine.issue_status_per_project_and_type">
             <overridden-values>
@@ -102,6 +113,7 @@
                 <ref-entry baseId="81" name="story_points3" id="81"/>
                 <ref-entry baseId="82" name="estimated_hours3" id="82"/>
             </overridden-values>
+            <property name="dataSet">issues</property>
         </tabular-cube>
     </cubes>
     <styles>

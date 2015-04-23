@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
-    <property name="createdBy">Eclipse BIRT Designer Version 4.3.2.v20140211-1400 Build &lt;4.3.2.v20140218-1056></property>
+    <property name="createdBy">Eclipse BIRT Designer Version 4.4.2.v201410272105 Build &lt;4.4.2.v20150217-1805></property>
     <property name="units">in</property>
     <property name="theme">redmine.defaultTheme</property>
     <property name="iconFile">/templates/blank_report.gif</property>
@@ -13,8 +13,8 @@
         </structure>
     </list-property>
     <data-sources>
-        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="redmine_dump" id="8"
- extends="redmine.redmine_dump"/>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="redmine_db" id="187"
+ extends="redmine.redmine_db"/>
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="projects" id="7"

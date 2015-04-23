@@ -66,31 +66,8 @@ var instances_sum=0]]></method>
         </structure>
     </list-property>
     <data-sources>
-        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="iaas_db" id="980"
- extends="iaas.iaas_production">
-            <list-property name="privateDriverProperties">
-                <ex-property>
-                    <name>metadataBidiFormatStr</name>
-                    <value>ILYNN</value>
-                </ex-property>
-                <ex-property>
-                    <name>disabledMetadataBidiFormatStr</name>
-                </ex-property>
-                <ex-property>
-                    <name>contentBidiFormatStr</name>
-                    <value>ILYNN</value>
-                </ex-property>
-                <ex-property>
-                    <name>disabledContentBidiFormatStr</name>
-                </ex-property>
-            </list-property>
-            <property name="odaDriverClass">org.postgresql.Driver</property>
-            <property name="odaURL">jdbc:postgresql://dbserver.forgeservicelab.fi:5432/iaas_testing?ssl=true</property>
-            <property name="odaUser">birt</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">dm9UU0M3YnNLQVJGSkVH</encrypted-property>
-            <property name="OdaConnProfileName">iaas_production</property>
-            <property name="OdaConnProfileStorePath">iaas_db</property>
-        </oda-data-source>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="iaas_db" id="981"
+ extends="iaas.iaas_db"/>
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="dsetQuota" id="8">
